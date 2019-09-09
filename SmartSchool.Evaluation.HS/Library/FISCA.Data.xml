@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FISCA.Data</name>
+    </assembly>
+    <members>
+        <member name="T:FISCA.Data.QueryAttribute">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:FISCA.Data.QueryAttribute.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="statement"></param>
+        </member>
+        <member name="P:FISCA.Data.QueryAttribute.Statement">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:FISCA.Data.SchemaInformation">
+            <summary>
+            取得資料庫的 Schema 相關資訊。
+            </summary>
+        </member>
+        <member name="T:FISCA.Data.QueryHelper">
+            <summary>
+            資料查詢引擎。
+            </summary>
+        </member>
+        <member name="M:FISCA.Data.QueryHelper.SetDefaultDataSource(FISCA.DSAClient.Connection)">
+            <summary>
+            設定 QueryHelper 預設的資料來源連線。
+            </summary>
+            <param name="datasource"></param>
+        </member>
+        <member name="M:FISCA.Data.QueryHelper.#ctor">
+            <summary>
+            使用系統預設的連線建立 QueryHelper 實體。
+            </summary>
+        </member>
+        <member name="M:FISCA.Data.QueryHelper.#ctor(FISCA.DSAClient.Connection)">
+            <summary>
+            使用指定的連線建立 QueryHelper 實體。
+            </summary>
+            <param name="datasource"></param>
+        </member>
+        <member name="M:FISCA.Data.QueryHelper.Select(System.String)">
+            <summary>
+            執行查詢，並取得資料。
+            </summary>
+            <returns>資料。</returns>
+        </member>
+        <member name="M:FISCA.Data.QueryHelper.Select``1">
+            <summary>
+            依類別所標示的 Query 屬性(Attribute)執行查詢，將取得之資料轉換成對應的 Value Object。
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:FISCA.Data.QueryHelper.Select``1(System.String)">
+            <summary>
+            依類別所標示的 Query 屬性(Attribute)執行查詢，將取得之資料轉換成對應的 Value Object。
+            </summary>
+            <typeparam name="T">具有 Query 屬性標示的類別。</typeparam>
+            <param name="condition">額外的條件，不含 where 關鍵字，例如：「name like '張%' and grade_year=1」。</param>
+        </member>
+    </members>
+</doc>

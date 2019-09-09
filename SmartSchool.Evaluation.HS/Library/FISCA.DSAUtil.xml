@@ -1,0 +1,1873 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FISCA.DSAUtil</name>
+    </assembly>
+    <members>
+        <member name="T:FISCA.DSAUtil.XmlProcessException">
+            <summary>
+            代表 Xml 處理錯誤。
+            </summary>
+        </member>
+        <member name="T:FISCA.DSAUtil.DSXmlCreator">
+            <summary>
+            提供一組高效率的方法建立Xml文件，在資料量大時，效率遠超過一般XmlDocument操作。
+            </summary>
+        </member>
+        <member name="M:FISCA.DSAUtil.DSXmlCreator.#ctor">
+            <summary>
+            建立XmlGenerate物件。
+            </summary>
+        </member>
+        <member name="M:FISCA.DSAUtil.DSXmlCreator.#ctor(System.Boolean)">
+            <summary>
+            建立XmlGenerate物件。
+            </summary>
+            <param name="doFormating">決定是否要格式化Xml文件。</param>
+        </member>
+        <member name="M:FISCA.DSAUtil.DSXmlCreator.GetResultAsString">
+            <summary>
+            取出結果，當取出結果後就不能在新增資料。
+            </summary>
+            <returns>回傳Xml結果字串。</returns>
+        </member>
+        <member name="M:FISCA.DSAUtil.DSXmlCreator.GetResultAsStream">
+            <summary>
+            取出結果，當取出結果後就不能在新增資料。
+            </summary>
+            <returns>回傳Xml結果串流。</returns>
+        </member>
+        <member name="M:FISCA.DSAUtil.DSXmlCreator.GetResultAsXmlDocument">
+            <summary>
+            取得結果，如果沒有「根」元素將會產生錯誤。
+            當取出結果後就不能在新增資料。
+            </summary>
+            <returns>回傳結果的XmlDocument物件。</returns>
+        </member>
+        <member name="M:FISCA.DSAUtil.DSXmlCreator.GetResultAsXPathDocument">
+            <summary>
+            取得結果，如果沒有「根」元素將會產生錯誤。
+            當取出結果後就不能在新增資料。
+            </summary>
+            <returns>回傳結果的XPathDocument物件。</returns>
+        </member>
+        <member name="M:FISCA.DSAUtil.DSXmlCreator.SaveResult(System.String)">
+            <summary>
+            將結果儲存到檔案。
+            當取出結果後就不能在新增資料。
+            </summary>
+            <param name="fileName">檔案名稱</param>
+        </member>
+        <member name="M:FISCA.DSAUtil.DSXmlCreator.CompleteCreateXml">
+            <summary>
+            完成Xml的輸出動作。
+            </summary>
+        </member>
+        <member name="M:FISCA.DSAUtil.DSXmlCreator.CreateBase64(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            建立二進位資料的Base64編碼。
+            </summary>
+            <param name="buffer">要寫入的二進位資料。</param>
+            <param name="index">緩衝區的索引，要開始寫入的索引。</param>
+            <param name="count">要寫入的位元組數。</param>
+        </member>
+        <member name="M:FISCA.DSAUtil.DSXmlCreator.CreateCData(System.String)">
+            <summary>
+            建立文字資料於CDataSection中。
+            </summary>
+            <param name="text">要加入CDataSection的文字資料。</param>
+        </member>
+        <member name="M:FISCA.DSAUtil.DSXmlCreator.CreateComment(System.String)">
+            <summary>
+            建立Xml註解。
+            </summary>
+            <param name="text">註解文字</param>
+        </member>
+        <member name="M:FISCA.DSAUtil.DSXmlCreator.CreateEndAttribute">
+            <summary>
+            關閉先前的CreateStartAttribute呼叫。
+            </summary>
+        </member>
+        <member name="M:FISCA.DSAUtil.DSXmlCreator.CreateEndElement">
+            <summary>
+            關閉先前的CreateStartElement呼叫。
+            </summary>
+        </member>
+        <member name="M:FISCA.DSAUtil.DSXmlCreator.CreateRaw(System.String)">
+            <summary>
+            從未經處理的Xml字串建立Xml。例：&lt;Student&gt;資料&lt;/Student&gt;。
+            </summary>
+            <param name="data">要寫入的Xml字串。</param>
+        </member>
+        <member name="M:FISCA.DSAUtil.DSXmlCreator.CreateRaw(System.Char[],System.Int32,System.Int32)">
+            <summary>
+            從未經處理的Xml字元陣列建立Xml。例：&lt;Student&gt;資料&lt;/Student&gt;。
+            </summary>
+            <param name="buffer">要入寫的字元列。</param>
+            <param name="index">開始位置。</param>
+            <param name="count">讀取數量。</param>
+        </member>
+        <member name="M:FISCA.DSAUtil.DSXmlCreator.CreateStartAttribute(System.String)">
+            <summary>
+            開始建立Xml屬性。
+            </summary>
+            <param name="localName">屬性名稱。</param>
+        </member>
+        <member name="M:FISCA.DSAUtil.DSXmlCreator.CreateStartElement(System.String)">
+            <summary>
+            建立起始元素。例：&lt;Student&gt;。
+            </summary>
+            <param name="localName">元素名稱。</param>
+        </member>
+        <member name="M:FISCA.DSAUtil.DSXmlCreator.CreateString(System.String)">
+            <summary>
+            建立文字資料。
+            </summary>
+            <param name="text">文字資料。</param>
+        </member>
+        <member name="M:FISCA.DSAUtil.DSXmlCreator.CreateElement(System.String,System.String)">
+            <summary>
+            建立完整的Xml元素。
+            </summary>
+            <param name="localName">元素名稱。</param>
+            <param name="value">資料值。</param>
+        </member>
+        <member name="M:FISCA.DSAUtil.DSXmlCreator.CreateAttribute(System.String,System.String)">
+            <summary>
+            建立完整的屬性資料。
+            </summary>
+            <param name="localName">屬性名稱。</param>
+            <param name="value">屬性值。</param>
+        </member>
+        <member name="M:FISCA.DSAUtil.DSXmlCreator.CreateSubtree(System.Xml.XmlElement)">
+            <summary>
+            匯入XmlElement中的資料建立子元素樹，資料中可以包含許多子元素。
+            </summary>
+            <param name="elm">要匯入的元素物件。</param>
+        </member>
+        <member name="M:FISCA.DSAUtil.DSXmlCreator.CreateElements(System.Xml.XmlElement[])">
+            <summary>
+            依元素陣列建立Xml。
+            </summary>
+            <param name="elements">要匯入的元素陣列。</param>
+        </member>
+        <member name="M:FISCA.DSAUtil.DSXmlCreator.CreateSubtree(System.Xml.XmlElement[],System.String)">
+            <summary>
+            匯入元素陣列建立子元素樹。
+            </summary>
+            <param name="elements">要匯入的元素陣列。</param>
+            <param name="rootName">根元素名稱。</param>
+        </member>
+        <member name="M:FISCA.DSAUtil.DSXmlCreator.CreateElements(System.Xml.XmlNodeList)">
+            <summary>
+            匯入XmlNodeList中的資料建立Xml。
+            </summary>
+            <param name="nodes">要匯入的XmlNodeList物件。</param>
+        </member>
+        <member name="M:FISCA.DSAUtil.DSXmlCreator.CreateSubtree(System.Xml.XmlNodeList,System.String)">
+            <summary>
+            匯入XmlNodeList物件建立子元素樹。
+            </summary>
+            <param name="nodes">要匯入的XmlNodeList物件</param>
+            <param name="rootName">根元素名稱</param>
+        </member>
+        <member name="M:FISCA.DSAUtil.DSXmlCreator.CreateSubtree(System.Data.DataTable)">
+            <summary>
+            匯入DataTable物件建立子元素樹。
+            </summary>
+        </member>
+        <member name="M:FISCA.DSAUtil.DSXmlCreator.CreateSubtree(System.Data.DataTable,System.String)">
+            <summary>
+            匯入DataTable物件建立子元素樹。
+            </summary>
+            <param name="dataTable">要匯入的DataTable物件。</param>
+            <param name="rootName">根元素名稱。</param>
+        </member>
+        <member name="M:FISCA.DSAUtil.DSXmlCreator.CreateSubtree(System.Data.DataTable,System.String,System.String)">
+            <summary>
+            匯入DataTable物件建立子元素樹。
+            </summary>
+            <param name="dataTable">要匯入的DataTable物件。</param>
+            <param name="rootName">根元素名稱。</param>
+            <param name="recordName">每一筆記錄的根名稱。</param>
+        </member>
+        <member name="M:FISCA.DSAUtil.DSXmlCreator.CreateSubtree(System.Data.DataTable,System.String,System.String,System.String)">
+            <summary>
+            匯入DataTable物件建立子元素樹
+            </summary>
+            <param name="dataTable">要匯入的DataTable物件</param>
+            <param name="rootName">根元素名稱</param>
+            <param name="recordName">每一筆記錄的根名稱</param>
+            <param name="fieldList">要加入的欄位列表，用逗號(,)分隔。例：客戶,訂單,日期，傳入 Null 就處理所有欄位。</param>
+        </member>
+        <member name="P:FISCA.DSAUtil.DSXmlCreator.IsCompleted">
+            <summary>
+            取得是否已經完成建立Xml文件。
+            </summary>
+        </member>
+        <member name="T:FISCA.DSAUtil.DSResponse">
+            <summary>
+            代表DSA的Response文件，由Envelope概念的延伸。
+            </summary>
+        </member>
+        <member name="T:FISCA.DSAUtil.DSEnvelope">
+            <summary>
+            代表一個DSA的Envelope
+            </summary>
+        </member>
+        <member name="T:FISCA.DSAUtil.XmlBaseObject">
+            <summary>
+            代表以 Xml 為基礎的類別，內部狀態是以 Xml 來儲存的類別。
+            </summary>
+        </member>
+        <member name="F:FISCA.DSAUtil.XmlBaseObject.BaseNode">
+            <summary>
+            代表基礎的 Xml 資料。
+            </summary>
+        </member>
+        <member name="F:FISCA.DSAUtil.XmlBaseObject.Owner">
+            <summary>
+            代表 Xml 資料的 XmlDocument 物件。
+            </summary>
+        </member>
+        <member name="M:FISCA.DSAUtil.XmlBaseObject.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:FISCA.DSAUtil.XmlBaseObject.#ctor(System.Xml.XmlElement)">
+            <summary>
+            
+            </summary>
+            <param name="xmlContent"></param>
+        </member>
+        <member name="M:FISCA.DSAUtil.XmlBaseObject.GetRawXml">
+            <summary>
+            取得Xml的完整 Xml 字串。
+            </summary>
+            <returns>完整 Xml 字串。</returns>
+        </member>
+        <member name="M:FISCA.DSAUtil.XmlBaseObject.GetRawBinary">
+            <summary>
+            取得Xml的完整資料，用 UTF-8 的編碼方式以 Binary 的型式回傳。
+            </summary>
+            <returns>UTF-8 編碼的完整 Binary 資料。</returns>
+        </member>
+        <member name="M:FISCA.DSAUtil.XmlBaseObject.GetRawBinary(System.Text.Encoding)">
+            <summary>
+            取得Xml的完整資料，以 Binary 的型式回傳。
+            </summary>
+            <returns>完整Binary資料。</returns>
+        </member>
+        <member name="M:FISCA.DSAUtil.XmlBaseObject.LoadFromFile(System.String)">
+            <summary>
+            從檔案載入 Xml 資料。
+            </summary>
+            <param name="fileName">檔案名稱。 </param>
+        </member>
+        <member name="M:FISCA.DSAUtil.XmlBaseObject.Load(System.IO.Stream,System.Text.Encoding)">
+            <summary>
+            從串流載入 Xml 資料。
+            </summary>
+            <param name="inStream">資料串流。</param>
+            <param name="enc">串流的編碼方式。</param>
+        </member>
+        <member name="M:FISCA.DSAUtil.XmlBaseObject.Load(System.String)">
+            <summary>
+            從檔案載入Xml資料。
+            </summary>
+            <param name="xmlContent">檔案名稱。</param>
+        </member>
+        <member name="M:FISCA.DSAUtil.XmlBaseObject.Load(System.Xml.XmlElement)">
+            <summary>
+            從XmlElement物件Xml資料，內容不符Envelop則會產生Exception。
+            </summary>
+            <param name="xmlContent">要載入的<see cref="T:System.Xml.XmlElement"/>物件。</param>
+        </member>
+        <member name="M:FISCA.DSAUtil.XmlBaseObject.Save(System.String)">
+            <summary>
+            將內部Xml資料以UTF-8的編碼方式儲存到檔案中，如果檔案已存在，會覆寫該檔案。
+            </summary>
+            <param name="fileName">檔案名稱。</param>
+        </member>
+        <member name="M:FISCA.DSAUtil.XmlBaseObject.Save(System.String,System.Text.Encoding)">
+            <summary>
+            將內部Xml資料儲存到檔案中，如果檔案已存在，會覆寫該檔案。
+            </summary>
+            <param name="fileName">檔案名稱。</param>
+            <param name="enc">檔案編碼方式</param>
+        </member>
+        <member name="M:FISCA.DSAUtil.XmlBaseObject.Save(System.IO.Stream,System.Text.Encoding)">
+            <summary>
+            將內部Xml資料儲存到串流中。
+            </summary>
+            <param name="outStream">串流物件。</param>
+            <param name="enc">編碼方式。</param>
+            <remarks>此方法在執行之後，不會自動關閉串流。</remarks>
+        </member>
+        <member name="F:FISCA.DSAUtil.DSEnvelope.envelope">
+            <summary>
+            代表內部的Xml資料。
+            </summary>
+        </member>
+        <member name="M:FISCA.DSAUtil.DSEnvelope.#ctor">
+            <summary>
+            代表DSA 3.0的基本Envelope概念。
+            </summary>
+        </member>
+        <member name="M:FISCA.DSAUtil.DSEnvelope.SetContent(System.Xml.XmlElement)">
+            <summary>
+            設定Body中的內容，並非整個DSEnvelope的內容。
+            </summary>
+            <param name="content">Body的內容。</param>
+            <!-- 無法插入某些或所有 include 的 XML--><include file="Util30\LibDocument\DSEnvelope.xml" path="Documents/Document[@Name=&quot;SetContent&quot;]/*"/>
+        </member>
+        <member name="M:FISCA.DSAUtil.DSEnvelope.SetContent(System.Xml.XmlDocument)">
+            <summary>
+            設定Body中的內容，並非整個DSEnvelope的內容。
+            </summary>
+            <param name="content">Body的內容。</param>
+            <!-- 無法插入某些或所有 include 的 XML--><include file="Util30\LibDocument\DSEnvelope.xml" path="Documents/Document[@Name=&quot;SetContent&quot;]/*"/>
+        </member>
+        <member name="M:FISCA.DSAUtil.DSEnvelope.SetContent(FISCA.DSAUtil.DSXmlHelper)">
+            <summary>
+            設定Body中的內容，並非整個DSEnvelope的內容。
+            </summary>
+            <param name="content">Body的內容。</param>
+            <!-- 無法插入某些或所有 include 的 XML--><include file="Util30\LibDocument\DSEnvelope.xml" path="Documents/Document[@Name=&quot;SetContent&quot;]/*"/>
+        </member>
+        <member name="M:FISCA.DSAUtil.DSEnvelope.SetContent(FISCA.DSAUtil.DSXmlCreator)">
+            <summary>
+            設定Body中的內容，並非整個DSEnvelope的內容。
+            </summary>
+            <param name="content">Body的內容。</param>
+            <!-- 無法插入某些或所有 include 的 XML--><include file="Util30\LibDocument\DSEnvelope.xml" path="Documents/Document[@Name=&quot;SetContent&quot;]/*"/>
+        </member>
+        <member name="M:FISCA.DSAUtil.DSEnvelope.SetContent(System.String)">
+            <summary>
+            設定Body中的內容，並非整個DSEnvelope的內容。
+            </summary>
+            <param name="content">Body的內容。</param>
+            <!-- 無法插入某些或所有 include 的 XML--><include file="Util30\LibDocument\DSEnvelope.xml" path="Documents/Document[@Name=&quot;SetContent&quot;]/*"/>
+        </member>
+        <member name="M:FISCA.DSAUtil.DSEnvelope.GetContent">
+            <summary>
+            取得Body的內容，並非整個DSEnvelope的內容。
+            </summary>
+            <returns>回傳不含「Body」的Xml資料。</returns>
+            <remarks>如果取回的是資料副本，對資料的修改不會影響到原來的資料。</remarks>
+        </member>
+        <member name="M:FISCA.DSAUtil.DSEnvelope.SetHeader(System.String,System.String)">
+            <summary>
+            新增Header到Envelope中。
+            </summary>
+            <param name="headerName">標頭名稱。</param>
+            <param name="value">標頭值。</param>
+        </member>
+        <member name="M:FISCA.DSAUtil.DSEnvelope.SetHeader(System.Xml.XmlElement)">
+            <summary>
+            新增Header到Envelope中。
+            </summary>
+            <param name="header">要新增的XmlElement物件。</param>
+        </member>
+        <member name="M:FISCA.DSAUtil.DSEnvelope.GetHeader(System.String)">
+            <summary>
+            取得Header資料，修改資料會影響原來的Header。
+            </summary>
+            <param name="name">Header名稱。</param>
+            <returns>Header的資料，如果不存在則回傳Null。</returns>
+        </member>
+        <member name="M:FISCA.DSAUtil.DSEnvelope.RemoveHeader(System.String)">
+            <summary>
+            從Envelope中移除一個Header。
+            </summary>
+            <param name="Name">Header的名稱，如果不存在會產生Exception。</param>
+        </member>
+        <member name="M:FISCA.DSAUtil.DSEnvelope.Load(System.Xml.XmlElement)">
+            <summary>
+            從 XmlElement物件載入Envelope內容，內容不符Envelop則會產生Exception。
+            </summary>
+            <param name="xmlContent">包含要載入之Xml文件的字串。</param>
+        </member>
+        <member name="M:FISCA.DSAUtil.DSEnvelope.GetContentAsXmlElement">
+            <summary>
+            回傳Body之中的內容，不含Body。
+            </summary>
+            <returns>沒有資料就回傳Null。</returns>
+        </member>
+        <member name="P:FISCA.DSAUtil.DSEnvelope.HasContent">
+            <summary>
+            用以判斷在「Body」中是否有資料。
+            </summary>
+            <value>如果「Body」中有資料，即回傳True。</value>
+        </member>
+        <member name="M:FISCA.DSAUtil.DSResponse.#ctor">
+            <summary>
+            初始化<see cref="T:FISCA.DSAUtil.DSRequest"/>類別的新執行個體。
+            </summary>
+        </member>
+        <member name="M:FISCA.DSAUtil.DSResponse.#ctor(System.String)">
+            <summary>
+            使用指定的字串，初始化<see cref="T:FISCA.DSAUtil.DSRequest"/>類別的新執行個體。
+            </summary>
+            <param name="bodyContent">Envelop中的Body內容，必須是含有「根」的Xml內容。</param>
+        </member>
+        <member name="M:FISCA.DSAUtil.DSResponse.#ctor(System.Xml.XmlDocument)">
+            <summary>
+            使用指定的字串初始化<see cref="T:FISCA.DSAUtil.DSResponse"/>類別的新執行個體。
+            </summary>
+            <param name="bodyContent">Envelop中的Body內容。</param>
+        </member>
+        <member name="M:FISCA.DSAUtil.DSResponse.#ctor(System.Xml.XmlElement)">
+            <summary>
+            依XmlElement物件初始化<see cref="T:FISCA.DSAUtil.DSResponse"/>類別的新執行個體。
+            </summary>
+            <param name="bodyContent">Envelop中的Body內容。</param>
+        </member>
+        <member name="M:FISCA.DSAUtil.DSResponse.#ctor(FISCA.DSAUtil.DSXmlHelper)">
+            <summary>
+            依DSXmlHelper物件初始化<see cref="T:FISCA.DSAUtil.DSResponse"/>類別的新執行個體。
+            </summary>
+            <param name="bodyContent">Envelop中的Body內容。</param>
+        </member>
+        <member name="M:FISCA.DSAUtil.DSResponse.#ctor(FISCA.DSAUtil.DSXmlCreator)">
+            <summary>
+            依DSXmlCreator物件初始化<see cref="T:FISCA.DSAUtil.DSResponse"/>類別的新執行個體。
+            </summary>
+            <param name="bodyContent">Envelop中的Body內容。</param>
+        </member>
+        <member name="M:FISCA.DSAUtil.DSResponse.AddFault(System.String,System.String,System.String,System.String)">
+            <summary>
+            新增一個Fault到文件中。
+            </summary>
+            <param name="source">錯誤來源。</param>
+            <param name="code">代碼。</param>
+            <param name="message">訊息。</param>
+            <param name="detail">詳細資訊。</param>
+        </member>
+        <member name="M:FISCA.DSAUtil.DSResponse.ClearFault">
+            <summary>
+            清除所有Fault資料。
+            </summary>
+        </member>
+        <member name="M:FISCA.DSAUtil.DSResponse.GetFault">
+            <summary>
+            取得 DSResponse 中的 Fault 資訊。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:FISCA.DSAUtil.DSResponse.Status">
+            <summary>
+            處理申請文件後回傳的狀態。
+            </summary>
+        </member>
+        <member name="T:FISCA.DSAUtil.DSAServerException">
+            <summary>
+            代表 DSA Server 的錯誤。
+            </summary>
+        </member>
+        <member name="M:FISCA.DSAUtil.DSAServerException.#ctor(FISCA.DSAClient.DSAServerException)">
+            <summary>
+            
+            </summary>
+            <param name="error"></param>
+        </member>
+        <member name="P:FISCA.DSAUtil.DSAServerException.WarpedError">
+            <summary>
+            取得封裝的 Error。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAUtil.DSAServerException.ServerStatus">
+            <summary>
+            應用程式的錯誤狀態。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAUtil.DSAServerException.DetailMessage">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:FISCA.DSAUtil.ProgressInfo">
+            <summary>
+            代表非同步傳送 Request 時的進度資訊。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAUtil.ProgressInfo.RequestID">
+            <summary>
+            申請文件的傳送編號。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAUtil.ProgressInfo.CurrentAction">
+            <summary>
+            取得目前動作(傳送或接收)。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAUtil.ProgressInfo.Success">
+            <summary>
+            取得是否已完成非同步動作，只有當沒有 Exception 也沒有被 Cancel 又完成動作時，此屬性才會為 True。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAUtil.ProgressInfo.Cancel">
+            <summary>
+            取得或是設定是否取消傳送資料。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAUtil.ProgressInfo.TotalByte">
+            <summary>
+            取得總共要處理的 Byte 數。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAUtil.ProgressInfo.CurrentByte">
+            <summary>
+            取得目前處理的進度。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAUtil.ProgressInfo.CurrentPercentage">
+            <summary>
+            取得目前處理進度，以百分比表示。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAUtil.ProgressInfo.Response">
+            <summary>
+            取得回傳的 DSResponse，如果是上傳資料，則永遠是 Null。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAUtil.ProgressInfo.Exception">
+            <summary>
+            取得例外狀況資訊。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAUtil.ProgressInfo.HasException">
+            <summary>
+            取得是否產生例外。
+            </summary>
+        </member>
+        <member name="T:FISCA.DSAUtil.CommonResources">
+            <summary>
+              用於查詢當地語系化字串等的強型別資源類別
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAUtil.CommonResources.ResourceManager">
+            <summary>
+              傳回這個類別使用的快取的 ResourceManager 執行個體。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAUtil.CommonResources.Culture">
+            <summary>
+              覆寫目前執行緒的 CurrentUICulture 屬性，對象是所有
+              使用這個強型別資源類別的資源查閱。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAUtil.CommonResources.DSNSServerList">
+             <summary>
+               查詢類似 http://dsns1.ischool.com.tw/dsns/dsns
+            http://dsns2.ischool.com.tw/dsns/dsns
+            http://124.219.8.11/dsns/dsns
+            http://203.72.205.3/dsns/dsns
+            http://dsns-gae.appspot.com/dsns
+            http://dsns.blazer.org.tw/commonserver/dsnameservice/accesspoint.dsa
+            http://203.72.205.3/commonserver/dsnameservice/accesspoint.dsa
+            http://124.219.8.3/commonserver/dsnameservice/accesspoint.dsa 的當地語系化字串。
+             </summary>
+        </member>
+        <member name="P:FISCA.DSAUtil.CommonResources.EnvelopeSchema">
+             <summary>
+               查詢類似 &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+            &lt;xs:schema xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;
+            	elementFormDefault=&quot;qualified&quot;&gt;
+            
+            	&lt;xs:element name=&quot;Envelope&quot;&gt;
+            		&lt;xs:complexType&gt;
+            			&lt;xs:sequence&gt;
+            				&lt;xs:element name=&quot;Header&quot; type=&quot;header&quot; /&gt;
+            				&lt;xs:element name=&quot;Body&quot; type=&quot;body&quot;/&gt;
+            			&lt;/xs:sequence&gt;
+            		&lt;/xs:complexType&gt;
+            	&lt;/xs:element&gt;
+            
+            	&lt;xs:complexType name=&quot;header&quot;&gt;
+            		&lt;xs:sequence&gt;
+            			&lt;xs:any minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot; processContents=&quot;skip&quot;/&gt;
+            		&lt;/xs:sequence&gt;
+            	&lt;/xs:complexType&gt;
+            	 [字串的其餘部分已遭截斷]&quot;; 的當地語系化字串。
+             </summary>
+        </member>
+        <member name="P:FISCA.DSAUtil.CommonResources.RequestSchema">
+             <summary>
+               查詢類似 &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+            &lt;xs:schema xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;
+            	elementFormDefault=&quot;qualified&quot;&gt;
+            
+            	&lt;xs:element name=&quot;Envelope&quot;&gt;
+            		&lt;xs:complexType&gt;
+            			&lt;xs:sequence&gt;
+            				&lt;xs:element name=&quot;Header&quot; type=&quot;EnvelopeHeader&quot; /&gt;
+            				&lt;xs:element name=&quot;Body&quot; type=&quot;EnvelopeBody&quot;/&gt;
+            			&lt;/xs:sequence&gt;
+            		&lt;/xs:complexType&gt;
+            	&lt;/xs:element&gt;
+            
+            	&lt;xs:complexType name=&quot;EnvelopeHeader&quot;&gt;
+            		&lt;xs:sequence&gt;
+            			&lt;xs:element name=&quot;TargetContract&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot;/&gt;
+            			&lt;xs:element na [字串的其餘部分已遭截斷]&quot;; 的當地語系化字串。
+             </summary>
+        </member>
+        <member name="P:FISCA.DSAUtil.CommonResources.RequestSchemaOld">
+             <summary>
+               查詢類似 &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+            &lt;xs:schema xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;
+            	elementFormDefault=&quot;qualified&quot;&gt;
+            
+            	&lt;xs:element name=&quot;Request&quot;&gt;
+            		&lt;xs:complexType&gt;
+            			&lt;xs:sequence&gt;
+            				&lt;!--不要把maxOccurs設成1，因為舊的程式也許會有TextNode，這樣會造成錯誤。--&gt;
+            				&lt;xs:any minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot; processContents=&quot;skip&quot;/&gt;
+            			&lt;/xs:sequence&gt;
+            			&lt;xs:attribute use=&quot;required&quot; name=&quot;ServiceName&quot; type=&quot;xs:string&quot;/&gt;
+            			&lt;xs:attribute use=&quot;required&quot; name=&quot;UserID&quot; type=&quot;xs:string&quot;/&gt;
+            			&lt;xs:attribute use=&quot;requ [字串的其餘部分已遭截斷]&quot;; 的當地語系化字串。
+             </summary>
+        </member>
+        <member name="P:FISCA.DSAUtil.CommonResources.ResponseSchema">
+             <summary>
+               查詢類似 &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+            &lt;xs:schema xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;
+            	elementFormDefault=&quot;qualified&quot;&gt;
+            
+            	&lt;xs:element name=&quot;Envelope&quot;&gt;
+            		&lt;xs:complexType&gt;
+            			&lt;xs:sequence&gt;
+            				&lt;xs:element name=&quot;Header&quot; type=&quot;EnvelopeHeader&quot; /&gt;
+            				&lt;xs:element name=&quot;Body&quot; type=&quot;EnvelopeBody&quot;/&gt;
+            			&lt;/xs:sequence&gt;
+            		&lt;/xs:complexType&gt;
+            	&lt;/xs:element&gt;
+            
+            	&lt;xs:complexType name=&quot;EnvelopeHeader&quot;&gt;
+            		&lt;xs:sequence&gt;
+            			&lt;xs:element name=&quot;Status&quot; minOccurs=&quot;1&quot; maxOccurs=&quot;1&quot;&gt;
+            				&lt;xs:complexType&gt;
+            					&lt;x [字串的其餘部分已遭截斷]&quot;; 的當地語系化字串。
+             </summary>
+        </member>
+        <member name="T:FISCA.DSAUtil.DSXmlHelper">
+            <summary>
+            代表Xml的資料，內容必需是有「根」的Xml內容。
+            </summary>
+        </member>
+        <member name="M:FISCA.DSAUtil.DSXmlHelper.#ctor">
+            <summary>
+            建立一個空的文件，預設會有「根」名稱「Content」。
+            </summary>
+        </member>
+        <member name="M:FISCA.DSAUtil.DSXmlHelper.#ctor(System.Xml.XmlDocument)">
+            <summary>
+            依XmDocument的內容建立<see cref="T:FISCA.DSAUtil.DSXmlHelper"/>，XmlDocument物件不可以為Null。
+            </summary>
+            <param name="xmlDoc">要依據的XmlDocument物件。</param>
+        </member>
+        <member name="M:FISCA.DSAUtil.DSXmlHelper.#ctor(System.Xml.XmlElement)">
+            <summary>
+            依XmlElement的內容建立物件。
+            </summary>
+            <param name="element">要依據的XmlElement物件。</param>
+        </member>
+        <member name="M:FISCA.DSAUtil.DSXmlHelper.#ctor(System.String)">
+            <summary>
+            依指定的「根」元素名稱建立Document
+            </summary>
+            <param name="rootName">根元素的名稱，不可加任何的特殊符號</param>
+        </member>
+        <member name="M:FISCA.DSAUtil.DSXmlHelper.SetAttribute(System.String,System.String,System.String)">
+            <summary>
+            在指定的元素下，新增屬性，並指定值。
+            </summary>
+            <param name="xpath">要新增屬性的元素路徑。</param>
+            <param name="name">屬性名稱。</param>
+            <param name="value">屬性值。</param>
+            <returns>XmlAttribute的新實體。</returns>
+        </member>
+        <member name="M:FISCA.DSAUtil.DSXmlHelper.SetAttribute(System.String,System.Xml.XmlAttribute)">
+            <summary>
+            在指定的元素下，新增屬性。
+            </summary>
+            <param name="xpath">要新增屬性的元素路徑。</param>
+            <param name="attribute">屬性物件。</param>
+            <returns>XmlAttribute的新實體</returns>
+        </member>
+        <member name="M:FISCA.DSAUtil.DSXmlHelper.AddElement(System.String)">
+            <summary>
+            新增空白元素(Empyt Element)到文件中
+            </summary>
+            <param name="newName">新元素名稱。</param>
+            <returns>代表在<see cref="T:FISCA.DSAUtil.DSXmlHelper"/>物件中新元素的實體。</returns>
+            <!-- 無法插入某些或所有 include 的 XML--><include file="Util30\LibDocument\DSXmlHelper.xml" path="Documents/Document[@Name=&quot;AddElement1&quot;]/*"/>
+        </member>
+        <member name="M:FISCA.DSAUtil.DSXmlHelper.AddElement(System.String,System.Xml.XmlElement)">
+            <summary>
+            在指定的元素下，新增空白子元素。
+            </summary>
+            <param name="xpath">要新增「空白子元素」的「父元素」路徑</param>
+            <param name="newElement">要新增的元素物件</param>
+            <returns>代表在<see cref="T:FISCA.DSAUtil.DSXmlHelper"/>物件中新元素的實體。</returns>
+            <!-- 無法插入某些或所有 include 的 XML--><include file="Util30\LibDocument\DSXmlHelper.xml" path="Documents/Document[@Name=&quot;AddElement1&quot;]/*"/>
+        </member>
+        <member name="M:FISCA.DSAUtil.DSXmlHelper.AddElement(System.String,System.String)">
+            <summary>
+            在指定的元素下，新增空白子元素。
+            </summary>
+            <param name="xpath">要新增「空白子元素」的「父元素」路徑。</param>
+            <param name="newName">空白子元素名稱。</param>
+            <returns>代表在<see cref="T:FISCA.DSAUtil.DSXmlHelper"/>物件中新元素的實體。</returns>
+            <!-- 無法插入某些或所有 include 的 XML--><include file="Util30\LibDocument\DSXmlHelper.xml" path="Documents/Document[@Name=&quot;AddElement1&quot;]/*"/>
+        </member>
+        <member name="M:FISCA.DSAUtil.DSXmlHelper.AddElement(System.String,System.String,System.String)">
+            <summary>
+            在指定的元素下，新增子元素，並指定文字資料。
+            </summary>
+            <param name="xpath">要新增「子元素」的「父元素」路徑。</param>
+            <param name="newName">子元素名稱。</param>
+            <param name="text">子元素文字資料。</param>
+            <returns>代表在<see cref="T:FISCA.DSAUtil.DSXmlHelper"/>物件中新元素的實體。</returns>
+            <!-- 無法插入某些或所有 include 的 XML--><include file="Util30\LibDocument\DSXmlHelper.xml" path="Documents/Document[@Name=&quot;AddElement1&quot;]/*"/>
+        </member>
+        <member name="M:FISCA.DSAUtil.DSXmlHelper.AddElement(System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            在指定的元素下，新增子元素，並指定文字資料。
+            </summary>
+            <param name="xpath">要新增「子元素」的「父元素」路徑。</param>
+            <param name="newName">子元素名稱。</param>
+            <param name="text">子元素文字資料。</param>
+            <param name="isXmlContent">文字資料是否為 Xml 字串，可以是單一 Node 或 NodeList。</param>
+            <returns>代表在<see cref="T:FISCA.DSAUtil.DSXmlHelper"/>物件中新元素的實體。</returns>
+            <!-- 無法插入某些或所有 include 的 XML--><include file="Util30\LibDocument\DSXmlHelper.xml" path="Documents/Document[@Name=&quot;AddElement2&quot;]/*"/>
+            <remarks>其他AddElement範例可參考<see cref="M:FISCA.DSAUtil.DSXmlHelper.AddElement(System.String,System.String)">
+            DSXmlHelper.AddElement</see>方法說明。</remarks>
+        </member>
+        <member name="M:FISCA.DSAUtil.DSXmlHelper.AddXmlString(System.String,System.String)">
+            <summary>
+            增加Xml內容，可以是單一Node或NodeList。
+            </summary>
+            <param name="xpath">要新增Xml資料的的「父元素」路徑。</param>
+            <param name="xmlString">要新增的Xml內容。</param>
+        </member>
+        <member name="M:FISCA.DSAUtil.DSXmlHelper.AddText(System.String,System.String)">
+            <summary>
+            在指定的元素下增加文字資料，如果指定的文字已存在，會被取代。
+            </summary>
+            <param name="xpath">元素路徑，如果路徑不存在會產生Exception。</param>
+            <param name="text">要增加的文字資料。</param>
+        </member>
+        <member name="M:FISCA.DSAUtil.DSXmlHelper.GetText(System.String)">
+            <summary>
+            取得指定元素下的文字資料。
+            </summary>
+            <param name="xpath">元素路徑。</param>
+            <returns>元素下的文字資料，如果指定的元素不存在則回傳String.Emtpy(空字串)。</returns>
+        </member>
+        <member name="M:FISCA.DSAUtil.DSXmlHelper.AddCDataSection(System.String,System.String)">
+            <summary>
+            在指定的元素下增加CDATA文字資料。
+            </summary>
+            <param name="xpath">元素路徑。</param>
+            <param name="text">要增加的CDATA文字資料。</param>
+        </member>
+        <member name="M:FISCA.DSAUtil.DSXmlHelper.PathExist(System.String)">
+            <summary>
+            測試指定的元素是否存在。
+            </summary>
+            <param name="xpath">元素路徑。</param>
+            <returns>Boolean值，已存在回傳True,不存在回傳False。</returns>
+        </member>
+        <member name="M:FISCA.DSAUtil.DSXmlHelper.HasCDataSection(System.String)">
+            <summary>
+            測試指定的元素的內容是否有CDATA。
+            </summary>
+            <param name="xpath">元素路徑。</param>
+            <returns>Boolean值，是CDATA回傳True，非則回傳False。</returns>
+        </member>
+        <member name="M:FISCA.DSAUtil.DSXmlHelper.GetElement(System.String)">
+            <summary>
+            取得元素物件，但僅取得符合「元素路徑」的第一個元素。
+            </summary>
+            <param name="xpath">元素路徑。</param>
+            <returns>回傳的XmlElement實體。</returns>
+            <exception cref="T:System.Exception">發生再xpath取出的物件不是元素(Element)時。</exception>
+        </member>
+        <member name="M:FISCA.DSAUtil.DSXmlHelper.GetAttribute(System.String)">
+            <summary>
+            取得元素物件，但僅取得符合「元素路徑」的第一個元素。
+            </summary>
+            <param name="xpath">元素路徑。</param>
+            <returns>回傳的 XmlAttribute 實體。</returns>
+            <exception cref="T:System.Exception">發生在xpath所取得的資料不是屬性時。</exception>
+        </member>
+        <member name="M:FISCA.DSAUtil.DSXmlHelper.GetCDataSection(System.String)">
+            <summary>
+            取得指定元素下的CDATA資料，如果有數個CDATA資料，則會回傳第一個。
+            </summary>
+            <param name="xpath">元素路徑。</param>
+            <returns>如果有CDATA，回傳文字資料，沒有回傳String.Emtpy。</returns>
+        </member>
+        <member name="M:FISCA.DSAUtil.DSXmlHelper.GetElements(System.String)">
+            <summary>
+            取得元素物件陣列，將會取得所有符合「元素路徑」的所有元素。
+            </summary>
+            <param name="xpath">元素路徑。</param>
+            <returns>XmlElement的陣列。</returns>
+        </member>
+        <member name="M:FISCA.DSAUtil.DSXmlHelper.RemoveElement(System.String)">
+            <summary>
+            移除元素，元素不存在會產生Exception。
+            </summary>
+            <param name="xpath">要移除的元素路徑。</param>
+        </member>
+        <member name="M:FISCA.DSAUtil.DSXmlHelper.ToString(System.String)">
+            <summary>
+            將特定的節點轉換成字串(取InnerXml)。
+            </summary>
+            <param name="xpath">XPath路徑。</param>
+            <returns>Xml字串。</returns>
+        </member>
+        <member name="M:FISCA.DSAUtil.DSXmlHelper.ToString">
+            <summary>
+            回傳完整的Xml字串。
+            </summary>
+            <returns>完整的Xml字串。</returns>
+        </member>
+        <member name="M:FISCA.DSAUtil.DSXmlHelper.Format(System.String)">
+            <summary>
+            格式化 Xml 內容。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FISCA.DSAUtil.DSXmlHelper.CloneElement(System.Xml.XmlElement)">
+            <summary>
+            複製XmlElement物件，變更其內容不會反應到原來的XmlElement中。
+            </summary>
+            <param name="srcElement">要複製的XmlElement物件。</param>
+            <returns>已複製的XmlElement物件。</returns>
+        </member>
+        <member name="M:FISCA.DSAUtil.DSXmlHelper.AppendChild(System.Xml.XmlNode,System.Xml.XmlNode)">
+            <summary>
+            將Xml字串加入到XmlNode中，可處理不同XmlDocument物件的XmlNode。
+            </summary>
+            <param name="parent"></param>
+            <param name="child"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FISCA.DSAUtil.DSXmlHelper.AppendChild(System.Xml.XmlNode,System.String)">
+            <summary>
+            將Xml字串加入到XmlNode中。
+            </summary>
+            <param name="parent"></param>
+            <param name="childXmlContent">包含「根」的Xml字串</param>
+        </member>
+        <member name="M:FISCA.DSAUtil.DSXmlHelper.LoadXml(System.IO.FileInfo,System.Boolean)">
+            <summary>
+            載入指定的 Xml 檔案。
+            </summary>
+            <param name="fileName">檔案名稱。</param>
+            <returns><see cref="T:System.Xml.XmlElement"/>物件。</returns>
+        </member>
+        <member name="M:FISCA.DSAUtil.DSXmlHelper.LoadXml(System.IO.FileInfo)">
+            <summary>
+            載入指定的 Xml 檔案。
+            </summary>
+            <param name="fileName">檔案名稱。</param>
+            <returns><see cref="T:System.Xml.XmlElement"/>物件。</returns>
+        </member>
+        <member name="M:FISCA.DSAUtil.DSXmlHelper.LoadXml(System.String)">
+            <summary>
+            載入指定的 Xml 資料。
+            </summary>
+            <param name="xmlContent">要載入的 Xml 字串資料。</param>
+            <returns><see cref="T:System.Xml.XmlElement"/>物件。</returns>
+        </member>
+        <member name="M:FISCA.DSAUtil.DSXmlHelper.LoadXml(System.String,System.Boolean)">
+            <summary>
+            載入指定的 Xml 資料。
+            </summary>
+            <param name="xmlString">要載入的 Xml 字串資料。</param>
+            <param name="preserveWhitespace">是否保留字串中的泛空白字元。</param>
+            <returns><see cref="T:System.Xml.XmlElement"/>物件。</returns>
+        </member>
+        <member name="M:FISCA.DSAUtil.DSXmlHelper.SaveXml(System.String,System.Xml.XmlNode)">
+            <summary>
+            將指定的 Xml 資料以 UTF-8 的編碼方式儲存到檔案。
+            </summary>
+            <param name="fileName">檔案名稱。</param>
+            <param name="elm">要儲存的 Xml 物件。</param>
+        </member>
+        <member name="M:FISCA.DSAUtil.DSXmlHelper.SaveXml(System.String,System.Xml.XmlNode,System.Text.Encoding)">
+            <summary>
+            將指定的 Xml 資料儲存到檔案。
+            </summary>
+            <param name="fileName">檔案名稱。</param>
+            <param name="node">要儲存的 Xml 物件。</param>
+            <param name="enc">儲存的編碼方式。</param>
+        </member>
+        <member name="M:FISCA.DSAUtil.DSXmlHelper.SaveXml(System.IO.Stream,System.Xml.XmlNode)">
+            <summary>
+            將指定的 Xml 資料以UTF-8的編碼方式寫入到串流中。
+            </summary>
+            <param name="outStream">指定的串流。</param>
+            <param name="node">要輸出的 Xml 物件。</param>
+        </member>
+        <member name="M:FISCA.DSAUtil.DSXmlHelper.SaveXml(System.IO.Stream,System.Xml.XmlNode,System.Text.Encoding)">
+            <summary>
+            將指定的 Xml 資料寫入到串流中。
+            </summary>
+            <param name="outStream">指定的串流。</param>
+            <param name="node">要輸出的 Xml 物件。</param>
+            <param name="enc">輸出的編碼方式。</param>
+        </member>
+        <member name="M:FISCA.DSAUtil.DSXmlHelper.HttpSendTo(System.String,System.String)">
+            <summary>
+            傳送Xml內容到某個網址。
+            </summary>
+            <param name="url">目的URL。</param>
+            <param name="xmlContent">要傳送的Xml內容。</param>
+            <returns>回傳的Xml資料。</returns>
+        </member>
+        <member name="M:FISCA.DSAUtil.DSXmlHelper.HttpSendTo(System.String,System.String,System.String)">
+            <summary>
+            傳送Xml內容到某個網址。
+            </summary>
+            <param name="url">目的URL。</param>
+            <param name="method">傳送的方法(POST、GET)</param>
+            <param name="xmlContent">要傳送的Xml內容。</param>
+            <returns>回傳的Xml資料。</returns>
+        </member>
+        <member name="P:FISCA.DSAUtil.DSXmlHelper.BaseElement">
+            <summary>
+            取得目前文件的基礎XmlElement物件。
+            </summary>
+            <returns>此物件的基本XmlElement物件。</returns>
+        </member>
+        <member name="P:FISCA.DSAUtil.DSXmlHelper.RootName">
+            <summary>
+            文件根名稱。
+            </summary>
+        </member>
+        <member name="T:FISCA.DSAUtil.AsyncSendContext">
+            <summary>
+            代表非同步處理的組態資訊。
+            </summary>
+        </member>
+        <member name="M:FISCA.DSAUtil.AsyncSendContext.#ctor(System.String,FISCA.DSAUtil.DSRequest)">
+            <summary>
+            建立物件的執行個體。
+            </summary>
+            <param name="serviceName">服務名稱。</param>
+            <param name="request">申請文件。</param>
+        </member>
+        <member name="P:FISCA.DSAUtil.AsyncSendContext.ProgressTimeout">
+            <summary>
+            多久未回應，就產生逾時例外的時間(單位：千分之一秒)。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAUtil.AsyncSendContext.PerTimeSize">
+            <summary>
+            最大一次處理的大小，以 Byte 為單位。
+            預設為 2048 Byte。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAUtil.AsyncSendContext.RequestID">
+            <summary>
+            取得或設定此非同步傳送的編號。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAUtil.AsyncSendContext.ServiceName">
+            <summary>
+            取得服務名稱。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAUtil.AsyncSendContext.Request">
+            <summary>
+            取得申請文件。
+            </summary>
+        </member>
+        <member name="E:FISCA.DSAUtil.AsyncSendContext.SendStart">
+            <summary>
+            開始「傳送」資料時的回報事件。
+            </summary>
+        </member>
+        <member name="E:FISCA.DSAUtil.AsyncSendContext.SendProgress">
+            <summary>
+            傳送的進度回報事件。
+            </summary>
+        </member>
+        <member name="E:FISCA.DSAUtil.AsyncSendContext.SendComplete">
+            <summary>
+            完成傳送資料時回報事件。
+            </summary>
+        </member>
+        <member name="E:FISCA.DSAUtil.AsyncSendContext.ReceiveStart">
+            <summary>
+            開始「接收」資料時的回報事件。
+            </summary>
+        </member>
+        <member name="E:FISCA.DSAUtil.AsyncSendContext.ReceiveProgress">
+            <summary>
+            接收的進度回報事件。
+            </summary>
+        </member>
+        <member name="E:FISCA.DSAUtil.AsyncSendContext.ReceiveComplete">
+            <summary>
+            完成接收資料時回報事件。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAUtil.AsyncSendContext.AnyUIControl">
+            <summary>
+            在進度回報時，如果需要處理 UI，則此屬性必須要指定，如果未指定，回報進度的函數將會在非 UI 的執行緒。
+            </summary>
+        </member>
+        <member name="T:FISCA.DSAUtil.AsyncState">
+            <summary>
+            非同步處理時的狀態資訊。
+            </summary>
+        </member>
+        <member name="T:FISCA.DSAUtil.ProcessAction">
+            <summary>
+            代表目前動作。
+            </summary>
+        </member>
+        <member name="M:FISCA.DSAUtil.XmlDataObject.GetString(System.String)">
+            <summary>
+            取得指定元素的字串資料，如果元素不存在則回傳空字串(string.Empty)。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FISCA.DSAUtil.XmlDataObject.GetString(System.String,System.String)">
+            <summary>
+            取得指定元素的字串資料。
+            </summary>
+            <param name="defaultValue">如果指定的元素不存在時回傳的值。</param>
+            <returns></returns>
+        </member>
+        <member name="M:FISCA.DSAUtil.XmlDataObject.GetInteger(System.String)">
+            <summary>
+            取得指定元素的值，並轉型成數字，如果指定的元素不存在則回傳「0」。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FISCA.DSAUtil.XmlDataObject.GetInteger(System.String,System.Int32)">
+            <summary>
+            取得指定元素的值，並轉型成數字，如果指定的元素不存在則回傳「0」。
+            </summary>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FISCA.DSAUtil.XmlDataObject.GetBoolean(System.String)">
+            <summary>
+            取得指定元素的值，並轉型成 Boolean ，如果指定的元素不存在則回傳「false」。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FISCA.DSAUtil.XmlDataObject.GetBoolean(System.String,System.Boolean)">
+            <summary>
+            取得指定元素的值，並轉型成 Boolean 。
+            </summary>
+            <param name="defaultValue">指定的元素不存在時回傳的值。</param>
+            <returns></returns>
+        </member>
+        <member name="M:FISCA.DSAUtil.XmlDataObject.GetImage(System.String)">
+            <summary>
+            取得指定元素的值，並轉換成圖型檔，如果元素不存在或是格式(base64)不正確，將回傳 Null 。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FISCA.DSAUtil.XmlDataObject.GetBinary(System.String)">
+            <summary>
+            取得指定元素的值，並轉換成 Binary 資料，如果元素不存在或是格式(base64)錯誤，將回傳空陣列(空陣列不是 Null)。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FISCA.DSAUtil.XmlDataObject.ToString">
+            <summary>
+            回傳完整的 Xml 字串。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:FISCA.DSAUtil.SignatureRequestEventArgs">
+            <summary>
+            代表數位簽章的事件處理程序的所需參數
+            </summary>
+        </member>
+        <member name="M:FISCA.DSAUtil.SignatureRequestEventArgs.#ctor(System.Byte[])">
+            <summary>
+            建構式 
+            </summary>
+            <param name="rawValue">需要被簽章的原始資料</param>
+        </member>
+        <member name="P:FISCA.DSAUtil.SignatureRequestEventArgs.SignedValue">
+            <summary>
+            取得或設定已完成的簽章資料
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAUtil.SignatureRequestEventArgs.RawValue">
+            <summary>
+            取得需要驗證的原生資料
+            </summary>
+        </member>
+        <member name="T:FISCA.DSAUtil.StandardXmlSchema">
+            <summary>
+            標準常用的Schema常數，類別庫內部使用，不建議在程式中使用。
+            </summary>
+        </member>
+        <member name="F:FISCA.DSAUtil.StandardXmlSchema.Envelope">
+            <summary>
+            基本Envelope的XmlSchema文件(此常數內部使用)。
+            </summary>
+        </member>
+        <member name="F:FISCA.DSAUtil.StandardXmlSchema.Request">
+            <summary>
+            基本DSRequest的XmlSchema文件(此常數內部使用)。
+            </summary>
+        </member>
+        <member name="F:FISCA.DSAUtil.StandardXmlSchema.Response">
+            <summary>
+            基本DSResponse的XmlSchema文件(此常數內部使用)。
+            </summary>
+        </member>
+        <member name="F:FISCA.DSAUtil.StandardXmlSchema.RequestOld">
+            <summary>
+            舊版DSRequest的XmlSchema文件(此常數內部使用)。
+            </summary>
+        </member>
+        <member name="T:FISCA.DSAUtil.SimpleXmlValidator">
+            <summary>
+            代表 XmlSchema 的文件驗證工具類別。
+            </summary>
+        </member>
+        <member name="F:FISCA.DSAUtil.SimpleXmlValidator._XmlSchemas">
+            <summary>
+            儲存內部所有的 <see cref="!:SchemaSet"/> 物件集合。
+            </summary>
+        </member>
+        <member name="M:FISCA.DSAUtil.SimpleXmlValidator.AddSchemaFromFile(System.String,System.String,System.String)">
+            <summary>
+            從檔案讀取 XmlSchema，並放入快取區。
+            </summary>
+            <param name="nickName">XmlSchema 別名。</param>
+            <param name="targetNS">目標命名空間。</param>
+            <param name="fileName">XmlSchema 檔案。</param>
+        </member>
+        <member name="M:FISCA.DSAUtil.SimpleXmlValidator.AddSchemaFromFile(System.String,System.String)">
+            <summary>
+            從檔案讀取 XmlSchema，並放入快取區。
+            </summary>
+            <param name="nickName">XmlSchema 別名。</param>
+            <param name="fileName">XmlSchema 檔案。</param>
+        </member>
+        <member name="M:FISCA.DSAUtil.SimpleXmlValidator.AddSchema(System.String,System.String,System.String)">
+            <summary>
+            從字串載入 XmlSchema 文件。
+            </summary>
+            <param name="nickName">XmlSchema 別名。</param>
+            <param name="targetNS">XmlSchema 的目標命名空間。</param>
+            <param name="schemaContent"></param>
+        </member>
+        <member name="M:FISCA.DSAUtil.SimpleXmlValidator.AddSchema(System.String,System.String)">
+            <summary>
+            從字串載入 XmlSchema 文件。預設會使用空字串(String.Emtpy)的命名空間。
+            </summary>
+            <param name="nickName">XmlSchema 別名。</param>
+            <param name="schemaContent">XmlSchema 的內容。</param>
+        </member>
+        <member name="M:FISCA.DSAUtil.SimpleXmlValidator.AddSchema(System.String,System.String,System.Xml.XmlReader)">
+            <summary>
+            新增 XmlSchema 文件到記憶體中，方便之後驗證 Xml 文件。
+            </summary>
+            <param name="Name">XmlSchema 別名。</param>
+            <param name="Schema">XmlSchema 內容。</param>
+        </member>
+        <member name="M:FISCA.DSAUtil.SimpleXmlValidator.ValidateDocument(System.String,System.String)">
+            <summary>
+            驗證Xml文件。
+            </summary>
+            <param name="SchemaName">要取用的XmlSchema名稱。</param>
+            <param name="XmlContent">要驗證的Xml資料。</param>
+            <returns>驗證是否成功，成功回傳True，失敗回傳False。</returns>
+        </member>
+        <member name="M:FISCA.DSAUtil.SimpleXmlValidator.GetLastError">
+            <summary>
+            取得最後一次認驗證的錯誤訊息。
+            </summary>
+            <returns>錯誤訊息。</returns>
+        </member>
+        <member name="P:FISCA.DSAUtil.SimpleXmlValidator.Standard">
+            <summary>
+            此屬性內部使用。
+            </summary>
+        </member>
+        <member name="M:FISCA.DSAUtil.PkiUtilities.ComputeSignature(System.Security.Cryptography.RSACryptoServiceProvider,System.String)">
+            <summary>
+            對Xml資料進行數簽章。
+            </summary>
+            <param name="publicKey">簽章金鑰。</param>
+            <param name="xmlData">要簽章的資料。</param>
+            <returns>簽章完成的資料(不含原內容)。</returns>
+        </member>
+        <member name="M:FISCA.DSAUtil.PkiUtilities.CheckSignature(System.Security.Cryptography.RSACryptoServiceProvider,System.Xml.XmlElement,System.String)">
+            <summary>
+            驗簽章是否正確。
+            </summary>
+            <param name="publicKey">驗證的公開金鑰。</param>
+            <param name="xmlData">要驗證的資料。</param>
+            <returns>正確回傳True。</returns>
+        </member>
+        <member name="M:FISCA.DSAUtil.PkiUtilities.HashString(System.String)">
+            <summary>
+            計算輸入資料的 SHA1 雜湊值。
+            </summary>
+            <param name="str">資料。</param>
+            <returns>雜湊值。</returns>
+        </member>
+        <member name="T:FISCA.DSAUtil.Fault">
+            <summary>
+            這是Fault的說明
+            </summary>
+        </member>
+        <member name="M:FISCA.DSAUtil.Fault.#ctor(System.Xml.XmlElement)">
+            <summary>
+            初始化<see cref="T:FISCA.DSAUtil.Fault"/>的新執行個體。
+            </summary>
+            <param name="fault">Fault 資訊。</param>
+        </member>
+        <member name="P:FISCA.DSAUtil.Fault.Source">
+            <summary>
+            失敗的來源名稱。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAUtil.Fault.Code">
+            <summary>
+            失敗的代碼。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAUtil.Fault.Message">
+            <summary>
+            失敗說明。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAUtil.Fault.Detail">
+            <summary>
+            失敗的詳細資訊。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAUtil.Fault.InnerFault">
+            <summary>
+            如果還有其他錯誤，則回傳，否則回傳 Null 參考。
+            </summary>
+        </member>
+        <member name="T:FISCA.DSAUtil.EnhancedToken">
+            <summary>
+            代表 DSA 的安全代符(加強)。
+            </summary>
+        </member>
+        <member name="T:FISCA.DSAUtil.ISecurityToken">
+            <summary>
+            代表DSA的安全代符(SecurityToken)。
+            </summary>
+        </member>
+        <member name="M:FISCA.DSAUtil.ISecurityToken.GetTokenContent">
+            <summary>
+            取得SecurityToken的內容，必需確保取出的Token是合法的。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAUtil.ISecurityToken.TokenType">
+            <summary>
+            代表Token的類型，例如：Basic、Enhanced、DSAPassport等。
+            </summary>
+        </member>
+        <member name="M:FISCA.DSAUtil.EnhancedToken.#ctor">
+            <summary>
+            初始化 <see cref="T:FISCA.DSAUtil.EnhancedToken"/> 實體。
+            </summary>
+        </member>
+        <member name="M:FISCA.DSAUtil.EnhancedToken.SignToken(FISCA.DSAUtil.BasicToken,FISCA.DSAUtil.SignatureRequest)">
+            <summary>未完成</summary>
+            <param name="basicToken"></param>
+            <param name="signer"></param>
+        </member>
+        <member name="M:FISCA.DSAUtil.EnhancedToken.SignToken(System.String,System.String,FISCA.DSAUtil.SignatureRequest)">
+            <summary>未完成</summary>
+            <param name="useName"></param>
+            <param name="password"></param>
+            <param name="signer"></param>
+        </member>
+        <member name="M:FISCA.DSAUtil.EnhancedToken.SignToken(System.String,System.String,System.Boolean,FISCA.DSAUtil.SignatureRequest)">
+            <summary>未完成</summary>
+            <param name="useName"></param>
+            <param name="password"></param>
+            <param name="hashPassword"></param>
+            <param name="signer"></param>
+        </member>
+        <member name="P:FISCA.DSAUtil.EnhancedToken.UserName">
+            <summary>
+            取得使用者名稱。
+            </summary>
+        </member>
+        <member name="T:FISCA.DSAUtil.DSPassport">
+            <summary>
+            代表DSA通行證的Xml資訊，這個類別不能繼承。
+            </summary>
+        </member>
+        <member name="M:FISCA.DSAUtil.DSPassport.IsValidate(FISCA.DSAUtil.DSCertificate)">
+            <summary>
+            驗證此Passport是否合法。
+            </summary>
+            <param name="cert">用來驗證此Passport的物件。</param>
+            <returns>憑證合法回傳True。</returns>
+        </member>
+        <member name="T:FISCA.DSAUtil.AccessPoint">
+            <summary>
+            代表DSA的區域名稱。
+            </summary>
+        </member>
+        <member name="M:FISCA.DSAUtil.AccessPoint.#ctor(System.String,System.String)">
+            <summary>
+            初始化 Doorway 的新執行個體。
+            </summary>
+            <param name="accessPointName">DSA 的 AccessPoint 名稱。</param>
+            <param name="accessPointUrl">實體位置。</param>
+        </member>
+        <member name="P:FISCA.DSAUtil.AccessPoint.Name">
+            <summary>
+            DSA 的 AccessPoint 名稱。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAUtil.AccessPoint.Url">
+            <summary>
+            DSA AccessPoint 的實體位置。
+            </summary>
+        </member>
+        <member name="T:FISCA.DSAUtil.BasicToken">
+            <summary>
+            代表基本的安全代符(SecurityToken)。
+            </summary>
+            <remarks>
+            在 DSA 架構中，此種代符為最基本的，此代符代表的就是「帳號」與「密碼」。
+            </remarks>
+            <!-- 無法插入某些或所有 include 的 XML--><include file="Util30\LibDocument\BasicToken.xml" path="Documents/Document[@Name=&quot;BasicToken&quot;]/*"/>
+        </member>
+        <member name="M:FISCA.DSAUtil.BasicToken.#ctor(System.String,System.String)">
+            <summary>
+            初始化 <see cref="T:FISCA.DSAUtil.BasicToken"/> 實體。
+            </summary>
+            <param name="userName">使用者名稱。</param>
+            <param name="password">密碼。</param>
+        </member>
+        <member name="M:FISCA.DSAUtil.BasicToken.#ctor(System.String,System.String,System.Boolean)">
+            <summary>
+            初始化 <see cref="T:FISCA.DSAUtil.BasicToken"/> 實體。
+            </summary>
+            <param name="userName">使用者名稱。</param>
+            <param name="password">密碼。</param>
+            <param name="hashPassword">是否使用 SHA1 雜湊密碼。</param>
+            <remarks>如果要使用 SHA1 雜湊密碼，資料庫中的密碼欄位應該要使用 SHA1 雜湊計算後再儲存於資料庫，否則密碼驗證將永遠不會通過。</remarks>
+        </member>
+        <member name="M:FISCA.DSAUtil.BasicToken.InitialToken(System.String,System.String,System.Boolean)">
+            <summary>
+            初始化安全代符。
+            </summary>
+            <param name="userName"></param>
+            <param name="password"></param>
+            <param name="hashPassword">是否使用 SHA1 雜湊密碼。</param>
+            <remarks>如果要使用 SHA1 雜湊密碼，資料庫中的密碼欄位應該要使用 SHA1 雜湊計算後再儲存於資料庫，否則密碼驗證將永遠不會通過。</remarks>
+        </member>
+        <member name="M:FISCA.DSAUtil.BasicToken.GetTokenContent">
+            <!-- 無法插入某些或所有 include 的 XML--><include file="Util30\LibDocument\BasicToken.xml" path="Documents/Document[@Name=&quot;GetTokenContent&quot;]/*"/>
+        </member>
+        <member name="P:FISCA.DSAUtil.BasicToken.UserName">
+            <summary>
+            取得使用者名稱。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAUtil.BasicToken.TokenType">
+            <summary>
+            安全代符的類型。
+            </summary>
+        </member>
+        <member name="F:FISCA.DSAUtil.DSConnectionState.Connected">
+            <summary>
+            表示已連線狀態。
+            </summary>
+        </member>
+        <member name="F:FISCA.DSAUtil.DSConnectionState.Disconnected">
+            <summary>
+            表示未連線狀態。
+            </summary>
+        </member>
+        <member name="T:FISCA.DSAUtil.NamespaceDoc">
+            <summary>
+            這是專為DSA 3.0全新設計的類輔助類別庫，有加入一些新概念，如果使用過之前
+            的程式庫，需要了解新加入的概念，但基本的類別與前版相同，
+            並加入了以下較常用的類別：
+            <list type="bullet">
+                <item><see cref="!:XmlUtilities"/></item>
+                <item><see cref="T:FISCA.DSAUtil.DSXmlHelper"/></item>
+                <item><see cref="T:FISCA.DSAUtil.DSXmlCreator"/></item>
+            </list>
+            </summary>
+        </member>
+        <member name="T:FISCA.DSAUtil.DSRequest">
+            <summary>
+            代表DSA的Request文件，由Envelope概念的延伸。
+            </summary>
+            <remarks>此類別與前版有較大的差異，使用前請詳細參考範例。</remarks>
+        </member>
+        <member name="M:FISCA.DSAUtil.DSRequest.#ctor">
+            <summary>
+            初始化 <see cref="T:FISCA.DSAUtil.DSRequest"/> 類別的新執行個體。 
+            </summary>
+        </member>
+        <member name="M:FISCA.DSAUtil.DSRequest.#ctor(System.String)">
+            <summary>
+            使用指定的字串，初始化<see cref="T:FISCA.DSAUtil.DSRequest"/>類別的新執行個體。
+            </summary>
+            <param name="bodyContent">Envelop中的Body內容，必須是含有「根」的Xml內容。</param>
+        </member>
+        <member name="M:FISCA.DSAUtil.DSRequest.#ctor(System.Xml.XmlDocument)">
+            <summary>
+            依XmlElement物件初始化<see cref="T:FISCA.DSAUtil.DSRequest"/>類別的新執行個體。
+            </summary>
+            <param name="bodyContent">Envelop中的Body內容。</param>
+            <remarks>在產生新執行體後，bodyContent參數物件將與原有的參考分離，修改原有
+            物件並不會影響此行體的內容。</remarks>
+        </member>
+        <member name="M:FISCA.DSAUtil.DSRequest.#ctor(System.Xml.XmlElement)">
+            <summary>
+            依XmlElement物件初始化<see cref="T:FISCA.DSAUtil.DSRequest"/>類別的新執行個體。
+            </summary>
+            <param name="bodyContent">Envelop中的Body內容。</param>
+            <remarks>在產生新執行體後，bodyContent參數物件將與原有的參考分離，修改原有
+            物件並不會影響此行體的內容。</remarks>
+        </member>
+        <member name="M:FISCA.DSAUtil.DSRequest.#ctor(FISCA.DSAUtil.DSXmlHelper)">
+            <summary>
+            依DSXmlHelper物件初始化<see cref="T:FISCA.DSAUtil.DSRequest"/>類別的新執行個體。
+            </summary>
+            <param name="bodyContent">Envelop中的Body內容。</param>
+            <remarks>在產生新執行體後，bodyContent參數物件將與原有的參考分離，修改原有
+            物件並不會影響此行體的內容。</remarks>
+        </member>
+        <member name="M:FISCA.DSAUtil.DSRequest.#ctor(FISCA.DSAUtil.DSXmlCreator)">
+            <summary>
+            依DSXmlCreator物件初始化<see cref="T:FISCA.DSAUtil.DSRequest"/>類別的新執行個體。
+            </summary>
+            <param name="bodyContent">Envelop中的Body內容。</param>
+        </member>
+        <member name="T:FISCA.DSAUtil.DSAServerStatus">
+            <summary>
+            代表 DSA Server 的狀態。
+            </summary>
+        </member>
+        <member name="F:FISCA.DSAUtil.DSAServerStatus.Successful">
+            <summary>
+            代表動作完成。
+            </summary>
+        </member>
+        <member name="F:FISCA.DSAUtil.DSAServerStatus.UnhandledException">
+            <summary>
+            代表 DSA Server 未預期處理的 Exception。
+            </summary>
+        </member>
+        <member name="F:FISCA.DSAUtil.DSAServerStatus.ServiceNotFound">
+            <summary>
+            服務不存在。
+            </summary>
+        </member>
+        <member name="F:FISCA.DSAUtil.DSAServerStatus.CredentialInvalid">
+            <summary>
+            認證資訊不合法。
+            </summary>
+        </member>
+        <member name="F:FISCA.DSAUtil.DSAServerStatus.AccessDeny">
+            <summary>
+            存取被拒。
+            </summary>
+        </member>
+        <member name="F:FISCA.DSAUtil.DSAServerStatus.ServiceExecutionError">
+            <summary>
+            服務內部錯誤。
+            </summary>
+        </member>
+        <member name="F:FISCA.DSAUtil.DSAServerStatus.ServiceBusy">
+            <summary>
+            服務忙碌。
+            </summary>
+        </member>
+        <member name="F:FISCA.DSAUtil.DSAServerStatus.InvalidRequestDocument">
+            <summary>
+            不合法的申請文件。
+            </summary>
+        </member>
+        <member name="F:FISCA.DSAUtil.DSAServerStatus.InvalidResponseDocument">
+            <summary>
+            不合法的回覆文件。
+            </summary>
+        </member>
+        <member name="F:FISCA.DSAUtil.DSAServerStatus.ServiceActivationError">
+            <summary>
+            服務啟動錯誤。
+            </summary>
+        </member>
+        <member name="F:FISCA.DSAUtil.DSAServerStatus.ServerUnavailable">
+            <summary>
+            DSA Server 組態或狀態不正確。
+            </summary>
+        </member>
+        <member name="F:FISCA.DSAUtil.DSAServerStatus.ApplicationUnavailable">
+            <summary>
+            DSA Application 組態或狀態不正確。
+            </summary>
+        </member>
+        <member name="F:FISCA.DSAUtil.DSAServerStatus.SessionExpire">
+            <summary>
+            Session 過期。
+            </summary>
+        </member>
+        <member name="F:FISCA.DSAUtil.DSAServerStatus.PassportExpire">
+            <summary>
+            DSA Passport 過期。
+            </summary>
+        </member>
+        <member name="F:FISCA.DSAUtil.DSAServerStatus.Unknow">
+            <summary>
+            未知的狀態。
+            </summary>
+        </member>
+        <member name="T:FISCA.DSAUtil.MessageResource">
+            <summary>
+              用於查詢當地語系化字串等的強型別資源類別
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAUtil.MessageResource.ResourceManager">
+            <summary>
+              傳回這個類別使用的快取的 ResourceManager 執行個體。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAUtil.MessageResource.Culture">
+            <summary>
+              覆寫目前執行緒的 CurrentUICulture 屬性，對象是所有
+              使用這個強型別資源類別的資源查閱。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAUtil.MessageResource.ConnectedError">
+            <summary>
+              查詢類似 已在連線狀態，無法執行此動作。 的當地語系化字串。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAUtil.MessageResource.ConnectFailNoErrorMessage">
+            <summary>
+              查詢類似 未連線成功，但未產生錯誤訊息。 的當地語系化字串。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAUtil.MessageResource.ConnectionInfoNotInitialize">
+            <summary>
+              查詢類似 未初始化連線資訊，無法進行連線動作。 的當地語系化字串。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAUtil.MessageResource.ConnectOccureUnknowError">
+            <summary>
+              查詢類似 要求連接時發生未預期的錯誤。 的當地語系化字串。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAUtil.MessageResource.ConnectServiceError">
+            <summary>
+              查詢類似 連接服務(&lt;%ServiceName%&gt;)內部執行錯誤。 的當地語系化字串。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAUtil.MessageResource.ConnectToDSNSError">
+            <summary>
+              查詢類似 連線到 DSNS 主機錯誤。(&lt;%Url%&gt;) 的當地語系化字串。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAUtil.MessageResource.ConvertDSAServerStatusError">
+            <summary>
+              查詢類似 將 DSA 狀態代碼(StatusCode)轉型成 DSAServerStatus 列舉錯誤，DSA 回傳狀態不存在於 DSAServerStatus 中。 的當地語系化字串。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAUtil.MessageResource.CredentialInvalid">
+            <summary>
+              查詢類似 登入資訊不正確。 的當地語系化字串。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAUtil.MessageResource.ElementNotFound">
+            <summary>
+              查詢類似 指定的元素不存在。 的當地語系化字串。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAUtil.MessageResource.ElementNullReferenceNotSupport">
+            <summary>
+              查詢類似 不可以使用 Null 物件建立物件。 的當地語系化字串。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAUtil.MessageResource.EmptyXmlDocument">
+            <summary>
+              查詢類似 XmlDocument 物件中沒有資料。 的當地語系化字串。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAUtil.MessageResource.GetDSAResponseError">
+            <summary>
+              查詢類似 從 DSA Application 取得回覆文件錯誤。 的當地語系化字串。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAUtil.MessageResource.GetHttpResponseError">
+            <summary>
+              查詢類似 從 HTTP Server 取得 Response 錯誤 的當地語系化字串。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAUtil.MessageResource.GetHTTPResponseStreamError">
+            <summary>
+              查詢類似 從 HTTP Response 中取出資料串流錯誤。 的當地語系化字串。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAUtil.MessageResource.HeaderNameNotValidate">
+            <summary>
+              查詢類似 標頭的名稱不合法。(&lt;%Name%&gt;)。 的當地語系化字串。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAUtil.MessageResource.HttpMethodNotSupported">
+            <summary>
+              查詢類似 不支援此種 HTTP 方法(&lt;%Method%&gt;)。 的當地語系化字串。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAUtil.MessageResource.MustConnected">
+            <summary>
+              查詢類似 必需是連線狀態才能執行此動作。 的當地語系化字串。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAUtil.MessageResource.NodeTypeNotSupport">
+            <summary>
+              查詢類似 不可以使用 XmlNodeType.Element 之外的 XmlNode 建立物件。 的當地語系化字串。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAUtil.MessageResource.ObjectStatusError">
+            <summary>
+              查詢類似 物件狀態不正確，請通知開發人員修正此問題。 的當地語系化字串。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAUtil.MessageResource.RenewDSAPassportFail">
+            <summary>
+              查詢類似 重置(Renew) DSA Passport Token 失敗。 的當地語系化字串。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAUtil.MessageResource.RenewSecurityTokenFail">
+            <summary>
+              查詢類似 重置(Renew) Security Token 失敗。 的當地語系化字串。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAUtil.MessageResource.RenewSessionIDFail">
+            <summary>
+              查詢類似 重新要求 SessionID 失敗。 的當地語系化字串。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAUtil.MessageResource.RequestPassportError">
+            <summary>
+              查詢類似 向主機要求 DSAPassport 時產生錯誤！(&lt;%AuthAccessPoint%&gt;) 的當地語系化字串。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAUtil.MessageResource.RequestSessionIDFail">
+            <summary>
+              查詢類似 向 DSA Application 取得 SessionID 失敗。 的當地語系化字串。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAUtil.MessageResource.ResolveAccessPointNameFail">
+            <summary>
+              查詢類似 傳送「名稱解析」申請文件失敗。 的當地語系化字串。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAUtil.MessageResource.ResponseDocumentInvalidate">
+            <summary>
+              查詢類似 主機回傳的文件不符DSA規格(訊息：&lt;%ValidMessage%&gt;)。 的當地語系化字串。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAUtil.MessageResource.SecurityTokenNotSupported">
+            <summary>
+              查詢類似 不可以使用此類型的 SecurityToken 進行連線動作。 的當地語系化字串。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAUtil.MessageResource.SessionServiceNotSupported">
+            <summary>
+              查詢類似 向 DSA Application 要求 SessionID，但並未得到 SessionID。(可能是 DSA Server 不支援 Session 功能) 的當地語系化字串。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAUtil.MessageResource.SpecialHeaderNotFound">
+            <summary>
+              查詢類似 指定的標頭不存在(&lt;%Name%&gt;)。 的當地語系化字串。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAUtil.MessageResource.UriPrefixNotSupport">
+            <summary>
+              查詢類似 不支援指定的配置識別項(&lt;%Prefix%&gt;)。 的當地語系化字串。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAUtil.MessageResource.XmlDocNullReferenceNotSupport">
+            <summary>
+              查詢類似 不可以使用 Null 的 XmlDocument 建立物件。 的當地語系化字串。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAUtil.MessageResource.XmlDocumentNotIsDSDocument">
+            <summary>
+              查詢類似 Xml 不符合 DSEnvelope 規格：&lt;%Reason%&gt; 的當地語系化字串。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAUtil.MessageResource.XPathSyntaxError">
+            <summary>
+              查詢類似 指定的 XPath 語法錯誤，找不到指定的元素(&lt;%XPath%&gt;)。 的當地語系化字串。
+            </summary>
+        </member>
+        <member name="T:FISCA.DSAUtil.DSCertificate">
+            <summary>
+            代表DSA的憑證資訊。
+            </summary>
+        </member>
+        <member name="M:FISCA.DSAUtil.DSCertificate.IsValidate(FISCA.DSAUtil.DSCertificate)">
+            <summary>
+            驗證此憑證是否合法。
+            </summary>
+            <param name="cert">用來驗證此憑證的物件。</param>
+            <returns>憑證合法回傳True。</returns>
+        </member>
+        <member name="T:FISCA.DSAUtil.RawSecurityToken">
+            <summary>
+            代表自已手動建立的安全代符。
+            </summary>
+        </member>
+        <member name="M:FISCA.DSAUtil.RawSecurityToken.#ctor(System.Xml.XmlElement)">
+            <summary>
+            
+            </summary>
+            <param name="securityToken"></param>
+        </member>
+        <member name="M:FISCA.DSAUtil.RawSecurityToken.GetTokenContent">
+            <summary>
+            取得安全代符的內容。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:FISCA.DSAUtil.RawSecurityToken.TokenType">
+            <summary>
+            安全代符的類型。
+            </summary>
+        </member>
+        <member name="T:FISCA.DSAUtil.DSConnection">
+            <summary>
+            代表DSA的Connection物件，可進行DSA Server的連線與傳送Request文件。
+            </summary>
+            <remarks>
+            此類別用方大致與前版相同，如果不需要使用新功能(如單一簽入、加強式驗證)，使用方式與前版完全一樣。
+            </remarks>
+        </member>
+        <member name="M:FISCA.DSAUtil.DSConnection.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:FISCA.DSAUtil.DSConnection.#ctor(FISCA.DSAClient.Connection)">
+            <summary>
+            
+            </summary>
+            <param name="connection"></param>
+        </member>
+        <member name="M:FISCA.DSAUtil.DSConnection.#ctor(System.String,System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="accessPoint"></param>
+            <param name="fullUserName"></param>
+            <param name="password"></param>
+        </member>
+        <member name="M:FISCA.DSAUtil.DSConnection.Connect">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:FISCA.DSAUtil.DSConnection.SendRequest(System.String)">
+            <summary>
+            傳送Request到主機。
+            </summary>
+            <param name="serviceName">服務名稱。</param>
+            <returns>主機所回傳的資料。</returns>
+            <remarks>此方法會自動產生空的申請文件傳送到主機。</remarks>
+        </member>
+        <member name="M:FISCA.DSAUtil.DSConnection.SendRequest(System.String,FISCA.DSAUtil.DSXmlHelper)">
+            <summary>
+            傳送Request到主機。
+            </summary>
+            <param name="serviceName">服務名稱。</param>
+            <param name="request">要傳送的申請文件。</param>
+            <returns>主機所回傳的資料。</returns>
+            <remarks>
+                <para>如果所要求的服務會回傳空白的Xml文件(Body中未含任何資料)，
+                此方法會回傳Null參考。</para>
+                <para>如果不需要處理回覆文件時，使用此方法呼叫服務很適合。</para>
+            </remarks>
+        </member>
+        <member name="M:FISCA.DSAUtil.DSConnection.SendRequest(System.String,FISCA.DSAUtil.DSRequest)">
+            <summary>
+            
+            </summary>
+            <param name="serviceName"></param>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FISCA.DSAUtil.DSConnection.AsContract(System.String)">
+            <summary>
+            切換到不同 Contract。
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="P:FISCA.DSAUtil.DSConnection.Connection">
+            <summary>
+            取得 DSA Server 的連線。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAUtil.DSConnection.AccessPoint">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAUtil.DSConnection.IsConnected">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAUtil.DSConnection.UseSession">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:FISCA.DSAUtil.AsyncPostRequest">
+            <summary>
+            負責非同步傳送申請文件。
+            </summary>
+        </member>
+        <member name="M:FISCA.DSAUtil.AsyncPostRequest.AsyncWriteStream(System.IO.Stream,FISCA.DSAUtil.ProgressInfo)">
+            <summary>
+            非同將資料寫入 Stream 中。
+            </summary>
+        </member>
+        <member name="T:FISCA.DSAUtil.SignatureRequestEventHandler">
+            <summary>
+            代表數位簽章的事件處理程序。
+            </summary>
+            <param name="sender"></param>
+            <param name="args"></param>
+        </member>
+        <member name="T:FISCA.DSAUtil.SignatureRequest">
+            <summary>
+            代表數位簽章的要求。
+            </summary>
+            <param name="rawData">要簽章的原始資料。</param>
+            <returns>數位簽章資料。</returns>
+        </member>
+    </members>
+</doc>

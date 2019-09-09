@@ -1,0 +1,617 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>IntelliSchool.DSA.ClientFramework</name>
+    </assembly>
+    <members>
+        <member name="T:IntelliSchool.DSA.ClientFramework.XMLProxy.SelectionNode">
+            <summary>
+            儲存XmlNode的容器。
+            </summary>
+            <remarks>
+            當<see cref="!:IListAgent"/>的清單中對應的項目被選取時將會同步反映至<see cref="P:IntelliSchool.DSA.ClientFramework.XMLProxy.SelectionNode.Selected"/>屬性中。
+            您無法直接建立此物件，請透過<see cref="T:IntelliSchool.DSA.ClientFramework.XMLProxy.SelectionNodeCollection"/>.<see cref="M:IntelliSchool.DSA.ClientFramework.XMLProxy.SelectionNodeCollection.Add(System.Xml.XmlNode)"/>或<see cref="M:IntelliSchool.DSA.ClientFramework.XMLProxy.SelectionNodeCollection.AddRange(System.Xml.XmlNode,System.String)"/>方法將XmlNode加入至清單中。
+            </remarks>
+        </member>
+        <member name="P:IntelliSchool.DSA.ClientFramework.XMLProxy.SelectionNode.Selected">
+            <summary>
+            是否已被選取。
+            </summary>
+        </member>
+        <member name="P:IntelliSchool.DSA.ClientFramework.XMLProxy.SelectionNode.Owner">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:IntelliSchool.DSA.ClientFramework.XMLProxy.SelectionNode.Node">
+            <summary>
+            包含的XmlNode。
+            </summary>
+        </member>
+        <member name="P:IntelliSchool.DSA.ClientFramework.XMLProxy.SelectionNode.Value">
+            <summary>
+            物件代表的值。
+            </summary>
+        </member>
+        <member name="T:IntelliSchool.DSA.ClientFramework.XMLProxy.IXmlProxy">
+            <summary>
+            定義與Xml資料繫結之介面。
+            </summary>
+        </member>
+        <member name="P:IntelliSchool.DSA.ClientFramework.XMLProxy.IXmlProxy.ProxyType">
+            <summary>
+            定義當與XmlNode繫結時，是與該節點之子節點的值繫結，還是與該節點之屬性的值繫結。
+            </summary>
+        </member>
+        <member name="M:IntelliSchool.DSA.ClientFramework.XMLProxy.XmlProxy.ReadFieldText(System.Xml.XmlNode,System.String)">
+            <summary>
+            從XmlNode依據MemberType設定讀取Field資料，所有子類別皆應使用此方法讀取欄位資料
+            </summary>
+        </member>
+        <member name="M:IntelliSchool.DSA.ClientFramework.XMLProxy.XmlProxy.CheckFieldContented(System.Xml.XmlNode,System.String)">
+            <summary>
+            檢查節點是否包含指定欄位
+            </summary>
+            <remarks>依照MemberType設定檢查是否包含指定的屬性或子節點</remarks>
+        </member>
+        <member name="P:IntelliSchool.DSA.ClientFramework.XMLProxy.XmlProxy.ProxyType">
+            <summary>
+            設定ReadField時由Attribute讀取或由ChildElement讀取資料，預設為Attribute
+            </summary>
+        </member>
+        <member name="T:IntelliSchool.DSA.ClientFramework.XMLProxy.IListSelect">
+            <summary>
+            定義以清單及選取的方式與多筆Xml資料繼結之介面。
+            </summary>
+        </member>
+        <member name="M:IntelliSchool.DSA.ClientFramework.XMLProxy.IListSelect.IsNodeSelected(IntelliSchool.DSA.ClientFramework.XMLProxy.SelectionNode)">
+            <summary>
+            檢查一個SelectionNode所對應的項目是否已被選取
+            </summary>
+            <param name="selectionNode">要檢查的SelectionNode</param>
+            <returns>是否被選取</returns>
+        </member>
+        <member name="M:IntelliSchool.DSA.ClientFramework.XMLProxy.IListSelect.ChangeNodeSelect(IntelliSchool.DSA.ClientFramework.XMLProxy.SelectionNode,System.Boolean)">
+            <summary>
+            改變SelectionNode所對應的項目的選取狀態
+            </summary>
+        </member>
+        <member name="E:IntelliSchool.DSA.ClientFramework.XMLProxy.IListSelect.NodeSelectionChanged">
+            <summary>
+            當包含的SelectionNode的Selected屬性改變時引發
+            </summary>
+        </member>
+        <member name="P:IntelliSchool.DSA.ClientFramework.XMLProxy.IListSelect.NodeList">
+             <summary>
+             要與顯示的清單繫結的XmlNode集合
+             </summary>
+             <remarks>
+             透過此集合對清單進行新增及刪除，將會同步反映至繫結的控制項中。 
+            </remarks>
+        </member>
+        <member name="P:IntelliSchool.DSA.ClientFramework.XMLProxy.IListSelect.ValueField">
+            <summary>
+            對繫結的節點指定一個欄位，此欄位的值可以直接代表這個節點。
+            </summary>
+        </member>
+        <member name="P:IntelliSchool.DSA.ClientFramework.XMLProxy.TreeSelectProxy.IntelliSchool#DSA#ClientFramework#XMLProxy#IXmlProxy#ProxyType">
+            <summary>
+            此控制項與此屬性無關
+            </summary>
+        </member>
+        <member name="P:IntelliSchool.DSA.ClientFramework.XMLProxy.TreeSelectProxy.IntelliSchool#DSA#ClientFramework#XMLProxy#IListSelect#ValueField">
+            <summary>
+            此控制項與此屬性無關
+            </summary>
+        </member>
+        <!-- 忽略成員 "F:IntelliSchool.DSA.ClientFramework.XMLProxy.UIDesignEditors.ListViewAgent_DisplayMemberForm.components" 中格式錯誤的 XML 註解 -->
+        <!-- 忽略成員 "M:IntelliSchool.DSA.ClientFramework.XMLProxy.UIDesignEditors.ListViewAgent_DisplayMemberForm.Dispose(System.Boolean)" 中格式錯誤的 XML 註解 -->
+        <!-- 忽略成員 "M:IntelliSchool.DSA.ClientFramework.XMLProxy.UIDesignEditors.ListViewAgent_DisplayMemberForm.InitializeComponent" 中格式錯誤的 XML 註解 -->
+        <member name="T:IntelliSchool.DSA.ClientFramework.XMLProxy.ProxyTypes">
+            <summary>
+            定義與XmlNode繫結時，是與該節點之子節點的值繫結，還是與該節點之屬性的值繫結。
+            </summary>
+        </member>
+        <member name="F:IntelliSchool.DSA.ClientFramework.XMLProxy.ProxyTypes.Attribute">
+            <summary>
+            與節點之屬性繫結
+            </summary>
+        </member>
+        <member name="F:IntelliSchool.DSA.ClientFramework.XMLProxy.ProxyTypes.Element">
+            <summary>
+            與節點之子節點繫結
+            </summary>
+        </member>
+        <member name="T:IntelliSchool.DSA.ClientFramework.XMLProxy.NodeSelectionChangedEventArgs">
+            <summary>
+            提供<see cref="!:ISelectionList.NodeSelectionChanged"/>事件的資料
+            </summary>
+        </member>
+        <member name="M:IntelliSchool.DSA.ClientFramework.XMLProxy.NodeSelectionChangedEventArgs.#ctor(IntelliSchool.DSA.ClientFramework.XMLProxy.SelectionNode)">
+            <summary>
+            建立此物件
+            </summary>
+            <param name="SelectedData">選取狀態被改變的<see cerf="SelectionNode"/></param>
+        </member>
+        <member name="P:IntelliSchool.DSA.ClientFramework.XMLProxy.NodeSelectionChangedEventArgs.Data">
+            <summary>
+            選取狀態被改變的<see cerf="SelectionNode"/>
+            </summary>
+        </member>
+        <member name="T:IntelliSchool.DSA.ClientFramework.ControlCommunication.ValueChangeManager">
+            <summary>
+            自動化控制項Text值變更偵測
+            </summary>
+        </member>
+        <member name="M:IntelliSchool.DSA.ClientFramework.ControlCommunication.ValueChangeManager.#ctor">
+            <summary>
+            建構函式
+            </summary>
+        </member>
+        <member name="M:IntelliSchool.DSA.ClientFramework.ControlCommunication.ValueChangeManager.SetOriginal">
+            <summary>
+            為所有偵測的控制項設定初值
+            </summary>
+        </member>
+        <member name="E:IntelliSchool.DSA.ClientFramework.ControlCommunication.ValueChangeManager.DetectedEdit">
+            <summary>
+            指出控制項的Text屬性值改變
+            </summary>
+        </member>
+        <member name="P:IntelliSchool.DSA.ClientFramework.ControlCommunication.ValueChangeManager.Spliter">
+            <summary>
+            設定分格字串
+            </summary>       
+        </member>
+        <member name="P:IntelliSchool.DSA.ClientFramework.ControlCommunication.ValueChangeManager.Quary">
+            <summary>
+            取得偵測的控制項中，所有被改變的項目之QuaryText的串接，使用Spliter做分格
+            </summary>
+        </member>
+        <member name="P:IntelliSchool.DSA.ClientFramework.ControlCommunication.ValueChangeManager.Items">
+            <summary>
+            要被偵測的控制項集合
+            </summary>
+        </member>
+        <member name="P:IntelliSchool.DSA.ClientFramework.ControlCommunication.ValueChangeManager.HasChanged">
+            <summary>
+            判斷偵測的控制項中是否有任何一項的Text值被改變
+            </summary>
+        </member>
+        <member name="T:IntelliSchool.DSA.ClientFramework.ControlCommunication.IValueChangeConfigure">
+            <summary>
+            設定要被偵測的項目並設定如何產生Quary
+            </summary>
+        </member>
+        <member name="M:IntelliSchool.DSA.ClientFramework.ControlCommunication.IValueChangeConfigure.SetOriginal">
+            <summary>
+            將目前的值定為初值
+            </summary>
+        </member>
+        <member name="E:IntelliSchool.DSA.ClientFramework.ControlCommunication.IValueChangeConfigure.ChangeValue">
+            <summary>
+            偵測到值被改變
+            </summary>
+        </member>
+        <member name="P:IntelliSchool.DSA.ClientFramework.ControlCommunication.IValueChangeConfigure.HasChanged">
+            <summary>
+            判斷Value是否以被變更
+            </summary>
+        </member>
+        <member name="P:IntelliSchool.DSA.ClientFramework.ControlCommunication.IValueChangeConfigure.QuaryFormat">
+            <summary>
+            指定做為格式化的FormatString，其中{0}將被value取代
+            </summary>
+        </member>
+        <member name="P:IntelliSchool.DSA.ClientFramework.ControlCommunication.IValueChangeConfigure.QuaryText">
+            <summary>
+            傳回被QuaryFormat進行格式化後的值
+            </summary>
+        </member>
+        <member name="M:IntelliSchool.DSA.ClientFramework.ControlCommunication.GeneralizeValueConfigure.SetValueConverter(IntelliSchool.DSA.ClientFramework.ControlCommunication.valueConvertDelegate{System.Object})">
+            <summary>
+            當取得QuaryText時，使用自訂方法對Value進行值轉換
+            </summary>
+        </member>
+        <member name="T:IntelliSchool.DSA.ClientFramework.XMLProxy.ISingleSelect">
+            <summary>
+            定義一個可以被以單選方式選取的介面。
+            </summary>
+        </member>
+        <member name="P:IntelliSchool.DSA.ClientFramework.XMLProxy.ISingleSelect.SelectedNode">
+            <summary>
+            被選取的節點。
+            </summary>
+            <remarks>當控制項同時支援單選及多選時，為第一個被選取的節點。</remarks>
+        </member>
+        <member name="P:IntelliSchool.DSA.ClientFramework.XMLProxy.ISingleSelect.SelectedValue">
+            <summary>
+            被選取的值。
+            </summary>
+            <remarks>當控制項同時支援單選及多選時，為第一個被選取的值。</remarks>
+        </member>
+        <member name="M:IntelliSchool.DSA.ClientFramework.XMLProxy.ComboBoxProxy.Dispose(System.Boolean)">
+            <param name="disposing">true，表示釋放 Managed 和 Unmanaged 資源；false，表示只釋放 Unmanaged 資源。</param>
+        </member>
+        <member name="T:IntelliSchool.DSA.ClientFramework.ControlCommunication.TextChangeConfigure">
+            <summary>
+            設定偵測控制項的Text屬性
+            </summary>
+        </member>
+        <member name="M:IntelliSchool.DSA.ClientFramework.ControlCommunication.TextChangeConfigure.#ctor">
+            <summary>
+            建構函式
+            </summary>
+        </member>
+        <member name="M:IntelliSchool.DSA.ClientFramework.ControlCommunication.TextChangeConfigure.#ctor(System.Windows.Forms.Control)">
+            <summary>
+            建構函式
+            </summary>
+        </member>
+        <member name="M:IntelliSchool.DSA.ClientFramework.ControlCommunication.TextChangeConfigure.#ctor(System.Windows.Forms.Control,System.String)">
+            <summary>
+            建構函式
+            </summary>
+        </member>
+        <member name="M:IntelliSchool.DSA.ClientFramework.ControlCommunication.TextChangeConfigure.#ctor(System.Windows.Forms.Control,System.String,IntelliSchool.DSA.ClientFramework.ControlCommunication.valueConvertDelegate{System.String})">
+            <summary>
+            建構函式
+            </summary>
+        </member>
+        <member name="M:IntelliSchool.DSA.ClientFramework.ControlCommunication.TextChangeConfigure.SetOriginal">
+            <summary>
+            將Target.Text目前的設為初值，若之後Target.Text與此時的值不同則視為被改變
+            </summary>
+        </member>
+        <member name="M:IntelliSchool.DSA.ClientFramework.ControlCommunication.TextChangeConfigure.SetValueConverter(IntelliSchool.DSA.ClientFramework.ControlCommunication.valueConvertDelegate{System.String})">
+            <summary>
+            當取得QuaryText時，使用自訂方法對Value進行值轉換
+            </summary>
+        </member>
+        <member name="P:IntelliSchool.DSA.ClientFramework.ControlCommunication.TextChangeConfigure.HasChanged">
+            <summary>
+            判斷Target控制項的Text屬性是否以被變更
+            </summary>
+        </member>
+        <member name="P:IntelliSchool.DSA.ClientFramework.ControlCommunication.TextChangeConfigure.QuaryFormat">
+            <summary>
+            指定將Target.Text格式化的FormatString，其中{0}代表Target.Text的值
+            </summary>
+        </member>
+        <member name="P:IntelliSchool.DSA.ClientFramework.ControlCommunication.TextChangeConfigure.QuaryText">
+            <summary>
+            傳回被Target.Text使用QuaryFormat進行格式化後的值
+            </summary>
+        </member>
+        <member name="P:IntelliSchool.DSA.ClientFramework.ControlCommunication.TextChangeConfigure.Target">
+            <summary>
+            指定偵測的控制項
+            </summary>
+        </member>
+        <member name="E:IntelliSchool.DSA.ClientFramework.ControlCommunication.TextChangeConfigure.ChangeValue">
+            <summary>
+            偵測到值被改變
+            </summary>
+        </member>
+        <member name="T:IntelliSchool.DSA.ClientFramework.ControlCommunication.CheckChangeConfigure">
+            <summary>
+            設定偵測CheckBox的Checked屬性
+            </summary>
+        </member>
+        <member name="M:IntelliSchool.DSA.ClientFramework.ControlCommunication.CheckChangeConfigure.#ctor">
+            <summary>
+            建構函式
+            </summary>
+        </member>
+        <member name="M:IntelliSchool.DSA.ClientFramework.ControlCommunication.CheckChangeConfigure.#ctor(System.Windows.Forms.CheckBox)">
+            <summary>
+            建構函式
+            </summary>
+        </member>
+        <member name="M:IntelliSchool.DSA.ClientFramework.ControlCommunication.CheckChangeConfigure.#ctor(System.Windows.Forms.CheckBox,System.String)">
+            <summary>
+            建構函式
+            </summary>
+        </member>
+        <member name="M:IntelliSchool.DSA.ClientFramework.ControlCommunication.CheckChangeConfigure.#ctor(System.Windows.Forms.CheckBox,System.String,IntelliSchool.DSA.ClientFramework.ControlCommunication.valueConvertDelegate{System.Boolean})">
+            <summary>
+            建構函式
+            </summary>
+        </member>
+        <member name="M:IntelliSchool.DSA.ClientFramework.ControlCommunication.CheckChangeConfigure.SetOriginal">
+            <summary>
+            以目前值做為預設值
+            </summary>
+        </member>
+        <member name="M:IntelliSchool.DSA.ClientFramework.ControlCommunication.CheckChangeConfigure.SetValueConverter(IntelliSchool.DSA.ClientFramework.ControlCommunication.valueConvertDelegate{System.Boolean})">
+            <summary>
+            當取得QuaryText時，使用自訂方法對Value進行值轉換
+            </summary>
+        </member>
+        <member name="E:IntelliSchool.DSA.ClientFramework.ControlCommunication.CheckChangeConfigure.ChangeValue">
+            <summary>
+            偵測到值被改變
+            </summary>
+        </member>
+        <member name="P:IntelliSchool.DSA.ClientFramework.ControlCommunication.CheckChangeConfigure.HasChanged">
+            <summary>
+            判斷Value是否以被變更
+            </summary>
+        </member>
+        <member name="P:IntelliSchool.DSA.ClientFramework.ControlCommunication.CheckChangeConfigure.QuaryFormat">
+            <summary>
+            指定做為格式化的FormatString，其中{0}將被value取代
+            </summary>
+        </member>
+        <member name="P:IntelliSchool.DSA.ClientFramework.ControlCommunication.CheckChangeConfigure.QuaryText">
+            <summary>
+            傳回被QuaryFormat進行格式化後的值
+            </summary>
+        </member>
+        <member name="P:IntelliSchool.DSA.ClientFramework.ControlCommunication.CheckChangeConfigure.Target">
+            <summary>
+            指定偵測的控制項
+            </summary>
+        </member>
+        <member name="T:IntelliSchool.DSA.ClientFramework.ControlCommunication.ValueChangeConfigureList">
+            <summary>
+            TextChangeConfigure集合
+            </summary>
+        </member>
+        <member name="T:IntelliSchool.DSA.ClientFramework.ControlCommunication.SortType">
+            <summary>
+            排序方式列舉
+            </summary>
+        </member>
+        <member name="T:IntelliSchool.DSA.ClientFramework.ControlCommunication.LVSorter">
+            <summary>
+            附掛在ListView上，可以協助ListView依各個Column做排序，並可設定Column做排序時將資料以指定型別來做排序
+            </summary>
+        </member>
+        <member name="F:IntelliSchool.DSA.ClientFramework.ControlCommunication.LVSorter.oldImageIndex">
+            <summary>
+            當某個Colume不再排序時，ColumnHeader的ImageIndex會回復至原狀態(ColumnHeader.ImageIndex會從ListView.SmallImageList取得圖示)
+            </summary>
+        </member>
+        <member name="M:IntelliSchool.DSA.ClientFramework.ControlCommunication.LVSorter.#ctor">
+            <summary>
+            建構子
+            </summary>
+        </member>
+        <member name="M:IntelliSchool.DSA.ClientFramework.ControlCommunication.LVSorter.#ctor(System.Windows.Forms.ListView)">
+            <summary>
+            建構子
+            </summary>
+            <param name="targetListView">要自動排序的ListView</param>
+        </member>
+        <member name="M:IntelliSchool.DSA.ClientFramework.ControlCommunication.LVSorter.#ctor(System.Windows.Forms.ListView,System.Int32,System.Int32)">
+            <summary>
+            建構子
+            </summary>
+            <param name="targetListView">要自動排序的ListView</param>
+            <param name="ascImageIndex">當依照某個Colume做Asc排序時，ColumnHeader的ImageIndex</param>
+            <param name="decImageIndex">當依照某個Colume做Desc排序時，ColumnHeader的ImageIndex</param>
+        </member>
+        <member name="M:IntelliSchool.DSA.ClientFramework.ControlCommunication.LVSorter._TargetListView_ColumnClick(System.Object,System.Windows.Forms.ColumnClickEventArgs)">
+            <summary>
+            當Column被點取時自動排序
+            </summary>
+        </member>
+        <member name="M:IntelliSchool.DSA.ClientFramework.ControlCommunication.LVSorter.SetSortType(System.Windows.Forms.ColumnHeader,IntelliSchool.DSA.ClientFramework.ControlCommunication.SortType)">
+            <summary>
+            指定某個Column在排序時使用的方式
+            </summary>
+            <param name="column">Column</param>
+            <param name="type">排序規則</param>
+        </member>
+        <member name="M:IntelliSchool.DSA.ClientFramework.ControlCommunication.LVSorter.Sort(System.Windows.Forms.SortOrder,System.Int32)">
+            <summary>
+            照指定的SortOrder對指定的Column排序
+            </summary>
+            <param name="order">Asc或Desc</param>
+            <param name="index">Colume的索引</param>
+        </member>
+        <member name="M:IntelliSchool.DSA.ClientFramework.ControlCommunication.LVSorter.ReSort">
+            <summary>
+            照前一次排序指定的SortOrder及Column重新排序
+            </summary>
+        </member>
+        <member name="P:IntelliSchool.DSA.ClientFramework.ControlCommunication.LVSorter.Target">
+            <summary>
+            要自動排序的ListView
+            </summary>
+        </member>
+        <member name="P:IntelliSchool.DSA.ClientFramework.ControlCommunication.LVSorter.AscImageIndex">
+            <summary>
+            設定當依照某個Colume做Asc排序時，ColumnHeader的ImageIndex(ColumnHeader.ImageIndex會從ListView.SmallImageList取得圖示)
+            </summary>      
+        </member>
+        <member name="P:IntelliSchool.DSA.ClientFramework.ControlCommunication.LVSorter.DescImageIndex">
+            <summary>
+            設定當依照某個Colume做Desc排序時，ColumnHeader的ImageIndex(ColumnHeader.ImageIndex會從ListView.SmallImageList取得圖示)
+            </summary>
+        </member>
+        <member name="P:IntelliSchool.DSA.ClientFramework.ControlCommunication.LVSorter.ColumnSorter">
+            <summary>
+            指定Column在排序時使用哪種型別做比較
+            </summary>
+        </member>
+        <member name="T:IntelliSchool.DSA.ClientFramework.ControlCommunication.LVSorter.ListViewItemSorter">
+            <summary>
+            排序比較子
+            </summary>
+        </member>
+        <member name="M:IntelliSchool.DSA.ClientFramework.ControlCommunication.LVSorter.ListViewItemSorter.#ctor">
+            <summary>
+            建構子
+            </summary>
+        </member>
+        <member name="M:IntelliSchool.DSA.ClientFramework.ControlCommunication.LVSorter.ListViewItemSorter.SetSortType(System.Windows.Forms.ColumnHeader,IntelliSchool.DSA.ClientFramework.ControlCommunication.SortType)">
+            <summary>
+            設定ListView中某個Column所使用的排序方式(SortType列舉)
+            </summary>
+            <param name="column">column</param>
+            <param name="type">排序規則</param>
+        </member>
+        <member name="P:IntelliSchool.DSA.ClientFramework.ControlCommunication.LVSorter.ListViewItemSorter.SortColumnIndex">
+            <summary>
+            以第幾個Column做排序
+            </summary>
+        </member>
+        <member name="P:IntelliSchool.DSA.ClientFramework.ControlCommunication.LVSorter.ListViewItemSorter.TargetListView">
+            <summary>
+            被排序的ListView控制項
+            </summary>
+        </member>
+        <member name="P:IntelliSchool.DSA.ClientFramework.ControlCommunication.LVSorter.ListViewItemSorter.Active">
+            <summary>
+            是否啟動
+            </summary>
+        </member>
+        <member name="P:IntelliSchool.DSA.ClientFramework.ControlCommunication.LVSorter.ListViewItemSorter.ColumnSortType">
+            <summary>
+            設定ListView中各個Column所使用的排序方式(SortType列舉)
+            </summary>
+        </member>
+        <member name="T:IntelliSchool.DSA.ClientFramework.XMLProxy.SelectionNodeCollection">
+            <summary>
+            	<see cref="T:IntelliSchool.DSA.ClientFramework.XMLProxy.SelectionNode"/>的集合。
+            </summary>
+            <remarks>
+            您可以透過<see cref="M:IntelliSchool.DSA.ClientFramework.XMLProxy.SelectionNodeCollection.Add(System.Xml.XmlNode)"/>及<see cref="M:IntelliSchool.DSA.ClientFramework.XMLProxy.SelectionNodeCollection.AddRange(System.Xml.XmlNode,System.String)"/>，將XmlNode加入至此集合(將會自動包裝成<see cref="T:IntelliSchool.DSA.ClientFramework.XMLProxy.SelectionNode"/>)。
+            您無法自行建立此物件。
+            </remarks>
+        </member>
+        <member name="M:IntelliSchool.DSA.ClientFramework.XMLProxy.SelectionNodeCollection.Add(System.Xml.XmlNode)">
+            <summary>
+            將XmlNode加入至集合中
+            </summary>
+            <returns>無</returns>
+        </member>
+        <member name="M:IntelliSchool.DSA.ClientFramework.XMLProxy.SelectionNodeCollection.AddRange(System.Xml.XmlNode,System.String)">
+            <summary >
+            將XmlNode中特定路徑的節點加入至集合中
+            </summary>
+            <param name="Node">包含要加入節點的XmlNode</param>
+            <param name="xpath">要加入的子節點的路徑</param>
+        </member>
+        <member name="M:IntelliSchool.DSA.ClientFramework.XMLProxy.SelectionNodeCollection.AddRange(System.Xml.XmlNodeList)">
+            <summary >
+            將XmlNodeList中的元素加入至集合中
+            </summary>
+            <param name="NodeList">要加入的XmlNodeList</param>
+        </member>
+        <member name="M:IntelliSchool.DSA.ClientFramework.XMLProxy.SelectionNodeCollection.AddRange(System.Collections.Generic.IEnumerable{System.Xml.XmlNode})">
+            <summary >
+            將XmlNodeList中的元素加入至集合中
+            </summary>
+            <param name="NodeList">要加入的XmlNode集合</param>
+        </member>
+        <member name="M:IntelliSchool.DSA.ClientFramework.XMLProxy.SelectionNodeCollection.AddRange(System.Xml.XmlNode[])">
+            <summary >
+            將XmlNode[]中的元素加入至集合中
+            </summary>
+            <param name="Nodes">要加入的XmlNode元素陣列</param>
+        </member>
+        <member name="M:IntelliSchool.DSA.ClientFramework.XMLProxy.SelectionNodeCollection.ClearItems">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:IntelliSchool.DSA.ClientFramework.XMLProxy.SelectionNodeCollection.InsertItem(System.Int32,IntelliSchool.DSA.ClientFramework.XMLProxy.SelectionNode)">
+            <param name="index">應在該處插入 item 之以零起始的索引。</param>
+            <param name="item">要插入的物件。參考型別的值可以是 null。</param>
+        </member>
+        <member name="M:IntelliSchool.DSA.ClientFramework.XMLProxy.SelectionNodeCollection.RemoveItem(System.Int32)">
+            <param name="index">要移除元素之以零起始的索引。</param>
+        </member>
+        <member name="M:IntelliSchool.DSA.ClientFramework.XMLProxy.SelectionNodeCollection.SetItem(System.Int32,IntelliSchool.DSA.ClientFramework.XMLProxy.SelectionNode)">
+            <param name="index">要取代的項目之以零起始的索引。</param>
+            <param name="item">指定之索引處的項目新值。參考型別的值可以是 null。</param>
+        </member>
+        <member name="T:IntelliSchool.DSA.ClientFramework.XMLProxy.IMultiSelect">
+            <summary>
+            定義一個可以被以多選方式選取的介面。
+            </summary>
+        </member>
+        <member name="P:IntelliSchool.DSA.ClientFramework.XMLProxy.IMultiSelect.SelectedNodes">
+            <summary>
+            被選取的節點的集合。
+            </summary>
+        </member>
+        <member name="P:IntelliSchool.DSA.ClientFramework.XMLProxy.IMultiSelect.SelectionValues">
+            <summary>
+            被選取的值的集合。
+            </summary>
+        </member>
+        <member name="M:IntelliSchool.DSA.ClientFramework.XMLProxy.ListViewProxy.Dispose(System.Boolean)">
+            <param name="disposing">true，表示釋放 Managed 和 Unmanaged 資源；false，表示只釋放 Unmanaged 資源。</param>
+        </member>
+        <member name="E:IntelliSchool.DSA.ClientFramework.XMLProxy.GroupSelectProxy.GroupMembersChanged">
+            <summary>
+            當顯示在成員的資料變更時引發
+            </summary>
+        </member>
+        <member name="P:IntelliSchool.DSA.ClientFramework.XMLProxy.GroupSelectProxy.AutoSelectGroup">
+            <summary>
+            在繫結資料後自動選取群組的第一個項目
+            </summary>
+        </member>
+        <member name="P:IntelliSchool.DSA.ClientFramework.XMLProxy.GroupSelectProxy.AutoSelectMember">
+            <summary>
+            在繫結資料後自動選取群所包含的第一個項目
+            </summary>
+        </member>
+        <member name="P:IntelliSchool.DSA.ClientFramework.XMLProxy.GroupSelectProxy.GroupFields">
+            <summary>
+            產生群組依據的欄位
+            </summary>
+        </member>
+        <member name="P:IntelliSchool.DSA.ClientFramework.XMLProxy.GroupSelectProxy.GroupProxy">
+            <summary>
+            與GroupBy分出來的群組清單繫結的Agent
+            </summary>
+        </member>
+        <member name="P:IntelliSchool.DSA.ClientFramework.XMLProxy.GroupSelectProxy.MemberProxy">
+            <summary>
+            與被選取的群組所包含的項目單繫結的Agent
+            </summary>
+        </member>
+        <member name="P:IntelliSchool.DSA.ClientFramework.XMLProxy.GroupSelectProxy.NodeList">
+            <summary>
+            要繫結的資料
+            </summary>
+        </member>
+        <member name="P:IntelliSchool.DSA.ClientFramework.XMLProxy.GroupSelectProxy.IntelliSchool#DSA#ClientFramework#XMLProxy#IListSelect#ValueField">
+            <summary>
+            此控制項與此屬性無關
+            </summary>
+        </member>
+        <member name="T:IntelliSchool.DSA.ClientFramework.ControlCommunication.valueConvertDelegate`1">
+            <summary>
+            值轉換委派
+            </summary>
+            <param name="value">原值</param>
+            <returns>轉換值</returns>
+        </member>
+        <member name="T:IntelliSchool.DSA.ClientFramework.ControlCommunication.ListViewCheckAllManager">
+            <summary>
+            同步ListView跟ComboBox之間選取全部的控制
+            </summary>
+        </member>
+        <member name="M:IntelliSchool.DSA.ClientFramework.ControlCommunication.ListViewCheckAllManager.#ctor">
+            <summary>
+            建構子
+            </summary>
+        </member>
+        <member name="P:IntelliSchool.DSA.ClientFramework.ControlCommunication.ListViewCheckAllManager.TargetListView">
+            <summary>
+            目標ListView
+            </summary>
+        </member>
+        <member name="P:IntelliSchool.DSA.ClientFramework.ControlCommunication.ListViewCheckAllManager.TargetComboBox">
+            <summary>
+            快速全選的CheckBox
+            </summary>
+        </member>
+    </members>
+</doc>

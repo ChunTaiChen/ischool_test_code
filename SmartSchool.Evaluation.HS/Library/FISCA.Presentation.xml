@@ -1,0 +1,2417 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FISCA.Presentation</name>
+    </assembly>
+    <members>
+        <member name="F:FISCA.Presentation.DotNetBar.PrivateControl.NavContentDivision.components">
+            <summary> 
+            設計工具所需的變數。
+            </summary>
+        </member>
+        <member name="M:FISCA.Presentation.DotNetBar.PrivateControl.NavContentDivision.Dispose(System.Boolean)">
+            <summary> 
+            清除任何使用中的資源。
+            </summary>
+            <param name="disposing">如果應該處置 Managed 資源則為 true，否則為 false。</param>
+        </member>
+        <member name="M:FISCA.Presentation.DotNetBar.PrivateControl.NavContentDivision.InitializeComponent">
+             <summary>
+             此為設計工具支援所需的方法 - 請勿使用程式碼編輯器修改這個方法的內容。
+            
+             </summary>
+        </member>
+        <member name="T:FISCA.Presentation.MotherForm">
+            <summary>
+            系統主視窗
+            </summary>
+        </member>
+        <member name="M:FISCA.Presentation.MotherForm.AddPanel(FISCA.Presentation.INCPanel)">
+            <summary>
+            加入Division
+            </summary>
+            <param name="panel"></param>
+        </member>
+        <member name="M:FISCA.Presentation.MotherForm.AddPanel(FISCA.Presentation.IBlankPanel)">
+            <summary>
+            加入Division
+            </summary>
+            <param name="panel"></param>
+        </member>
+        <member name="M:FISCA.Presentation.MotherForm.SetStatusBarMessage(System.String)">
+            <summary>
+            顯示文字於下方狀態列
+            </summary>
+            <param name="text">文字</param>
+        </member>
+        <member name="M:FISCA.Presentation.MotherForm.SetStatusBarMessage(System.String,System.Int32)">
+            <summary>
+            顯示文字及進度條於下方狀態列
+            </summary>
+            <param name="text">文字</param>
+            <param name="progress">進度</param>
+        </member>
+        <member name="M:FISCA.Presentation.MotherForm.SuspendLayout">
+            <summary>
+            暫止 Layout 配置。
+            </summary>
+        </member>
+        <member name="M:FISCA.Presentation.MotherForm.ResumeLayout(System.Xml.Linq.XElement)">
+            <summary>
+            復原 Layout 配置。
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.MotherForm.Form">
+            <summary>
+            取得Form
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.MotherForm.Panels">
+            <summary>
+            取得所有 NCPanel 集合。
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.MotherForm.RibbonBarItems">
+            <summary>
+            取得功能列
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.MotherForm.StartMenu">
+            <summary>
+            取得開始按紐的選單
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.MotherForm.XPreferenceProvider">
+            <summary>
+            取得或設定使用者喜好值提供者(XLinq 版本)。
+            </summary>
+        </member>
+        <member name="E:FISCA.Presentation.MotherForm.TabGotFocus">
+            <summary>
+            當某個 Tab 取得焦點時發生。
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.MotherForm.LazyOrders">
+            <summary>
+            延遲決定順序的物件集合。
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.MotherForm.IsLayoutSuspended">
+            <summary>
+            取得目前 Layout Engine 是否處於暫停配置。
+            </summary>
+        </member>
+        <member name="E:FISCA.Presentation.MotherForm.LayoutResumed">
+            <summary>
+            當 Layout 恢復時。
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.MotherForm.PreferenceProvider">
+            <summary>
+            取得或設定，使用者設定資料的處理器
+            </summary>
+        </member>
+        <member name="T:FISCA.Presentation.MenuButtonManager">
+            <summary>
+            管理選單按紐
+            </summary>
+        </member>
+        <member name="T:FISCA.Presentation.ILazyOrder">
+            <summary>
+            延遲決定順序的物件集合
+            </summary>
+        </member>
+        <member name="M:FISCA.Presentation.ILazyOrder.SetLayout(System.Xml.Linq.XElement)">
+            <summary>
+            設定 Layout 順序。
+            </summary>
+            <param name="layoutDesc"></param>
+        </member>
+        <member name="P:FISCA.Presentation.ILazyOrder.LayoutPath">
+            <summary>
+            Layout Description 在 Layout 定議檔中的 XPath，例如 Ribbons/Ribbon/@Title='學生'。
+            </summary>
+        </member>
+        <member name="M:FISCA.Presentation.MenuButtonManager.GetEnumerator">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FISCA.Presentation.MenuButtonManager.SetLayout(System.Xml.Linq.XElement)">
+            <summary>
+            
+            </summary>
+            <param name="layoutDesc"></param>
+        </member>
+        <member name="P:FISCA.Presentation.MenuButtonManager.PopupItems">
+            <summary>
+            存放於 Target 的 SubItems，放入此集合，代表在畫面上已顯示。
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.MenuButtonManager.SuspendItems">
+            <summary>
+            暫停 Layout 時的 BaseItem 存放集合。
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.MenuButtonManager.Item(System.String)">
+            <summary>
+            建立選單按紐或取得已建立的按紐
+            </summary>
+            <param name="text">按紐名稱</param>
+            <returns>選單按紐</returns>
+        </member>
+        <member name="P:FISCA.Presentation.MenuButtonManager.Item(System.String[])">
+            <summary>
+            建立選單按紐或取得已建立的按紐
+            </summary>
+            <param name="paths">選單按紐的路徑</param>
+            <returns>選單按紐</returns>
+        </member>
+        <member name="P:FISCA.Presentation.MenuButtonManager.LayoutPath">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:FISCA.Presentation.IBlankPanel">
+            <summary>
+            僅包含畫面中央有Content的樣版
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.IBlankPanel.Group">
+            <summary>
+            取得名稱，將會對應到相同名稱的功能表列
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.IBlankPanel.ContentPane">
+            <summary>
+            取得中央區塊的內容
+            </summary>
+        </member>
+        <member name="F:FISCA.Presentation.DotNetBar.PrivateControl.BlankDivision.components">
+            <summary> 
+            設計工具所需的變數。
+            </summary>
+        </member>
+        <member name="M:FISCA.Presentation.DotNetBar.PrivateControl.BlankDivision.Dispose(System.Boolean)">
+            <summary> 
+            清除任何使用中的資源。
+            </summary>
+            <param name="disposing">如果應該處置 Managed 資源則為 true，否則為 false。</param>
+        </member>
+        <member name="M:FISCA.Presentation.DotNetBar.PrivateControl.BlankDivision.InitializeComponent">
+             <summary>
+             此為設計工具支援所需的方法 - 請勿使用程式碼編輯器修改這個方法的內容。
+            
+             </summary>
+        </member>
+        <member name="T:FISCA.Presentation.NCPanel">
+            <summary>
+            畫面左方有Navigation及中央有Content的樣版
+            </summary>
+        </member>
+        <member name="T:FISCA.Presentation.INCPanel">
+            <summary>
+            包含畫面左方有Navigation及中央有Content的樣版
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.INCPanel.Group">
+            <summary>
+            取得名稱，將會對應到相同名稱的功能表列
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.INCPanel.NavigationPane">
+            <summary>
+            取得左方區塊的內容
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.INCPanel.ContentPane">
+            <summary>
+            取得中央區塊的內容
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.INCPanel.Picture">
+            <summary>
+            取得圖片
+            </summary>
+        </member>
+        <member name="F:FISCA.Presentation.NCPanel.components">
+            <summary> 
+            設計工具所需的變數。
+            </summary>
+        </member>
+        <member name="M:FISCA.Presentation.NCPanel.Dispose(System.Boolean)">
+            <summary> 
+            清除任何使用中的資源。
+            </summary>
+            <param name="disposing">如果應該處置 Managed 資源則為 true，否則為 false。</param>
+        </member>
+        <member name="M:FISCA.Presentation.NCPanel.InitializeComponent">
+             <summary> 
+             此為設計工具支援所需的方法 - 請勿使用程式碼編輯器修改這個方法的內容。
+            
+             </summary>
+        </member>
+        <member name="F:FISCA.Presentation.NCPanel.NavPanePanel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:FISCA.Presentation.NCPanel.ContentPanePanel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:FISCA.Presentation.NCPanel.#ctor">
+            <summary>
+            建構子
+            </summary>
+        </member>
+        <member name="M:FISCA.Presentation.NCPanel.OnPaintBackground(System.Windows.Forms.PaintEventArgs)">
+            <summary>
+            繪製控制項的背景。
+            </summary>
+            <param name="e">包含事件資料。</param>
+        </member>
+        <member name="P:FISCA.Presentation.NCPanel.RibbonBarItems">
+            <summary>
+            取得功能列
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.NCPanel.Group">
+            <summary>
+            取得或設定，Panel對應的標題
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.NCPanel.NavigationPane">
+            <summary>
+            取得NavigationPane。
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.NCPanel.ContentPane">
+            <summary>
+            取得ContentPane。
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.NCPanel.Picture">
+            <summary>
+            取得或設定，Panel的圖示。
+            </summary>
+        </member>
+        <member name="T:FISCA.Presentation.RibbonBarItem">
+            <summary>
+            視窗上方的功能列
+            </summary>
+        </member>
+        <member name="M:FISCA.Presentation.RibbonBarItem.SetTopContainer(FISCA.Presentation.ContainerType)">
+            <summary>
+            將指定的顯示區塊顯示在功能列最前端
+            </summary>
+            <param name="type">顯示區塊</param>
+        </member>
+        <member name="P:FISCA.Presentation.RibbonBarItem.Text">
+            <summary>
+            取得名稱
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.RibbonBarItem.Index">
+            <summary>
+            取得或設定，顯示的順序
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.RibbonBarItem.AutoOverflowEnabled">
+            <summary>
+            取得或設定，RibbonBar可否因介面寬度縮合
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.RibbonBarItem.ResizeOrderIndex">
+            <summary>
+            取得或設定，因介面縮合的優先值
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.RibbonBarItem.OverflowButtonImage">
+            <summary>
+            取得或設定，介面縮合時顯示的圖示
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.RibbonBarItem.Items">
+            <summary>
+            取得子按紐集合
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.RibbonBarItem.Controls">
+            <summary>
+            取得子控制項集合
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.RibbonBarItem.Item(System.String)">
+            <summary>
+            建立新按紐，或取得已存在的按紐
+            </summary>
+            <param name="text">按紐名稱</param>
+            <returns></returns>
+        </member>
+        <member name="T:FISCA.Presentation.ContainerType">
+            <summary>
+            功能列所包含的顯示區塊
+            </summary>
+        </member>
+        <member name="F:FISCA.Presentation.ContainerType.ExtraLarge">
+            <summary>
+            放置<see cref="T:FISCA.Presentation.RibbonBarButton.MenuButtonSize">MenuButtonSize</see>.ExtraLarge的區塊。
+            </summary>
+        </member>
+        <member name="F:FISCA.Presentation.ContainerType.Large">
+            <summary>
+            放置<see cref="T:FISCA.Presentation.RibbonBarButton.MenuButtonSize">MenuButtonSize</see>.Large的區塊。
+            </summary>
+        </member>
+        <member name="F:FISCA.Presentation.ContainerType.Medium">
+            <summary>
+            放置<see cref="T:FISCA.Presentation.RibbonBarButton.MenuButtonSize">MenuButtonSize</see>.Medium的區塊。
+            </summary>
+        </member>
+        <member name="F:FISCA.Presentation.ContainerType.Small">
+            <summary>
+            放置<see cref="T:FISCA.Presentation.RibbonBarButton.MenuButtonSize">MenuButtonSize</see>.Small的區塊。
+            </summary>
+        </member>
+        <member name="F:FISCA.Presentation.ContainerType.Control">
+            <summary>
+            放置自訂控制項的區塊。
+            </summary>
+        </member>
+        <member name="T:FISCA.Presentation.PrimaryKeysCollection">
+            <summary>
+            管理PrimaryKey的集合
+            </summary>
+        </member>
+        <member name="M:FISCA.Presentation.PrimaryKeysCollection.#ctor">
+            <summary>
+            建構子
+            </summary>
+            <overloads>建構子</overloads> 
+        </member>
+        <member name="M:FISCA.Presentation.PrimaryKeysCollection.#ctor(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            建構子
+            </summary>
+            <param name="primaryKeys">指定集合內容</param>
+        </member>
+        <member name="M:FISCA.Presentation.PrimaryKeysCollection.AddRange(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            大量新增項目。
+            </summary>
+            <param name="primaryKeys">新增項目集合</param>
+        </member>
+        <member name="M:FISCA.Presentation.PrimaryKeysCollection.ReplaceAll(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            以新的集合直接取代原有的集合。
+            </summary>
+            <param name="primaryKeys">新集合</param>
+        </member>
+        <member name="M:FISCA.Presentation.PrimaryKeysCollection.ClearItems">
+            <summary>
+            將所有元素移除。
+            </summary>
+        </member>
+        <member name="M:FISCA.Presentation.PrimaryKeysCollection.InsertItem(System.Int32,System.String)">
+            <summary>
+            將項目插入指定的索引處。
+            </summary>
+            <param name="index">應該插入item處之以零為始的索引。</param>
+            <param name="item">要插入的物件，參考型別的值可以是null。</param>
+        </member>
+        <member name="M:FISCA.Presentation.PrimaryKeysCollection.RemoveItem(System.Int32)">
+            <summary>
+            移除指定索引處的項目。
+            </summary>
+            <param name="index">要移除原素之以零為始的索引。</param>
+        </member>
+        <member name="M:FISCA.Presentation.PrimaryKeysCollection.SetItem(System.Int32,System.String)">
+            <summary>
+            取代指定索引處的項目。
+            </summary>
+            <param name="index">要取代的項目之以零為起始的索引。</param>
+            <param name="item">指定之索引處的項目新值，參考型別的值可以是null。</param>
+        </member>
+        <member name="M:FISCA.Presentation.PrimaryKeysCollection.OnItemsChanged">
+            <summary>
+            當ItemsChanged時。
+            </summary>
+        </member>
+        <member name="E:FISCA.Presentation.PrimaryKeysCollection.ItemsChanged">
+            <summary>
+            項目內容變更時。
+            </summary>
+        </member>
+        <member name="F:FISCA.Presentation.DotNetBar.PrivateControl.MotherForm.components">
+            <summary>
+            設計工具所需的變數。
+            </summary>
+        </member>
+        <member name="M:FISCA.Presentation.DotNetBar.PrivateControl.MotherForm.Dispose(System.Boolean)">
+            <summary>
+            清除任何使用中的資源。
+            </summary>
+            <param name="disposing">如果應該公開 Managed 資源則為 true，否則為 false。</param>
+        </member>
+        <member name="M:FISCA.Presentation.DotNetBar.PrivateControl.MotherForm.InitializeComponent">
+             <summary>
+             此為設計工具支援所需的方法 - 請勿使用程式碼編輯器修改這個方法的內容。
+            
+             </summary>
+        </member>
+        <member name="M:FISCA.Presentation.DotNetBar.PrivateControl.MotherForm.SetLayout(System.Xml.Linq.XElement)">
+            <summary>
+            依照 Layout Order，排序 Tab。
+            </summary>
+            <param name="layout"></param>
+        </member>
+        <member name="E:FISCA.Presentation.DotNetBar.PrivateControl.MotherForm.TabGotFocus">
+            <summary>
+            當 Tab Click 時發生。
+            </summary>
+        </member>
+        <member name="F:FISCA.Presentation.ItemComparer.Firsts">
+            <summary>
+            記錄每一個字串的前後順序。
+            </summary>
+        </member>
+        <member name="F:FISCA.Presentation.ItemComparer.FirstOrder">
+            <summary>
+            從 1  開始。
+            </summary>
+        </member>
+        <member name="F:FISCA.Presentation.ItemComparer.LastOrder">
+            <summary>
+            從 int.MaxValue - 1000 開始。
+            </summary>
+        </member>
+        <member name="T:FISCA.Presentation.MenuButton">
+            <summary>
+            選單按紐
+            </summary>
+        </member>
+        <member name="M:FISCA.Presentation.MenuButton.GetImage">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FISCA.Presentation.MenuButton.SetImage(System.Drawing.Image)">
+            <summary>
+            
+            </summary>
+            <param name="image"></param>
+        </member>
+        <member name="M:FISCA.Presentation.MenuButton.Lock(System.String)">
+            <summary>
+            鎖定此按紐，除非呼叫UnLock並傳入相同Password否則無法編輯此按紐
+            </summary>
+            <param name="password">密碼</param>
+        </member>
+        <member name="M:FISCA.Presentation.MenuButton.UnLock(System.String)">
+            <summary>
+            解除鎖定此按紐
+            </summary>
+            <param name="password">密碼</param>
+        </member>
+        <member name="M:FISCA.Presentation.MenuButton.GetChild(System.String)">
+            <summary>
+            建立子選單按紐或取得已存在的按紐
+            </summary>
+            <param name="text">子選單按紐名稱</param>
+            <returns>子選單按紐</returns>
+        </member>
+        <member name="M:FISCA.Presentation.MenuButton.GetChild(System.String[])">
+            <summary>
+            建立子選單按紐或取得已存在的按紐
+            </summary>
+            <param name="paths">子選單按紐路徑</param>
+            <returns>子選單按紐</returns>
+        </member>
+        <member name="M:FISCA.Presentation.MenuButton.SetLayout(System.Xml.Linq.XElement)">
+            <summary>
+            內部 API，不建議呼叫。
+            </summary>
+            <param name="description"></param>
+        </member>
+        <member name="P:FISCA.Presentation.MenuButton.AutoCheckOnClick">
+            <summary>
+            取得或設定，指出是否在點擊時自動改變Checked屬性
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.MenuButton.AutoCollapseOnClick">
+            <summary>
+            取得或設定，指出是否在點擊時自動收合選單
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.MenuButton.BeginGroup">
+            <summary>
+            取得或設定，指出是否在選單按紐上方增加一條分格線
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.MenuButton.Checked">
+            <summary>
+            取得或設定，指出是否已選取
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.MenuButton.Enable">
+            <summary>
+            取得或設定，指出是否啟用按紐
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.MenuButton.Image">
+            <summary>
+            取得或設定，鈕控上顯示的影像
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.MenuButton.Text">
+            <summary>
+            取得或設定，指出按紐顯示的文字
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.MenuButton.Visible">
+            <summary>
+            取得或設定，指出是否顯示按紐
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.MenuButton.Tag">
+            <summary>
+            取得或設定，其包含控制項相關資料
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.MenuButton.SubItemStatus">
+            <summary>
+            不會是 Null。
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.MenuButton.SupposeHasChildern">
+            <summary>
+            取得或設定，永遠以包含子項目的方式顯示
+            </summary>
+        </member>
+        <member name="E:FISCA.Presentation.MenuButton.Click">
+            <summary>
+            當按下按紐時。
+            </summary>
+        </member>
+        <member name="E:FISCA.Presentation.MenuButton.CheckedChanged">
+            <summary>
+            當Checked暑性變更時
+            </summary>
+        </member>
+        <member name="E:FISCA.Presentation.MenuButton.PopupOpen">
+            <summary>
+            當子選單開啟時
+            </summary>
+        </member>
+        <member name="E:FISCA.Presentation.MenuButton.PopupClose">
+            <summary>
+            當子選單關閉時
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.MenuButton.Items">
+            <summary>
+            取得子選單按紐集合
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.MenuButton.Item(System.String)">
+            <summary>
+            建立子選單按紐或取得已存在的按紐
+            </summary>
+            <param name="text">子選單按紐名稱</param>
+            <returns>子選單按紐</returns>
+        </member>
+        <member name="P:FISCA.Presentation.MenuButton.LayoutPath">
+            <summary>
+            內部 API，不建議呼叫。
+            </summary>
+        </member>
+        <member name="T:FISCA.Presentation.RibbonBarButton">
+            <summary>
+            功能列上的按紐
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.RibbonBarButton.Size">
+            <summary>
+            取得或設定，指出按紐的大小
+            </summary>
+        </member>
+        <member name="E:FISCA.Presentation.RibbonBarButton.SizeChanged">
+            <summary>
+            當Size屬性變更時
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.RibbonBarButton.Display">
+            <summary>
+            取得或設定，指出是否顯示於功能列
+            </summary>
+        </member>
+        <member name="E:FISCA.Presentation.RibbonBarButton.DisplayChanged">
+            <summary>
+            當Display屬性變更時
+            </summary>
+        </member>
+        <member name="T:FISCA.Presentation.RibbonBarButton.MenuButtonSize">
+            <summary>
+            功能列上按紐的各種大小
+            </summary>
+        </member>
+        <member name="F:FISCA.Presentation.RibbonBarButton.MenuButtonSize.ExtraLarge">
+            <summary>
+            非常大，通常是只有大圖而沒有顯示Text。
+            </summary>
+        </member>
+        <member name="F:FISCA.Presentation.RibbonBarButton.MenuButtonSize.Large">
+            <summary>
+            很大，文字顯示在圖片下方。
+            </summary>
+        </member>
+        <member name="F:FISCA.Presentation.RibbonBarButton.MenuButtonSize.Medium">
+            <summary>
+            標準，以兩列為一行的排列。
+            </summary>
+        </member>
+        <member name="F:FISCA.Presentation.RibbonBarButton.MenuButtonSize.Small">
+            <summary>
+            小，以三列為一行的排列。
+            </summary>
+        </member>
+        <member name="T:FISCA.Presentation.TabGotFocusEventArgs">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:FISCA.Presentation.TabGotFocusEventArgs.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="name"></param>
+        </member>
+        <member name="P:FISCA.Presentation.TabGotFocusEventArgs.TabName">
+            <summary>
+            Tab 名稱。
+            </summary>
+        </member>
+        <member name="T:FISCA.Presentation.DivisionBarManager">
+            <summary>
+            管理Division所對應的功能列
+            </summary>
+        </member>
+        <member name="M:FISCA.Presentation.DivisionBarManager.GetChild(System.String)">
+            <summary>
+            建立新的功能列，或取得已有的功能列
+            </summary>
+            <param name="text">功能列的 NavText</param>
+            <returns>功能列</returns>
+        </member>
+        <member name="P:FISCA.Presentation.DivisionBarManager.Item(System.String)">
+            <summary>
+            建立新的功能列，或取得已有的功能列
+            </summary>
+            <param name="text">功能列的 NavText</param>
+            <returns>功能列</returns>
+        </member>
+        <member name="T:FISCA.Presentation.Controls.MsgBox">
+            <summary>
+            比較漂亮的MessageBox。
+            </summary>
+        </member>
+        <member name="M:FISCA.Presentation.Controls.MsgBox.Show(System.String)">
+            <summary>
+            訊息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FISCA.Presentation.Controls.MsgBox.Show(System.String,System.String)">
+            <summary>
+            訊息,標題(預設使用確定按鈕)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FISCA.Presentation.Controls.MsgBox.Show(System.String,System.Windows.Forms.MessageBoxButtons)">
+            <summary>
+            訊息,Buttons(包含產品名稱)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FISCA.Presentation.Controls.MsgBox.Show(System.String,System.Windows.Forms.MessageBoxButtons,System.Windows.Forms.MessageBoxDefaultButton)">
+            <summary>
+            訊息,Buttons(包含產品名稱)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FISCA.Presentation.Controls.MsgBox.Show(System.String,System.String,System.Windows.Forms.MessageBoxButtons)">
+            <summary>
+            訊息,標題,Buttons
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FISCA.Presentation.Controls.MsgBox.Show(System.String,System.String,System.Windows.Forms.MessageBoxButtons,System.Windows.Forms.MessageBoxIcon)">
+            <summary>
+            訊息,標題,Buttons,Icon
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FISCA.Presentation.Controls.MsgBox.Show(System.String,System.String,System.Windows.Forms.MessageBoxButtons,System.Windows.Forms.MessageBoxIcon,System.Windows.Forms.MessageBoxDefaultButton)">
+            <summary>
+            訊息,標題,Buttons,Icon,DefaultButton(預設停在"否"的MessageBox)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:FISCA.Presentation.RibbonBarControlContainerManager">
+            <summary>
+            管理功能列包含的控制項
+            </summary>
+        </member>
+        <member name="M:FISCA.Presentation.RibbonBarControlContainerManager.GetChild(System.String)">
+            <summary>
+            建立新的控制項或取得已有的控制項
+            </summary>
+            <param name="text">名稱</param>
+            <returns>控制項容器</returns>
+        </member>
+        <member name="M:FISCA.Presentation.RibbonBarControlContainerManager.GetEnumerator">
+            <summary>
+            列出來。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:FISCA.Presentation.RibbonBarControlContainerManager.Item(System.String)">
+            <summary>
+            建立新的控制項或取得已有的控制項
+            </summary>
+            <param name="text">名稱</param>
+            <returns>控制項容器</returns>
+        </member>
+        <member name="T:FISCA.Presentation.PreferenceProviderAdapter">
+            <summary>
+            將舊版 Provider 轉換為新的介面。
+            </summary>
+        </member>
+        <member name="M:FISCA.Presentation.PreferenceProviderAdapter.preference_ContentChanged(System.Object,System.EventArgs)">
+            <summary>
+            當內容有改更時，就儲存資料。
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="P:FISCA.Presentation.PreferenceProviderAdapter.Empty">
+            <summary>
+            空的 PreferenceProvider。
+            </summary>
+        </member>
+        <member name="T:FISCA.Presentation.DescriptionPane">
+            <summary>
+            NavContentPresentation中DetailPane的顯示項目
+            </summary>
+        </member>
+        <member name="F:FISCA.Presentation.DescriptionPane.components">
+            <summary> 
+            設計工具所需的變數。
+            </summary>
+        </member>
+        <member name="M:FISCA.Presentation.DescriptionPane.Dispose(System.Boolean)">
+            <summary> 
+            清除任何使用中的資源。
+            </summary>
+            <param name="disposing">如果應該處置 Managed 資源則為 true，否則為 false。</param>
+        </member>
+        <member name="M:FISCA.Presentation.DescriptionPane.InitializeComponent">
+             <summary> 
+             此為設計工具支援所需的方法 - 請勿使用程式碼編輯器修改這個方法的內容。
+            
+             </summary>
+        </member>
+        <member name="M:FISCA.Presentation.DescriptionPane.#ctor">
+            <summary>
+            建構子
+            </summary>
+        </member>
+        <member name="M:FISCA.Presentation.DescriptionPane.OnLoad(System.EventArgs)">
+            <summary>
+            
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:FISCA.Presentation.DescriptionPane.OnPaintBackground(System.Windows.Forms.PaintEventArgs)">
+            <summary>
+            
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:FISCA.Presentation.DescriptionPane.OnPrimaryKeyChanged(System.EventArgs)">
+            <summary>
+            引發PrimaryKeyChanged事件
+            </summary>
+            <param name="e">包含事件的資料</param>
+        </member>
+        <member name="P:FISCA.Presentation.DescriptionPane.PrimaryKey">
+            <summary>
+            取得資料擁有者的索引鍵值
+            </summary>
+        </member>
+        <member name="E:FISCA.Presentation.DescriptionPane.PrimaryKeyChanged">
+            <summary>
+            當PrimaryKey屬性變更時
+            </summary>
+        </member>
+        <member name="F:FISCA.Presentation.DotNetBar.PrivateControl.PupopDetailPane.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:FISCA.Presentation.DotNetBar.PrivateControl.PupopDetailPane.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:FISCA.Presentation.DotNetBar.PrivateControl.PupopDetailPane.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:FISCA.Presentation.DotNetBar.PrivateControl.CardPanelEx">
+            <summary>
+            以卡片形式Layout子控制項的Form
+            </summary>
+        </member>
+        <member name="M:FISCA.Presentation.DotNetBar.PrivateControl.CardPanelEx.#ctor">
+            <summary>
+            建構子
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.DotNetBar.PrivateControl.CardPanelEx.CardWidth">
+            <summary>
+            每個子控制項的寬度
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.DotNetBar.PrivateControl.CardPanelEx.MinWidth">
+            <summary>
+            Layout的最小寬度
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.DotNetBar.PrivateControl.CardPanelEx.LayoutEngine">
+            <summary>
+            LayoutEngine
+            </summary>
+        </member>
+        <member name="T:FISCA.Presentation.NavView">
+            <summary>
+            NavContentPresentation中左方區塊外掛的瀏覽方式
+            </summary>
+            <remarks>當Layout時應以傳入的key值做為瀏覽的清單(而非所有可能的key值)，當被選取時觸發ListPaneSourceChanged事件將被選取的key值傳給ListPane</remarks>
+        </member>
+        <member name="T:FISCA.Presentation.INavView">
+            <summary>
+            NavContentPresentation中左方區塊外掛的瀏覽方式
+            </summary>
+            <remarks>當Layout時應以傳入的key值做為瀏覽的清單(而非所有可能的key值)，當被選取時觸發ListPaneSourceChanged事件將被選取的key值傳給ListPane</remarks>
+        </member>
+        <member name="P:FISCA.Presentation.INavView.Active">
+            <summary>
+            取德或設定，指出是否做用中
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.INavView.NavText">
+            <summary>
+            取得名稱
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.INavView.Description">
+            <summary>
+            取得描述
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.INavView.DisplayPane">
+            <summary>
+            取得顯示區域內容
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.INavView.Source">
+            <summary>
+            取得，所有顯示資料之集合
+            </summary>
+        </member>
+        <member name="E:FISCA.Presentation.INavView.ListPaneSourceChanged">
+            <summary>
+            要顯示於ListPane的資料變更時
+            </summary>
+        </member>
+        <member name="M:FISCA.Presentation.NavView.#ctor">
+            <summary>
+            建構子。
+            </summary>
+        </member>
+        <member name="M:FISCA.Presentation.NavView.OnLoad(System.EventArgs)">
+            <summary>
+            
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:FISCA.Presentation.NavView.OnPaintBackground(System.Windows.Forms.PaintEventArgs)">
+            <summary>
+            
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:FISCA.Presentation.NavView.OnSourceChanged">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:FISCA.Presentation.NavView.OnPaint(System.Windows.Forms.PaintEventArgs)">
+            <summary>
+            
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:FISCA.Presentation.NavView.SetListPaneSource(System.Collections.Generic.IEnumerable{System.String},System.Boolean,System.Boolean)">
+            <summary>
+            設定此View選取的項目。
+            </summary>
+            <param name="source">所有項目得集合</param>
+            <param name="selectAll">在ListPane中全選。</param>
+            <param name="addToTemp">直接加入至待處理。</param>
+        </member>
+        <member name="F:FISCA.Presentation.NavView.components">
+            <summary> 
+            設計工具所需的變數。
+            </summary>
+        </member>
+        <member name="M:FISCA.Presentation.NavView.Dispose(System.Boolean)">
+            <summary> 
+            清除任何使用中的資源。
+            </summary>
+            <param name="disposing">如果應該處置 Managed 資源則為 true，否則為 false。</param>
+        </member>
+        <member name="M:FISCA.Presentation.NavView.InitializeComponent">
+             <summary> 
+             此為設計工具支援所需的方法 - 請勿使用程式碼編輯器修改這個方法的內容。
+            
+             </summary>
+        </member>
+        <member name="P:FISCA.Presentation.NavView.Active">
+            <summary>
+            取德或設定，指出是否做用中
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.NavView.NavText">
+            <summary>
+            取得名稱
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.NavView.Description">
+            <summary>
+            取得描述
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.NavView.DisplayPane">
+            <summary>
+            取得顯示區域內容
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.NavView.Source">
+            <summary>
+            取得，所有顯示資料之集合
+            </summary>
+        </member>
+        <member name="E:FISCA.Presentation.NavView.ListPaneSourceChanged">
+            <summary>
+            要顯示於ListPane的資料變更時
+            </summary>
+        </member>
+        <member name="E:FISCA.Presentation.NavView.SourceChanged">
+            <summary>
+            選取項目變更。
+            </summary>
+        </member>
+        <member name="T:FISCA.Presentation.NLDPanel">
+            <summary>
+            已經預先定義各種操作的NavContentDivision
+            </summary>
+            <remarks>
+            此物件定義了：
+            1.   待處裡的集合
+            2.   左方NavPane的篩選功能
+            3.   左方NavPane的可擴充的NavView
+            4.   左方NavPane的可擴充的右鍵選單
+            5.   ContentPane中分割為ListPane及DetailPane，以及雙擊ListPane中的項目可跳出PopupDetailPane的視窗
+            6.   ListPane含有搜尋功能以及可擴充的搜尋條件選單
+            7.   ListPane含有可擴充的欄位
+            8.   ListPane含有可擴充的右鍵選單(已內建"將選取加入待處裡"及"將選取從待處裡中移除"的功能)
+            9.   可擴充的DetailPane表頭顯示樣貌及PopupDetailPane的標題
+            10.可擴充的DetailPane顯示項目
+            </remarks>
+        </member>
+        <member name="M:FISCA.Presentation.NLDPanel.AddDetailBulider(FISCA.Presentation.IDetailBulider)">
+            <summary>
+            加入DetailPane顯示項目的產生器
+            </summary>
+            <param name="item">顯示項目的產生器</param>
+        </member>
+        <member name="M:FISCA.Presentation.NLDPanel.AddDetailBulider``1">
+            <summary>
+            加入DetailPane顯示項目的產生器
+            </summary>
+            <typeparam name="T">DetailPane顯示項目的型別，此型別必需實做預設建構子</typeparam>
+        </member>
+        <member name="M:FISCA.Presentation.NLDPanel.AddListPaneField(FISCA.Presentation.ListPaneField)">
+            <summary>
+            加入ListPane的欄位
+            </summary>
+            <param name="listPaneField">欄位</param>
+        </member>
+        <member name="M:FISCA.Presentation.NLDPanel.AddView(FISCA.Presentation.INavView)">
+            <summary>
+            加入NavPane的NavView
+            </summary>
+            <param name="navView">瀏覽</param>
+        </member>
+        <member name="M:FISCA.Presentation.NLDPanel.SetFilteredSource(System.Collections.Generic.List{System.String})">
+            <summary>
+            設定經過篩選後的資料集合
+            </summary>
+            <param name="primaryKeys">資料的集合</param>
+        </member>
+        <member name="M:FISCA.Presentation.NLDPanel.SetDescriptionPaneBulider(FISCA.Presentation.IDescriptionPaneBulider)">
+            <summary>
+            設定DetailPane表頭顯示樣貌
+            </summary>
+            <param name="bulider">表頭顯示樣貌的產生器</param>
+        </member>
+        <member name="M:FISCA.Presentation.NLDPanel.SetDescriptionPaneBulider``1">
+            <summary>
+            設定DetailPane表頭顯示樣貌
+            </summary>
+            <typeparam name="T">DetailPane顯示標題的型別，此型別必需實做預設建構子</typeparam>
+        </member>
+        <member name="M:FISCA.Presentation.NLDPanel.PopupDetailPane(System.String)">
+            <summary>
+            顯示PopupDetailPane視窗
+            </summary>
+            <param name="primaryKey">顯示資料的鍵值</param>
+        </member>
+        <member name="M:FISCA.Presentation.NLDPanel.AddToTemp(System.Collections.Generic.List{System.String})">
+            <summary>
+            將資料加入至待處裡
+            </summary>
+            <param name="primaryKeys">要加入待處裡的資料</param>
+        </member>
+        <member name="M:FISCA.Presentation.NLDPanel.RemoveFromTemp(System.Collections.Generic.List{System.String})">
+            <summary>
+            將資料移出待處裡
+            </summary>
+            <param name="primaryKeys">要移出待處裡的資料</param>
+        </member>
+        <member name="M:FISCA.Presentation.NLDPanel.RefillListPane">
+            <summary>
+            重新整裡ListPane
+            </summary>
+        </member>
+        <member name="M:FISCA.Presentation.NLDPanel.ReloadDetailPane">
+            <summary>
+            重新載入DetailPane
+            </summary>
+        </member>
+        <member name="M:FISCA.Presentation.NLDPanel.#ctor">
+            <summary>
+            建構子
+            </summary>
+        </member>
+        <member name="M:FISCA.Presentation.NLDPanel.OnTempSourceChanged(System.EventArgs)">
+            <summary>
+            引發TempSourceChanged事件
+            </summary>
+            <param name="e">包含事件的資料</param>
+        </member>
+        <member name="M:FISCA.Presentation.NLDPanel.OnSelectedSourceChanged(System.EventArgs)">
+            <summary>
+            引發SelectedChanged事件
+            </summary>
+            <param name="e">包含事件的資料</param>
+        </member>
+        <member name="M:FISCA.Presentation.NLDPanel.OnSearch(FISCA.Presentation.SearchEventArgs)">
+            <summary>
+            引發Search事件。此方法於1.0.1.2之後的版本已無作用
+            </summary>
+            <param name="e">包含事件的資料</param>
+        </member>
+        <member name="M:FISCA.Presentation.NLDPanel.OnRequiredDescription(FISCA.Presentation.RequiredDescriptionEventArgs)">
+            <summary>
+            引發RequiredDescription事件
+            </summary>
+            <param name="e">包含事件的資料</param>
+        </member>
+        <member name="M:FISCA.Presentation.NLDPanel.OnCompareSource(FISCA.Presentation.CompareEventArgs)">
+            <summary>
+            引發CompareSource事件
+            </summary>
+            <param name="e">包含事件的資料</param>
+        </member>
+        <member name="M:FISCA.Presentation.NLDPanel.SelectAll">
+            <summary>
+            選取選單中所有項目
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.NLDPanel.ListPaneContexMenu">
+            <summary>
+            加入ListPane的右鍵選單
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.NLDPanel.NavPaneContexMenu">
+            <summary>
+            加入NavPane的右鍵選單
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.NLDPanel.FilterMenu">
+            <summary>
+            取得篩選功能的選單按紐
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.NLDPanel.SearchConditionMenu">
+            <summary>
+            取得搜尋選項的選單按紐
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.NLDPanel.DetailContents">
+            <summary>
+            取得 DetailContent 實體清單。
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.NLDPanel.RibbonBarItems">
+            <summary>
+            取得功能列
+            </summary>
+        </member>
+        <member name="E:FISCA.Presentation.NLDPanel.RequiredDescription">
+            <summary>
+            取得DetailPane的表頭簡述或PopupDetailPane的標題時
+            </summary>
+        </member>
+        <member name="E:FISCA.Presentation.NLDPanel.Search">
+            <summary>
+            當搜尋時
+            </summary>
+        </member>
+        <member name="E:FISCA.Presentation.NLDPanel.SelectedSourceChanged">
+            <summary>
+            當選取的資料集合變更時
+            </summary>
+        </member>
+        <member name="E:FISCA.Presentation.NLDPanel.TempSourceChanged">
+            <summary>
+            當待處裡的資料集合變更時
+            </summary>
+        </member>
+        <member name="E:FISCA.Presentation.NLDPanel.CompareSource">
+            <summary>
+            當比較兩個資料大小時
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.NLDPanel.SelectedSource">
+            <summary>
+            取得選取資料的資料集合
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.NLDPanel.TempSource">
+            <summary>
+            取得待處裡資料的資料集合
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.NLDPanel.DisplaySource">
+            <summary>
+            取得ListPane中顯示資料的資料集合
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.NLDPanel.DisplayDetailID">
+            <summary>
+            取得目前DetailPane中顯示資料的primaryKey
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.NLDPanel.DisplayStatus">
+            <summary>
+            取得或設定檢視模式
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.NLDPanel.Group">
+            <summary>
+            取得或設定，Panel對應的標題
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.NLDPanel.NavigationPane">
+            <summary>
+            取得NavigationPane。
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.NLDPanel.ContentPane">
+            <summary>
+            取得ContentPane。
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.NLDPanel.Picture">
+            <summary>
+            取得或設定，Panel的圖示。
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.NLDPanel.ShowLoading">
+            <summary>
+            取得或設定，指定Panel是否正在載入中。
+            </summary>
+        </member>
+        <member name="T:FISCA.Presentation.SearchEventArgs">
+            <summary>
+            提供Search事件的資料
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.SearchEventArgs.Condition">
+            <summary>
+            取得搜尋條件
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.SearchEventArgs.Result">
+             <summary>
+            取得符合條件的資料集合
+             </summary>
+        </member>
+        <member name="T:FISCA.Presentation.RequiredDescriptionEventArgs">
+            <summary>
+            提供RequiredDescription事件的資料
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.RequiredDescriptionEventArgs.PrimaryKey">
+            <summary>
+            取得引發事件的資料的ID
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.RequiredDescriptionEventArgs.Result">
+            <summary>
+            取得或設定，此ID的描述
+            </summary>
+        </member>
+        <member name="T:FISCA.Presentation.CompareEventArgs">
+            <summary>
+            提供Compare事件的資料
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.CompareEventArgs.Value1">
+            <summary>
+            取得第一個資料的ID
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.CompareEventArgs.Value2">
+            <summary>
+            取得第二個資料的ID
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.CompareEventArgs.Result">
+            <summary>
+            取得或設定，若第一比資料大於第二比資料則大於0，第一比資料小於第二比資料則小於0，第一比資料等於第二比資料則等於0
+            </summary>
+        </member>
+        <member name="T:FISCA.Presentation.DisplayStatus">
+            <summary>
+            顯示模式
+            </summary>
+        </member>
+        <member name="F:FISCA.Presentation.DisplayStatus.NavView">
+            <summary>
+            NavView選取內容。
+            </summary>
+        </member>
+        <member name="F:FISCA.Presentation.DisplayStatus.Search">
+            <summary>
+            SearchResult內容。
+            </summary>
+        </member>
+        <member name="F:FISCA.Presentation.DisplayStatus.Temp">
+            <summary>
+            待處理中之內容。
+            </summary>
+        </member>
+        <member name="T:FISCA.Presentation.ListPaneField">
+            <summary>
+            擴充NavContentPresentation的ListPane中的顯示欄位
+            </summary>
+        </member>
+        <member name="M:FISCA.Presentation.ListPaneField.OnPreloadValue(FISCA.Presentation.PreloadVariableEventArgs)">
+            <summary>
+            引發PreloadVariable事件
+            </summary>
+            <param name="args">包含事件的資料</param>
+        </member>
+        <member name="M:FISCA.Presentation.ListPaneField.OnPreloadVariableBackground(FISCA.Presentation.PreloadVariableEventArgs)">
+            <summary>
+            引發PreloadVariableBackground事件
+            </summary>
+            <param name="args">包含事件的資料</param>
+        </member>
+        <member name="M:FISCA.Presentation.ListPaneField.OnGetVariable(FISCA.Presentation.GetVariableEventArgs)">
+            <summary>
+            引發GetVariable事件
+            </summary>
+            <param name="args">包含事件的資料</param>
+        </member>
+        <member name="M:FISCA.Presentation.ListPaneField.OnCompareValue(FISCA.Presentation.CompareValueEventArgs)">
+            <summary>
+            引發CompareValue事件
+            </summary>
+            <param name="args">包含事件的資料</param>
+        </member>
+        <member name="M:FISCA.Presentation.ListPaneField.Reload">
+            <summary>
+            重新整裡此欄位顯示的內容
+            </summary>
+        </member>
+        <member name="M:FISCA.Presentation.ListPaneField.#ctor(System.String)">
+            <summary>
+            建構子，傳入欄位標題
+            </summary>
+            <param name="columnHeaderText">欄位標題</param>
+        </member>
+        <member name="M:FISCA.Presentation.ListPaneField.#ctor(System.Windows.Forms.DataGridViewColumn)">
+            <summary>
+            建構子，傳入資料行
+            </summary>
+            <param name="column">資料行</param>
+        </member>
+        <member name="M:FISCA.Presentation.ListPaneField.#ctor(System.String,System.Boolean)">
+            <summary>
+            建構子，傳入欄位標題，及是否永遠顯示
+            </summary>
+            <param name="columnHeaderText">欄位標題</param>
+            <param name="allwaysVisible">是否永遠顯示</param>
+        </member>
+        <member name="M:FISCA.Presentation.ListPaneField.#ctor(System.Windows.Forms.DataGridViewColumn,System.Boolean)">
+            <summary>
+            建構子，傳入資料行，及是否永遠顯示
+            </summary>
+            <param name="column">資料行</param>
+            <param name="allwaysVisible">是否永遠顯示</param>
+        </member>
+        <member name="P:FISCA.Presentation.ListPaneField.MinimumWidth">
+            <summary>
+            取得或設定，此資料行的最小行寬
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.ListPaneField.AllwaysVisible">
+             <summary>
+            取得，指出是否永遠顯示資料行，true的話將不受使用者自訂顯示欄位功能影響
+             </summary>
+        </member>
+        <member name="P:FISCA.Presentation.ListPaneField.Column">
+            <summary>
+            取得延伸資料的資料行
+            </summary>
+        </member>
+        <member name="E:FISCA.Presentation.ListPaneField.VariableChanged">
+            <summary>
+            當顯示的資料發生變動
+            </summary>
+        </member>
+        <member name="E:FISCA.Presentation.ListPaneField.PreloadVariable">
+            <summary>
+            當顯示資料即將變更，載入新資料
+            </summary>
+        </member>
+        <member name="E:FISCA.Presentation.ListPaneField.PreloadVariableBackground">
+            <summary>
+            當顯示資料即將變更，於背景執行續載入新資料
+            </summary>
+        </member>
+        <member name="E:FISCA.Presentation.ListPaneField.GetVariable">
+            <summary>
+            取得要顯示的內容
+            </summary>
+        </member>
+        <member name="E:FISCA.Presentation.ListPaneField.CompareValue">
+            <summary>
+            比較資料大小
+            </summary>
+        </member>
+        <member name="T:FISCA.Presentation.PreloadVariableEventArgs">
+            <summary>
+            提供PreloadVariable事件的資料
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.PreloadVariableEventArgs.Keys">
+            <summary>
+            取得預先載入的資料的集合
+            </summary>
+        </member>
+        <member name="T:FISCA.Presentation.GetVariableEventArgs">
+            <summary>
+            提供GetVariable事件的資料
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.GetVariableEventArgs.Key">
+            <summary>
+            取得資料的ID
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.GetVariableEventArgs.Value">
+            <summary>
+            取得或設定，此ID要顯示的值
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.GetVariableEventArgs.Tooltip">
+            <summary>
+            取得或設定，此欄的Tooltip描述
+            </summary>
+        </member>
+        <member name="T:FISCA.Presentation.CompareValueEventArgs">
+            <summary>
+            提供CompareValue事件的資料
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.CompareValueEventArgs.Value1">
+            <summary>
+            取得第一個資料
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.CompareValueEventArgs.Value2">
+            <summary>
+            取得第二個資料
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.CompareValueEventArgs.Result">
+            <summary>
+            取得或設定，若第一比資料大於第二比資料則大於0，第一比資料小於第二比資料則小於0，第一比資料等於第二比資料則等於0
+            </summary>
+        </member>
+        <member name="T:FISCA.Presentation.IDescriptionPaneBulider">
+            <summary>
+            DetailPane顯示標題的產生器
+            </summary>
+        </member>
+        <member name="M:FISCA.Presentation.IDescriptionPaneBulider.GetContent">
+            <summary>
+            建立新的DetailPane顯示標題實體
+            </summary>
+            <returns>DetailPane顯示標題</returns>
+        </member>
+        <member name="T:FISCA.Presentation.DescriptionPaneBulider`1">
+            <summary>
+            DetailPane顯示標題的產生器
+            </summary>
+            <typeparam name="T">DetailPane顯示標題的型別，此型別必需實做預設建構子</typeparam>
+        </member>
+        <member name="M:FISCA.Presentation.DescriptionPaneBulider`1.GetContent">
+            <summary>
+            建立新的DetailPane顯示標題實體
+            </summary>
+            <returns>DetailPane顯示標題</returns>
+        </member>
+        <member name="E:FISCA.Presentation.DescriptionPaneBulider`1.ContentBulided">
+            <summary>
+            當一個新的DetailPane顯示標題被建立時
+            </summary>
+        </member>
+        <member name="T:FISCA.Presentation.DescriptionPaneBulidedEventArgs`1">
+            <summary>
+            提供ContentBulided事件的資料
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:FISCA.Presentation.DescriptionPaneBulidedEventArgs`1.Content">
+            <summary>
+            取得新建的的DetailPane顯示標題
+            </summary>
+        </member>
+        <member name="T:FISCA.Presentation.BlankPanel">
+            <summary>
+            僅包含中央有Content的樣板。
+            </summary>
+        </member>
+        <member name="F:FISCA.Presentation.BlankPanel.components">
+            <summary> 
+            設計工具所需的變數。
+            </summary>
+        </member>
+        <member name="M:FISCA.Presentation.BlankPanel.Dispose(System.Boolean)">
+            <summary> 
+            清除任何使用中的資源。
+            </summary>
+            <param name="disposing">如果應該處置 Managed 資源則為 true，否則為 false。</param>
+        </member>
+        <member name="M:FISCA.Presentation.BlankPanel.InitializeComponent">
+             <summary> 
+             此為設計工具支援所需的方法 - 請勿使用程式碼編輯器修改這個方法的內容。
+            
+             </summary>
+        </member>
+        <member name="F:FISCA.Presentation.BlankPanel.ContentPanePanel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:FISCA.Presentation.BlankPanel.#ctor">
+            <summary>
+            建構子
+            </summary>
+        </member>
+        <member name="M:FISCA.Presentation.BlankPanel.OnPaintBackground(System.Windows.Forms.PaintEventArgs)">
+            <summary>
+            繪製控制項的背景。
+            </summary>
+            <param name="e">包含事件的資料。</param>
+        </member>
+        <member name="P:FISCA.Presentation.BlankPanel.RibbonBarItems">
+            <summary>
+            取得功能列
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.BlankPanel.Group">
+            <summary>
+            取得或設定，Panel對應的標題
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.BlankPanel.ContentPane">
+            <summary>
+            取得ContentPane。
+            </summary>
+        </member>
+        <member name="T:FISCA.Presentation.RibbonBarItemManager">
+            <summary>
+            管理功能列
+            </summary>
+        </member>
+        <member name="M:FISCA.Presentation.RibbonBarItemManager.GetChild(System.String,System.String)">
+            <summary>
+            建立新的功能列，或取得已有的功能列
+            </summary>
+            <param name="tabName">功能列所屬的Tab</param>
+            <param name="text">功能列的 NavText</param>
+            <returns></returns>
+        </member>
+        <member name="M:FISCA.Presentation.RibbonBarItemManager.GetEnumerator">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:FISCA.Presentation.RibbonBarItemManager.Item(System.String,System.String)">
+            <summary>
+            建立新的功能列，或取得已有的功能列
+            </summary>
+            <param name="tabName">功能列所屬的Tab</param>
+            <param name="text">功能列的 NavText</param>
+            <returns></returns>
+        </member>
+        <member name="T:FISCA.Presentation.RibbonBarControlContainer">
+            <summary>
+            功能列上的控制項
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.RibbonBarControlContainer.Display">
+            <summary>
+            取得或設定，指出是否顯示於功能列
+            </summary>
+        </member>
+        <member name="E:FISCA.Presentation.RibbonBarControlContainer.DisplayChanged">
+            <summary>
+            當Display屬性變更時
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.RibbonBarControlContainer.Text">
+            <summary>
+            取得顯示名稱
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.RibbonBarControlContainer.Control">
+            <summary>
+            取得或設定，控制項的內容
+            </summary>
+        </member>
+        <member name="T:FISCA.Presentation.RibbonBarButtonManager">
+            <summary>
+            管理功能列包含的按紐
+            </summary>
+        </member>
+        <member name="M:FISCA.Presentation.RibbonBarButtonManager.GetChild(System.String)">
+            <summary>
+            建立新的控制項或取得已有的按紐
+            </summary>
+            <param name="text">名稱</param>
+            <returns>按紐</returns>
+        </member>
+        <member name="M:FISCA.Presentation.RibbonBarButtonManager.GetEnumerator">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:FISCA.Presentation.RibbonBarButtonManager.Item(System.String)">
+            <summary>
+            建立新的控制項或取得已有的按紐
+            </summary>
+            <param name="text">名稱</param>
+            <returns>按紐</returns>
+        </member>
+        <member name="T:FISCA.Presentation.MenuButtonControl">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:FISCA.Presentation.MenuButtonControl.Lock(System.String)">
+            <summary>
+            鎖定此按紐，除非呼叫UnLock並傳入相同Password否則無法編輯此按紐
+            </summary>
+            <param name="password">密碼</param>
+        </member>
+        <member name="M:FISCA.Presentation.MenuButtonControl.UnLock(System.String)">
+            <summary>
+            解除鎖定此按紐
+            </summary>
+            <param name="password">密碼</param>
+        </member>
+        <member name="M:FISCA.Presentation.MenuButtonControl.GetChild(System.String)">
+            <summary>
+            建立子選單按紐或取得已存在的按紐
+            </summary>
+            <param name="text">子選單按紐名稱</param>
+            <returns>子選單按紐</returns>
+        </member>
+        <member name="M:FISCA.Presentation.MenuButtonControl.GetChild(System.String[])">
+            <summary>
+            建立子選單按紐或取得已存在的按紐
+            </summary>
+            <param name="paths">子選單按紐路徑</param>
+            <returns>子選單按紐</returns>
+        </member>
+        <member name="P:FISCA.Presentation.MenuButtonControl.AutoCheckOnClick">
+            <summary>
+            取得或設定，指出是否在點擊時自動改變Checked屬性
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.MenuButtonControl.Checked">
+            <summary>
+            取得或設定，指出是否已選取
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.MenuButtonControl.Enable">
+            <summary>
+            取得或設定，指出是否啟用按紐
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.MenuButtonControl.Image">
+            <summary>
+            取得或設定，鈕控上顯示的影像
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.MenuButtonControl.Text">
+            <summary>
+            取得或設定，指出按紐顯示的文字
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.MenuButtonControl.Visible">
+            <summary>
+            取得或設定，指出是否顯示按紐
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.MenuButtonControl.SupposeHasChildern">
+            <summary>
+            取得或設定，永遠以包含子項目的方式顯示
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.MenuButtonControl.Tag">
+            <summary>
+            取得或設定，其包含控制項相關資料
+            </summary>
+        </member>
+        <member name="E:FISCA.Presentation.MenuButtonControl.Click">
+            <summary>
+            當按下按紐時。
+            </summary>
+        </member>
+        <member name="E:FISCA.Presentation.MenuButtonControl.CheckedChanged">
+            <summary>
+            當Checked暑性變更時
+            </summary>
+        </member>
+        <member name="E:FISCA.Presentation.MenuButtonControl.PopupOpen">
+            <summary>
+            當子選單開啟時
+            </summary>
+        </member>
+        <member name="E:FISCA.Presentation.MenuButtonControl.PopupClose">
+            <summary>
+            當子選單關閉時
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.MenuButtonControl.SubItems">
+            <summary>
+            取得子選單按紐集合
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.MenuButtonControl.Item(System.String)">
+            <summary>
+            建立子選單按紐或取得已存在的按紐
+            </summary>
+            <param name="text">子選單按紐名稱</param>
+            <returns>子選單按紐</returns>
+        </member>
+        <member name="M:FISCA.Presentation.PreferenceProviderXAdapter.preference_ContentChanged(System.Object,System.EventArgs)">
+            <summary>
+            當內容有改更時，就儲存資料。
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="P:FISCA.Presentation.PreferenceProviderXAdapter.Empty">
+            <summary>
+            空的 PreferenceProvider。
+            </summary>
+        </member>
+        <member name="T:FISCA.Presentation.Controls.BaseForm">
+            <summary>
+            美美的Form
+            </summary>
+        </member>
+        <member name="M:FISCA.Presentation.Controls.BaseForm.#ctor">
+            <summary>
+            建構子
+            </summary>
+        </member>
+        <member name="M:FISCA.Presentation.Controls.BaseForm.OnControlAdded(System.Windows.Forms.ControlEventArgs)">
+            <summary>
+            
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:FISCA.Presentation.Controls.BaseForm.OnPaint(System.Windows.Forms.PaintEventArgs)">
+            <summary>
+            
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:FISCA.Presentation.Controls.BaseForm.OnPaintBackground(System.Windows.Forms.PaintEventArgs)">
+            <summary>
+            
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:FISCA.Presentation.Controls.BaseForm.OnInvalidated(System.Windows.Forms.InvalidateEventArgs)">
+            <summary>
+            
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:FISCA.Presentation.Controls.BaseForm.OnSizeChanged(System.EventArgs)">
+            <summary>
+            
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="F:FISCA.Presentation.Controls.BaseForm.components">
+            <summary>
+            設計工具所需的變數。
+            </summary>
+        </member>
+        <member name="M:FISCA.Presentation.Controls.BaseForm.Dispose(System.Boolean)">
+            <summary>
+            清除任何使用中的資源。
+            </summary>
+            <param name="disposing">如果應該公開 Managed 資源則為 true，否則為 false。</param>
+        </member>
+        <member name="M:FISCA.Presentation.Controls.BaseForm.InitializeComponent">
+             <summary>
+             此為設計工具支援所需的方法 - 請勿使用程式碼編輯器修改這個方法的內容。
+            
+             </summary>
+        </member>
+        <member name="M:FISCA.Presentation.Controls.BaseForm.Px.Invalidated(System.Windows.Forms.InvalidateEventArgs)">
+            <summary>
+            
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="T:FISCA.Presentation.IPreferenceProvider">
+            <summary>
+            使用者設定資料的處理器
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.IPreferenceProvider.Item(System.String)">
+            <summary>
+            取得或設定，特定名稱的設定值
+            </summary>
+            <param name="Key">設定值名稱</param>
+        </member>
+        <member name="T:FISCA.Presentation.XPreferenceProvider">
+            <summary>
+            使用者設定資料提供者(XLinq 版本)。
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.XPreferenceProvider.Item(System.String)">
+            <summary>
+            取得或設定設定值。
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="F:FISCA.Presentation.DotNetBar.PrivateControl.InstallFonts.components">
+            <summary>
+            設計工具所需的變數。
+            </summary>
+        </member>
+        <member name="M:FISCA.Presentation.DotNetBar.PrivateControl.InstallFonts.Dispose(System.Boolean)">
+            <summary>
+            清除任何使用中的資源。
+            </summary>
+        </member>
+        <member name="M:FISCA.Presentation.DotNetBar.PrivateControl.InstallFonts.InitializeComponent">
+             <summary>
+             此為設計工具支援所需的方法 - 請勿使用程式碼編輯器修改這個方法的內容。
+            
+             </summary>
+        </member>
+        <member name="T:FISCA.Presentation.DetailContent">
+            <summary>
+            NavContentPresentation中DetailPane的顯示項目
+            </summary>
+        </member>
+        <member name="F:FISCA.Presentation.DetailContent.components">
+            <summary> 
+            設計工具所需的變數。
+            </summary>
+        </member>
+        <member name="M:FISCA.Presentation.DetailContent.Dispose(System.Boolean)">
+            <summary> 
+            清除任何使用中的資源。
+            </summary>
+            <param name="disposing">如果應該處置 Managed 資源則為 true，否則為 false。</param>
+        </member>
+        <member name="M:FISCA.Presentation.DetailContent.InitializeComponent">
+             <summary> 
+             此為設計工具支援所需的方法 - 請勿使用程式碼編輯器修改這個方法的內容。
+            
+             </summary>
+        </member>
+        <member name="M:FISCA.Presentation.DetailContent.#ctor">
+            <summary>
+            建構子
+            </summary>
+        </member>
+        <member name="M:FISCA.Presentation.DetailContent.OnLoad(System.EventArgs)">
+            <summary>
+            
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:FISCA.Presentation.DetailContent.Save">
+            <summary>
+            儲存
+            </summary>
+        </member>
+        <member name="M:FISCA.Presentation.DetailContent.Undo">
+            <summary>
+            取消變更
+            </summary>
+        </member>
+        <member name="M:FISCA.Presentation.DetailContent.OnSaveButtonVisibleChanged(System.EventArgs)">
+            <summary>
+            引發SaveButtonVisibleChanged事件
+            </summary>
+            <param name="e">包含事件的資料</param>
+        </member>
+        <member name="M:FISCA.Presentation.DetailContent.OnCancelButtonVisibleChanged(System.EventArgs)">
+            <summary>
+            引發CancelButtonVisibleChanged事件
+            </summary>
+            <param name="e">包含事件的資料</param>
+        </member>
+        <member name="M:FISCA.Presentation.DetailContent.OnContentValidatedChanged(System.EventArgs)">
+            <summary>
+            引發ContentValidatedChanged事件
+            </summary>
+            <param name="e">包含事件的資料</param>
+        </member>
+        <member name="M:FISCA.Presentation.DetailContent.OnPrimaryKeyChanged(System.EventArgs)">
+            <summary>
+            引發PrimaryKeyChanged事件
+            </summary>
+            <param name="e">包含事件的資料</param>
+        </member>
+        <member name="M:FISCA.Presentation.DetailContent.OnLoadingChanged(System.EventArgs)">
+            <summary>
+            引發LoadingChanged事件
+            </summary>
+            <param name="e">包含事件的資料</param>
+        </member>
+        <member name="M:FISCA.Presentation.DetailContent.OnSaveButtonClick(System.EventArgs)">
+            <summary>
+            引發SaveButtonClick事件
+            </summary>
+            <param name="e">包含事件的資料</param>
+        </member>
+        <member name="M:FISCA.Presentation.DetailContent.OnCancelButtonClick(System.EventArgs)">
+            <summary>
+            引發CancelButtonClick事件
+            </summary>
+            <param name="e">包含事件的資料</param>
+        </member>
+        <member name="M:FISCA.Presentation.DetailContent.OnPaintBackground(System.Windows.Forms.PaintEventArgs)">
+            <summary>
+            
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="P:FISCA.Presentation.DetailContent.SaveButtonVisible">
+            <summary>
+            取得或設定儲存按鈕顯示或隱藏
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.DetailContent.CancelButtonVisible">
+            <summary>
+            取得或設定取消按鈕顯示或隱藏
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.DetailContent.ContentValidated">
+            <summary>
+            取得或設定內容驗證結果
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.DetailContent.Group">
+            <summary>
+            取得或設訂資料項目所屬類別
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.DetailContent.PrimaryKey">
+            <summary>
+            取得資料擁有者的索引鍵值
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.DetailContent.Loading">
+            <summary>
+            取得或設定，資料正在讀取中
+            </summary>
+        </member>
+        <member name="E:FISCA.Presentation.DetailContent.SaveButtonVisibleChanged">
+            <summary>
+            當SaveButtonVisible屬性改變時
+            </summary>
+        </member>
+        <member name="E:FISCA.Presentation.DetailContent.CancelButtonVisibleChanged">
+            <summary>
+            當CancelButtonVisible屬性改變時
+            </summary>
+        </member>
+        <member name="E:FISCA.Presentation.DetailContent.PrimaryKeyChanged">
+            <summary>
+            當PrimaryKey屬性變更時
+            </summary>
+        </member>
+        <member name="E:FISCA.Presentation.DetailContent.ContentValidatedChanged">
+            <summary>
+            當Validated屬性變更時
+            </summary>
+        </member>
+        <member name="E:FISCA.Presentation.DetailContent.LoadingChanged">
+            <summary>
+            當Loading屬性變更時
+            </summary>
+        </member>
+        <member name="E:FISCA.Presentation.DetailContent.SaveButtonClick">
+            <summary>
+            按下SaveButton時
+            </summary>
+        </member>
+        <member name="E:FISCA.Presentation.DetailContent.CancelButtonClick">
+            <summary>
+            按下CancelButton時
+            </summary>
+        </member>
+        <member name="T:FISCA.Presentation.Properties.Resources">
+            <summary>
+              用於查詢當地語系化字串等的強型別資源類別
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.Properties.Resources.ResourceManager">
+            <summary>
+              傳回這個類別使用的快取的 ResourceManager 執行個體。
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.Properties.Resources.Culture">
+            <summary>
+              覆寫目前執行緒的 CurrentUICulture 屬性，對象是所有
+              使用這個強型別資源類別的資源查閱。
+            </summary>
+        </member>
+        <member name="F:FISCA.Presentation.DotNetBar.PrivateControl.RibbonStyleForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:FISCA.Presentation.DotNetBar.PrivateControl.RibbonStyleForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:FISCA.Presentation.DotNetBar.PrivateControl.RibbonStyleForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:FISCA.Presentation.PresentationStatistics">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:FISCA.Presentation.PresentationStatistics.AddLoading(FISCA.Presentation.DetailContentLoading)">
+            <summary>
+            
+            </summary>
+            <param name="item"></param>
+        </member>
+        <member name="M:FISCA.Presentation.PresentationStatistics.Reset">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.PresentationStatistics.LoadingHistories">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.PresentationStatistics.EnabledLoadingHistory">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:FISCA.Presentation.DetailContentLoading">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:FISCA.Presentation.DetailContentLoading.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.DetailContentLoading.Instance">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.DetailContentLoading.PrimaryKey">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.DetailContentLoading.ProcessTime">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:FISCA.Presentation.DotNetBar.PrivateControl.DetailPane.components">
+            <summary> 
+            設計工具所需的變數。
+            </summary>
+        </member>
+        <member name="M:FISCA.Presentation.DotNetBar.PrivateControl.DetailPane.Dispose(System.Boolean)">
+            <summary> 
+            清除任何使用中的資源。
+            </summary>
+            <param name="disposing">如果應該處置 Managed 資源則為 true，否則為 false。</param>
+        </member>
+        <member name="M:FISCA.Presentation.DotNetBar.PrivateControl.DetailPane.InitializeComponent">
+             <summary> 
+             此為設計工具支援所需的方法 - 請勿使用程式碼編輯器修改這個方法的內容。
+            
+             </summary>
+        </member>
+        <member name="T:FISCA.Presentation.PopupOpenEventArgs">
+            <summary>
+            包含PopupOpen事件的資料
+            </summary>
+        </member>
+        <member name="M:FISCA.Presentation.PopupOpenEventArgs.#ctor">
+            <summary>
+            建構子
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.PopupOpenEventArgs.Cancel">
+            <summary>
+            取消Popup
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.PopupOpenEventArgs.VirtualButtons">
+            <summary>
+            虛擬按鈕
+            </summary>
+            <remarks>
+            對VirtualButtons加入子項目，新加入的子項目會加入在展開後的子項目的最末，並於收合時移除。
+            可以應用於在選單開啟時動態決定項目的情境。
+            </remarks>
+        </member>
+        <member name="M:FISCA.Presentation.DotNetBar.PrivateControl.NavContentPresentation.splitterListDetial_ExpandedChanged(System.Object,DevComponents.DotNetBar.ExpandedChangeEventArgs)">
+            <summary>
+            設定縮放
+            </summary>
+        </member>
+        <member name="M:FISCA.Presentation.DotNetBar.PrivateControl.NavContentPresentation.splitterListDetial_ExpandedChanging(System.Object,DevComponents.DotNetBar.ExpandedChangeEventArgs)">
+            <summary>
+            設定設定縮放
+            </summary>
+        </member>
+        <member name="M:FISCA.Presentation.DotNetBar.PrivateControl.NavContentPresentation.SetFocus(System.Object,System.EventArgs)">
+            <summary>
+            設定焦點
+            </summary>
+        </member>
+        <member name="F:FISCA.Presentation.DotNetBar.PrivateControl.NavContentPresentation._SearchDelegates">
+            <summary>
+            當使用者按下搜尋按鍵時。
+            </summary>
+        </member>
+        <member name="F:FISCA.Presentation.DotNetBar.PrivateControl.NavContentPresentation.components">
+            <summary> 
+            設計工具所需的變數。
+            </summary>
+        </member>
+        <member name="M:FISCA.Presentation.DotNetBar.PrivateControl.NavContentPresentation.Dispose(System.Boolean)">
+            <summary> 
+            清除任何使用中的資源。
+            </summary>
+            <param name="disposing">如果應該公開 Managed 資源則為 true，否則為 false。</param>
+        </member>
+        <member name="M:FISCA.Presentation.DotNetBar.PrivateControl.NavContentPresentation.InitializeComponent">
+             <summary> 
+             此為設計工具支援所需的方法 - 請勿使用程式碼編輯器修改這個方法的內容。
+            
+             </summary>
+        </member>
+        <member name="T:FISCA.Presentation.ListPaneSourceChangedEventArgs">
+            <summary>
+            NavView所選取的資料集變更時
+            </summary>
+        </member>
+        <member name="M:FISCA.Presentation.ListPaneSourceChangedEventArgs.#ctor(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            建構子
+            </summary>
+            <param name="primaryKeys">選取得key的集合</param>
+        </member>
+        <member name="P:FISCA.Presentation.ListPaneSourceChangedEventArgs.PrimaryKeys">
+            <summary>
+            取得選取的key的集合
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.ListPaneSourceChangedEventArgs.SelectedAll">
+            <summary>
+            取得或設定，指出是否在ListPane顯示資料後是否全選顯示的資料
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.ListPaneSourceChangedEventArgs.AddToTemp">
+            <summary>
+            取得或設定，指出是否在ListPane顯示資料後同時將資料加入至NavView的待處裡集合中
+            </summary>
+        </member>
+        <member name="T:FISCA.Presentation.ListPaneSource">
+            <summary>
+            選取得key的集合
+            </summary>
+        </member>
+        <member name="M:FISCA.Presentation.ListPaneSource.#ctor(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            建構子
+            </summary>
+            <param name="source">集合內容</param>
+        </member>
+        <member name="M:FISCA.Presentation.ListPaneSource.GetEnumerator">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:FISCA.Presentation.ListPaneSource.Count">
+            <summary>
+            取得項目總數。
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.ListPaneSource.Item(System.Int32)">
+            <summary>
+            取得指定索引的值
+            </summary>
+            <param name="index">索引位置</param>
+            <returns>值</returns>
+        </member>
+        <member name="T:FISCA.Presentation.IDetailBulider">
+            <summary>
+            DetailPane顯示項目的產生器
+            </summary>
+        </member>
+        <member name="M:FISCA.Presentation.IDetailBulider.GetContent">
+            <summary>
+            建立新的DetailPane顯示項目實體
+            </summary>
+            <returns>DetailPane顯示項目</returns>
+        </member>
+        <member name="T:FISCA.Presentation.DetailBulider`1">
+            <summary>
+            DetailPane顯示項目的產生器
+            </summary>
+            <typeparam name="T">DetailPane顯示項目的型別，此型別必需實做預設建構子</typeparam>
+        </member>
+        <member name="M:FISCA.Presentation.DetailBulider`1.GetContent">
+            <summary>
+            建立新的DetailPane顯示項目實體
+            </summary>
+            <returns>DetailPane顯示項目</returns>
+        </member>
+        <member name="E:FISCA.Presentation.DetailBulider`1.ContentBulided">
+            <summary>
+            當一個新的DetailPane顯示項目被建立時
+            </summary>
+        </member>
+        <member name="T:FISCA.Presentation.ContentBulidedEventArgs`1">
+            <summary>
+            提供ContentBulided事件的資料
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:FISCA.Presentation.ContentBulidedEventArgs`1.Content">
+            <summary>
+            取得新建的的DetailPane顯示項目
+            </summary>
+        </member>
+        <member name="T:FISCA.Presentation.XPreference">
+            <summary>
+            Preference 的 XElement(XLinq) 版。
+            </summary>
+        </member>
+        <member name="M:FISCA.Presentation.XPreference.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:FISCA.Presentation.XPreference.#ctor(System.Xml.Linq.XElement)">
+            <summary>
+            
+            </summary>
+            <param name="container"></param>
+        </member>
+        <member name="M:FISCA.Presentation.XPreference.GetChild(System.String)">
+            <summary>
+            取得或建立子組態。
+            </summary>
+            <param name="containerName">組態識別。</param>
+            <returns></returns>
+        </member>
+        <member name="M:FISCA.Presentation.XPreference.GetString(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FISCA.Presentation.XPreference.GetString(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="key"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FISCA.Presentation.XPreference.SetString(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:FISCA.Presentation.XPreference.GetInteger(System.String,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="key"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FISCA.Presentation.XPreference.SetInteger(System.String,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:FISCA.Presentation.XPreference.GetDecimal(System.String,System.Decimal)">
+            <summary>
+            
+            </summary>
+            <param name="key"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FISCA.Presentation.XPreference.SetDecimal(System.String,System.Decimal)">
+            <summary>
+            
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:FISCA.Presentation.XPreference.GetBoolean(System.String,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="key"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FISCA.Presentation.XPreference.SetBoolean(System.String,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:FISCA.Presentation.XPreference.Clear">
+            <summary>
+            清除所有子元素與屬性。
+            </summary>
+        </member>
+        <member name="M:FISCA.Presentation.XPreference.OnContentChanged">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.XPreference.Container">
+            <summary>
+            包含了 Configuration 的所有原始資料。
+            </summary>
+        </member>
+        <member name="P:FISCA.Presentation.XPreference.Name">
+            <summary>
+            名稱。
+            </summary>
+        </member>
+        <member name="E:FISCA.Presentation.XPreference.ContentChanged">
+            <summary>
+            有 Configuration 內容變動時。
+            </summary>
+        </member>
+        <member name="T:FISCA.Presentation.FontsChecker">
+            <summary>
+            檢查用戶端系統是否安裝系統字型
+            </summary>
+        </member>
+        <member name="M:FISCA.Presentation.FontsChecker.Check(System.Boolean)">
+            <summary>
+            檢查系統是否已安裝標準字型
+            </summary>
+            <param name="showInstallForm">當發現系統沒有安裝時顯示安裝指引</param>
+            <returns>是否已安裝標準字型</returns>
+        </member>
+        <member name="T:FISCA.Presentation.DefaultPreferenceProvider">
+            <summary>
+            預設無行為的 PreferenceProvider。
+            </summary>
+        </member>
+    </members>
+</doc>

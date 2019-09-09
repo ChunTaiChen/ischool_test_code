@@ -1,0 +1,177 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SmartSchool.Common.DotNetBar</name>
+    </assembly>
+    <members>
+        <member name="M:SmartSchool.Common.DragDropTreeView.DragDropTreeView_BeforeSelect(System.Object,System.Windows.Forms.TreeViewCancelEventArgs)">
+            <summary>
+            當選取新結點時，先還原舊節點的Style並改變新節點的Style
+            </summary>
+        </member>
+        <member name="T:SmartSchool.Common.NodeSuperTooltipProvider">
+            <summary>
+            Wrapper so SuperTooltips can be displayed for node objects. Copy From DotNetBarSample_SuperToolTip
+            </summary>
+        </member>
+        <member name="M:SmartSchool.Common.NodeSuperTooltipProvider.#ctor(System.Windows.Forms.TreeNode)">
+            <summary>
+            Creates new instance of the object.
+            </summary>
+            <param name="node">Node to provide tooltip information for</param>
+        </member>
+        <member name="M:SmartSchool.Common.NodeSuperTooltipProvider.Show">
+            <summary>
+            Call this method to show tooltip for given node.
+            </summary>
+        </member>
+        <member name="M:SmartSchool.Common.NodeSuperTooltipProvider.Hide">
+            <summary>
+            Call this method to hide tooltip for given node.
+            </summary>
+        </member>
+        <member name="P:SmartSchool.Common.NodeSuperTooltipProvider.ComponentRectangle">
+            <summary>
+            Returns screen coordinates of object.
+            </summary>
+        </member>
+        <member name="T:SmartSchool.Common.DateTimeTextBox">
+            <summary>
+            輸入日期格式的TextBox
+            </summary>
+        </member>
+        <member name="M:SmartSchool.Common.DateTimeTextBox.#ctor">
+            <summary>
+            建構子
+            </summary>
+        </member>
+        <member name="M:SmartSchool.Common.DateTimeTextBox.SetDate(System.String)">
+            <summary>
+            設定初始值
+            </summary>
+            <param name="value">初始值</param>
+        </member>
+        <member name="M:SmartSchool.Common.DateTimeTextBox.GetDateString(System.String)">
+            <summary>
+            取得轉換後的日期字串
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SmartSchool.Common.DateTimeTextBox.GetDate">
+            <summary>
+            取得輸入的日期
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SmartSchool.Common.DateTimeTextBox.DateString">
+            <summary>
+            取回符合日期格式之標準日期文字
+            </summary>
+        </member>
+        <member name="P:SmartSchool.Common.DateTimeTextBox.AllowNull">
+            <summary>
+            是否允許空白
+            </summary>
+        </member>
+        <member name="P:SmartSchool.Common.DateTimeTextBox.EmptyString">
+            <summary>
+            當內容不符日期格式時的傳回值
+            </summary>
+        </member>
+        <member name="P:SmartSchool.Common.DateTimeTextBox.IsValid">
+            <summary>
+            判斷是否合法
+            </summary>
+        </member>
+        <member name="T:SmartSchool.Common.BaseForm">
+            <summary>
+            美美的Form
+            </summary>
+        </member>
+        <member name="M:SmartSchool.Common.BaseForm.#ctor">
+            <summary>
+            建構子
+            </summary>
+        </member>
+        <member name="F:SmartSchool.Common.BaseForm.components">
+            <summary>
+            設計工具所需的變數。
+            </summary>
+        </member>
+        <member name="M:SmartSchool.Common.BaseForm.Dispose(System.Boolean)">
+            <summary>
+            清除任何使用中的資源。
+            </summary>
+            <param name="disposing">如果應該公開 Managed 資源則為 true，否則為 false。</param>
+        </member>
+        <member name="M:SmartSchool.Common.BaseForm.InitializeComponent">
+             <summary>
+             此為設計工具支援所需的方法 - 請勿使用程式碼編輯器修改這個方法的內容。
+            
+             </summary>
+        </member>
+        <member name="T:SmartSchool.Common.ListViewEX">
+            <summary>
+            ListView的DotNetBar行為正常化版本
+            </summary>
+        </member>
+        <member name="M:SmartSchool.Common.ListViewEX.#ctor">
+            <summary>
+            建構子
+            </summary>
+        </member>
+        <member name="P:SmartSchool.Common.ListViewEX.HideSelection">
+            <summary>
+            失去焦點時不顯視選取
+            </summary>
+        </member>
+        <member name="P:SmartSchool.Common.ListViewEX.FullRowSelect">
+            <summary>
+            整行選取
+            </summary>
+        </member>
+        <member name="F:SmartSchool.Common.Validate.ErrorViewer.components">
+            <summary>
+            設計工具所需的變數。
+            </summary>
+        </member>
+        <member name="M:SmartSchool.Common.Validate.ErrorViewer.Dispose(System.Boolean)">
+            <summary>
+            清除任何使用中的資源。
+            </summary>
+            <param name="disposing">如果應該公開 Managed 資源則為 true，否則為 false。</param>
+        </member>
+        <member name="M:SmartSchool.Common.Validate.ErrorViewer.InitializeComponent">
+             <summary>
+             此為設計工具支援所需的方法 - 請勿使用程式碼編輯器修改這個方法的內容。
+            
+             </summary>
+        </member>
+        <member name="T:SmartSchool.Common.CardPanelEx">
+            <summary>
+            以卡片形式Layout子控制項的Form
+            </summary>
+        </member>
+        <member name="M:SmartSchool.Common.CardPanelEx.#ctor">
+            <summary>
+            建構子
+            </summary>
+        </member>
+        <member name="P:SmartSchool.Common.CardPanelEx.CardWidth">
+            <summary>
+            每個子控制項的寬度
+            </summary>
+        </member>
+        <member name="P:SmartSchool.Common.CardPanelEx.MinWidth">
+            <summary>
+            Layout的最小寬度
+            </summary>
+        </member>
+        <member name="P:SmartSchool.Common.CardPanelEx.LayoutEngine">
+            <summary>
+            LayoutEngine
+            </summary>
+        </member>
+    </members>
+</doc>

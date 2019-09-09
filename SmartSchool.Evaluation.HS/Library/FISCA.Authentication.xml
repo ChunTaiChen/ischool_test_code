@@ -1,0 +1,234 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FISCA.Authentication</name>
+    </assembly>
+    <members>
+        <member name="T:FISCA.Authentication.AccountType">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:FISCA.Authentication.AccountType.Local">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:FISCA.Authentication.AccountType.Greening">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:FISCA.Authentication.DSAServices">
+            <summary>
+            處理用戶端與Server端的DSA呼叫
+            </summary>
+        </member>
+        <member name="F:FISCA.Authentication.DSAServices.GreeningAccessPoint">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:FISCA.Authentication.DSAServices.GreeningContract">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:FISCA.Authentication.DSAServices.AutoDisplayLoadingMessageOnMotherForm">
+            <summary>
+            在傳輸資料時於MotherForm上顯示動畫
+            </summary>
+        </member>
+        <member name="F:FISCA.Authentication.DSAServices.FullTimeEncrypt">
+            <summary>
+            是否全程加密。
+            </summary>
+        </member>
+        <member name="M:FISCA.Authentication.DSAServices.Connect(System.String,System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="accesspoint"></param>
+            <param name="account"></param>
+            <param name="password"></param>
+        </member>
+        <member name="M:FISCA.Authentication.DSAServices.Connect(System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            連線到 DSA。
+            </summary>
+            <param name="account"></param>
+            <param name="password"></param>
+            <param name="accesspoint"></param>
+            <param name="fullTimeEncrypt"></param>
+        </member>
+        <member name="M:FISCA.Authentication.DSAServices.Disconnect">
+            <summary>
+            斷線。
+            </summary>
+        </member>
+        <member name="M:FISCA.Authentication.DSAServices.GetConnection(System.String)">
+            <summary>
+            使用 Passport 連線到另一 AccessPoint，內部會進每電腦硬體授權程序，如果你所連線的 AccessPoint
+            不需要硬體授權程序，請直接使用 Connection 進行直接連線。。
+            </summary>
+            <param name="accessPoint"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FISCA.Authentication.DSAServices.GetConnection(System.String,System.String)">
+            <summary>
+            使用 Passport 連線到另一 AccessPoint。
+            </summary>
+            <param name="accessPoint"></param>
+            <param name="targetContract"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FISCA.Authentication.DSAServices.GetDeviceLicense(System.String,FISCA.DSAClient.SecurityToken,System.String@,System.String@)">
+            <summary>
+            讀取裝置的金鑰，如果無法讀取則隨機產生，讓主機可以鎖定裝置。
+            </summary>
+        </member>
+        <member name="M:FISCA.Authentication.DSAServices.InitSSLSetting">
+            <summary>
+            設定 SSL 的憑證驗證 Delegate 與 SSL Protool 版本。
+            </summary>
+        </member>
+        <member name="M:FISCA.Authentication.DSAServices.ConnectByAccountType(FISCA.DSAClient.Connection,System.String,System.String,FISCA.DSAClient.SecurityToken)">
+            <summary>
+            跟據 AccountType 連線到指定 AccessPoint。
+            </summary>
+        </member>
+        <member name="M:FISCA.Authentication.DSAServices.CallService(System.String,FISCA.DSAUtil.DSRequest)">
+            <summary>
+            呼叫 DSA Service。
+            </summary>
+            <param name="service">ServiceName</param>
+            <param name="req">DSRequest</param>
+            <returns>DSResponse</returns>
+        </member>
+        <member name="M:FISCA.Authentication.DSAServices.CallService(System.String,FISCA.DSAClient.Envelope)">
+            <summary>
+            呼叫 DSA Service。
+            </summary>
+            <param name="service"></param>
+            <param name="req"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FISCA.Authentication.DSAServices.CallService(FISCA.DSAClient.Connection,System.String,FISCA.DSAClient.Envelope)">
+             <summary>
+             呼叫 DSA Service。
+             </summary>
+            <param name="conn"></param>
+             <param name="service"></param>
+             <param name="req"></param>
+             <returns></returns>
+        </member>
+        <member name="M:FISCA.Authentication.DSAServices.CallService(FISCA.DSAUtil.DSConnection,System.String,FISCA.DSAUtil.DSRequest)">
+            <summary>
+            呼叫DSAService
+            </summary>
+            <param name="connection">連線主機</param>
+            <param name="service">ServiceName</param>
+            <param name="req">DSRequest</param>
+            <returns>DSResponse</returns>
+        </member>
+        <member name="M:FISCA.Authentication.DSAServices.ComputePasswordHash(System.String)">
+            <summary>
+            將密碼從明碼轉換為暗碼
+            </summary>
+            <param name="password">明碼</param>
+            <returns>轉碼後的暗碼</returns>
+        </member>
+        <member name="P:FISCA.Authentication.DSAServices.DefaultConnection">
+            <summary>
+            取得登入系統的(不建議使用)。
+            </summary>
+        </member>
+        <member name="P:FISCA.Authentication.DSAServices.AdminConnection">
+            <summary>
+            Admin 的連線(Internal Use)。
+            </summary>
+        </member>
+        <member name="P:FISCA.Authentication.DSAServices.DefaultDataSource">
+            <summary>
+            使用者登入之預設連線位置。
+            </summary>
+        </member>
+        <member name="P:FISCA.Authentication.DSAServices.PassportToken">
+            <summary>
+            取得目前使用者的 PassportToken。
+            </summary>
+        </member>
+        <member name="P:FISCA.Authentication.DSAServices.PassportTokenInternal">
+            <summary>
+            取得使用者的 PassportToken，內部使用，最原始的 Passport 物件。
+            </summary>
+        </member>
+        <member name="P:FISCA.Authentication.DSAServices.IsSysAdmin">
+            <summary>
+            取得登入帳號是否為系統管理員帳號
+            </summary>
+        </member>
+        <member name="P:FISCA.Authentication.DSAServices.IsLogined">
+            <summary>
+            使用者已經成功登入系統
+            </summary>
+        </member>
+        <member name="P:FISCA.Authentication.DSAServices.UserAccount">
+            <summary>
+            登入帳號
+            </summary>
+        </member>
+        <member name="P:FISCA.Authentication.DSAServices.AccountType">
+            <summary>
+            帳號類型。
+            </summary>
+        </member>
+        <member name="P:FISCA.Authentication.DSAServices.AccessPoint">
+            <summary>
+            登入的主機名稱。
+            </summary>
+        </member>
+        <member name="T:FISCA.Authentication.AutoRetryOnWebExceptionAttribute">
+            <summary>
+            標上此屬性的方法或類別中的方法在CallService時若發生WebException則將自動重試
+            </summary>
+        </member>
+        <member name="T:FISCA.Authentication.VersionNotSupportException">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:FISCA.Authentication.VersionNotSupportException.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="msg"></param>
+        </member>
+        <member name="T:FISCA.Authentication.LeaveOnErrorAttribute">
+            <summary>
+            標上此屬性的方法或類別中的方法在CallService時若發生Exception則不會理會錯誤
+            </summary>
+        </member>
+        <member name="T:FISCA.Authentication.Properties.Resources">
+            <summary>
+              用於查詢當地語系化字串等的強型別資源類別
+            </summary>
+        </member>
+        <member name="P:FISCA.Authentication.Properties.Resources.ResourceManager">
+            <summary>
+              傳回這個類別使用的快取的 ResourceManager 執行個體。
+            </summary>
+        </member>
+        <member name="P:FISCA.Authentication.Properties.Resources.Culture">
+            <summary>
+              覆寫目前執行緒的 CurrentUICulture 屬性，對象是所有
+              使用這個強型別資源類別的資源查閱。
+            </summary>
+        </member>
+        <member name="P:FISCA.Authentication.Properties.Resources.LicenseDecryptoFail">
+            <summary>
+              查詢類似 電腦授權錯誤，需請系統管理員重新設定電腦的授權。 的當地語系化字串。
+            </summary>
+        </member>
+    </members>
+</doc>

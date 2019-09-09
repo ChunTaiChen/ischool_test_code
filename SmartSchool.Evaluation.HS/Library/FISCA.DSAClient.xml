@@ -1,0 +1,1804 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FISCA.DSAClient</name>
+    </assembly>
+    <members>
+        <member name="T:FISCA.DSAClient.SecureTunnel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:FISCA.DSAClient.SecureTunnel.TransparentTunnel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:FISCA.DSAClient.SecureTunnel.#ctor(FISCA.DSAClient.SecureTunnelService.CriticalKey)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:FISCA.DSAClient.SecureTunnel.Protect(FISCA.DSAClient.Envelope)">
+            <summary>
+            
+            </summary>
+            <param name="env"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FISCA.DSAClient.SecureTunnel.Unprotect(FISCA.DSAClient.Envelope)">
+            <summary>
+            
+            </summary>
+            <param name="env"></param>
+            <returns></returns>
+        </member>
+        <member name="T:FISCA.DSAClient.HttpUtil.HttpSetup">
+            <summary>
+            代表 Http 要求的相關設定。
+            </summary>
+        </member>
+        <member name="M:FISCA.DSAClient.HttpUtil.HttpSetup.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAClient.HttpUtil.HttpSetup.DataBlockSize">
+            <summary>
+            每次傳送/接收資料的大小，以 Byte 為單位設定，預設為 100 KB (1024 * 100)，注意：此數值會影響 ProgressChanged 事件頻率，
+            如果設定的較小，將會提升事件引發頻率。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAClient.HttpUtil.HttpSetup.KeepAlive">
+            <summary>
+            取得或設定是否啟用 Http 的 KeepAlive 機制，預設值為不啟用。啟用此機制會增加效能，但是連線數多時
+            可能會造成 Server 負擔，另外啟用的狀況下有如果有防火牆在中間問題會比較多。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAClient.HttpUtil.HttpSetup.Method">
+            <summary>
+            取得或設定 Http 的要求方法，僅支援「POST、GET」兩種，預設為「POST」。
+            此屬性會被每個新建立的 HttpTrip 使用，如果 HttpTrip已經在執行
+            才修改此屬性，該 HttpTrip不受影響。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAClient.HttpUtil.HttpSetup.ContentType">
+            <summary>
+            取得或設定 HTTP  Content-Type 標頭的值。預設為值「text/xml」(image/file)。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAClient.HttpUtil.HttpSetup.WebProxy">
+            <summary>
+            取得或設定 HTTP 要求的 Proxy 資訊。預設值為不使用任何 Proxy。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAClient.HttpUtil.HttpSetup.Timeout">
+            <summary>
+            取得或設定 Timeout 時間，以亳秒為單位，預設為 100 秒(100,000 亳秒)。
+            此屬性會被每個新建立的 HttpTrip 使用，如果 HttpTrip 已經在執行
+            才修改此屬性，該 HttpTrip不受影響。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAClient.HttpUtil.HttpSetup.AllowCompression">
+            <summary>
+            取得或設定 HTTP Response 是否可接受壓縮編碼，預設值是 True。
+            如果允許 Response 壓縮編碼，會加速網路傳輸效率。此屬性設定為「True」時會
+            傳送「AcceptEncoding:gzip」的 HTTP 標頭，但 Server 會不會回傳壓縮編碼資料則看 Server 設定，
+            一但 Response 是壓縮編碼，則進度處理無法取得確切的 Response 大小。
+            </summary>
+        </member>
+        <member name="T:FISCA.DSAClient.EnvelopeProcessEventHandler">
+            <summary>
+            處理 Envelope 事件。
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="T:FISCA.DSAClient.EnvelopeProcessEventArgs">
+            <summary>
+            EnvelopeProcess 事件參數。
+            </summary>
+        </member>
+        <member name="M:FISCA.DSAClient.EnvelopeProcessEventArgs.#ctor(FISCA.DSAClient.Envelope,FISCA.DSAClient.Envelope)">
+            <summary>
+            
+            </summary>
+            <param name="req"></param>
+            <param name="rsp"></param>
+        </member>
+        <member name="P:FISCA.DSAClient.EnvelopeProcessEventArgs.Request">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAClient.EnvelopeProcessEventArgs.Response">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:FISCA.DSAClient.Connection">
+            <summary>
+            代表 DSA 的連線，可傳送 Request 文件到 DSA Server 。
+            </summary>
+        </member>
+        <member name="F:FISCA.DSAClient.Connection.ConnectService">
+            <summary>
+            Connect Service Name。
+            </summary>
+        </member>
+        <member name="M:FISCA.DSAClient.Connection.#ctor">
+            <summary>
+            建立 Connection 物件的執行個體。
+            </summary>
+        </member>
+        <member name="M:FISCA.DSAClient.Connection.Connect(System.String,System.String,System.String,System.String)">
+            <summary>
+            連線到 DSA。
+            </summary>
+            <param name="accessPoint">存取點位置，可以是 DSNS 名稱或是實體 Url。</param>
+            <param name="targetContract">Contract 名稱，如果指定空串字會連到預設 Contract。</param>
+            <param name="userName">使用者名稱。</param>
+            <param name="password">密碼。</param>
+        </member>
+        <member name="M:FISCA.DSAClient.Connection.Connect(System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            使用 Passport 機制連線到 DSA。
+            </summary>
+            <param name="accessPoint">要連線的 DSA 位置。</param>
+            <param name="targetContract">要連線的 Contract 名稱。</param>
+            <param name="passportProvider">Passport 提供者 DSA 位置。</param>
+            <param name="providerContract">Passport 提供者的 Contract 名稱。</param>
+            <param name="userName">使用者名稱。</param>
+            <param name="password">密碼</param>
+        </member>
+        <member name="M:FISCA.DSAClient.Connection.Connect(System.String,System.String,FISCA.DSAClient.SecurityToken)">
+            <summary>
+            連線到 DSA。
+            </summary>
+            <param name="accessPoint">存取點位置，可以是 DSNS 名稱或是實體 Url。</param>
+            <param name="targetContract">Contract 名稱，如果指定空串字會連到預設 Contract。</param>
+            <param name="securityToken">安全代符。</param>
+        </member>
+        <member name="M:FISCA.DSAClient.Connection.Connect(System.String,System.String,System.String,System.String,FISCA.DSAClient.SecurityToken)">
+            <summary>
+            使用 Passport 機制連線到 DSA。
+            </summary>
+            <param name="accessPoint">要連線的 DSA 位置。</param>
+            <param name="targetContract">要連線的 Contract 名稱。</param>
+            <param name="passportProvider">Passport 提供者 DSA 位置。</param>
+            <param name="providerContract">Passport 提供者的 Contract 名稱。</param>
+            <param name="securityToken">安全代符。</param>
+        </member>
+        <member name="M:FISCA.DSAClient.Connection.Connect(FISCA.DSAClient.AccessPoint,System.String,FISCA.DSAClient.SecurityToken)">
+            <summary>
+            連線到 DSA。
+            </summary>
+            <param name="accessPoint">存取點位置。</param>
+            <param name="targetContract">Contract 名稱，如果指定空串字會連到預設 Contract。</param>
+            <param name="securityToken">安全代符。</param>
+        </member>
+        <member name="M:FISCA.DSAClient.Connection.AsContract(System.String)">
+            <summary>
+            使用目前的 SecurityToken 切換到指定的 Contract。
+            </summary>
+            <param name="name">Contract 名稱。</param>
+            <returns>已切換到新 Contract 的 Connection 物件。</returns>
+        </member>
+        <member name="M:FISCA.DSAClient.Connection.AsContract(System.String,FISCA.DSAClient.SecurityToken)">
+            <summary>
+             切換到指定的 Contract。
+            </summary>
+            <param name="name"></param>
+            <param name="securityToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FISCA.DSAClient.Connection.NewBatchManager">
+            <summary>
+            開始一個 Batch 呼叫。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FISCA.DSAClient.Connection.SendRequest(System.String,FISCA.DSAClient.IXmlable)">
+            <summary>
+            傳送 DSA Request。
+            </summary>
+            <param name="srvName">服務名稱。</param>
+            <param name="requestBodyContent">Request 資料。</param>
+            <returns></returns>
+        </member>
+        <member name="M:FISCA.DSAClient.Connection.SendRequest(System.String,FISCA.DSAClient.IXmlable,FISCA.DSAClient.BatchManager)">
+            <summary>
+            
+            </summary>
+            <param name="srvName"></param>
+            <param name="requestBodyContent"></param>
+            <param name="batch">指定 BatchManager 之後，此 Request 的資料並不會直接寫入資料庫，直到 BatchManager.Complete() 被呼叫為此。</param>
+            <returns></returns>
+        </member>
+        <member name="M:FISCA.DSAClient.Connection.SendRequest(System.String,FISCA.DSAClient.Envelope)">
+            <summary>
+            
+            </summary>
+            <param name="srvName"></param>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FISCA.DSAClient.Connection.SendRequest(System.String,FISCA.DSAClient.Envelope,FISCA.DSAClient.BatchManager)">
+            <summary>
+            傳送 DSA Request。
+            </summary>
+            <param name="srvName">服務名稱。</param>
+            <param name="request">Request 資料。</param>
+            <param name="batch">指定 BatchManager 之後，此 Request 的資料並不會直接寫入資料庫，直到 BatchManager.Complete() 被呼叫為此。</param>
+            <returns></returns>
+        </member>
+        <member name="M:FISCA.DSAClient.Connection.SendRequest(System.String,System.String,System.String,FISCA.DSAClient.IXmlable,FISCA.DSAClient.SecurityToken,System.Boolean)">
+            <summary>
+            直接傳送 Request 到目標 DSA，不經過 DS.Base.Connect 連線測試。
+            </summary>
+            <param name="accessPoint">目標 DSA 位置。</param>
+            <param name="targetContract">目標 Contract。</param>
+            <param name="srvName">服務名稱。</param>
+            <param name="requestBodyContent">申請文件。</param>
+            <param name="securityToken">安全代符。</param>
+            <param name="transportBySTS">指示是否使用加密通道傳送資料。</param>
+            <returns></returns>
+        </member>
+        <member name="M:FISCA.DSAClient.Connection.SendRequest(System.String,System.String,System.String,FISCA.DSAClient.Envelope,FISCA.DSAClient.SecurityToken,System.Boolean)">
+            <summary>
+            直接傳送 Request 到目標 DSA，不經過 DS.Base.Connect 連線測試。
+            </summary>
+            <param name="accessPoint">目標 DSA 位置。</param>
+            <param name="targetContract">目標 Contract。</param>
+            <param name="srvName">服務名稱。</param>
+            <param name="request">申請文件。</param>
+            <param name="securityToken">安全代符。</param>
+            <param name="transportBySTS">指示是否使用加密通道傳送資料。</param>
+            <returns></returns>
+        </member>
+        <member name="M:FISCA.DSAClient.Connection.SendRequest(System.String,FISCA.DSAClient.Envelope,FISCA.DSAClient.SecureTunnel,System.Action{FISCA.DSAClient.Envelope,FISCA.DSAClient.Envelope},System.Action{FISCA.DSAClient.Envelope,FISCA.DSAClient.Envelope},FISCA.DSAClient.HttpUtil.HttpManager,FISCA.DSAClient.BatchManager,FISCA.DSAClient.Connection)">
+            <summary>
+            傳送 DSA Request。
+            </summary>
+        </member>
+        <member name="M:FISCA.DSAClient.Connection.OnConnectPreprocess(FISCA.DSAClient.Envelope,FISCA.DSAClient.Envelope)">
+            <summary>
+            
+            </summary>
+            <param name="req"></param>
+            <param name="rsp"></param>
+        </member>
+        <member name="M:FISCA.DSAClient.Connection.OnConnectPostprocess(FISCA.DSAClient.Envelope,FISCA.DSAClient.Envelope)">
+            <summary>
+            
+            </summary>
+            <param name="req"></param>
+            <param name="rsp"></param>
+        </member>
+        <member name="M:FISCA.DSAClient.Connection.InitConnection">
+            <summary>
+            重新設定所有屬性到預設值。
+            </summary>
+        </member>
+        <member name="F:FISCA.DSAClient.Connection.SyncRoot">
+            <summary>
+            執行緒同步物件。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAClient.Connection.DefaultHttpManager">
+            <summary>
+            預設的 HttpManager，所有的 Connection 都預設使用此 HttpManager。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAClient.Connection.EnableSession">
+            <summary>
+            取得或設定是否啟用 Session 機制，以加速連線速度與提高安全性。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAClient.Connection.EnableSecureTunnel">
+            <summary>
+            取得或設定是否啟用安全資料通道機制，此機制使用公開金鑰(PKI)技術達成。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAClient.Connection.HttpManager">
+            <summary>
+            取得或設定 HttpManager，如果此屬性保持 Null，會自動使用 Connection.DefaultHttpManager。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAClient.Connection.Http">
+            <summary>
+            取得傳送資料的 HttpManager 物件，此屬性會依據 HttpManager 屬性的設定而自動選擇正確的物件。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAClient.Connection.ServerVersion">
+            <summary>
+            取得 DSA Server 的版本。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAClient.Connection.AccessPoint">
+            <summary>
+            取得已連線的 DSA 存取點位置。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAClient.Connection.SecurityToken">
+            <summary>
+            取得安全代符資訊。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAClient.Connection.TargetContract">
+            <summary>
+            取得 Request 傳送的目標 Contract。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAClient.Connection.IsConnected">
+            <summary>
+            取得是否已經連線。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAClient.Connection.OnConnecting">
+            <summary>
+            當正在連線時。
+            </summary>
+        </member>
+        <member name="E:FISCA.DSAClient.Connection.ConnectPreprocess">
+            <summary>
+            在 Connection 連線之前。
+            </summary>
+        </member>
+        <member name="E:FISCA.DSAClient.Connection.ConnectPostprocess">
+            <summary>
+            在 Connection 連線之後。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAClient.Connection.TargetUrl">
+            <summary>
+            取得最後要傳送資料的 Url。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAClient.Connection.STS">
+            <summary>
+            安全通道服務。
+            </summary>
+        </member>
+        <member name="T:FISCA.DSAClient.XmlStringHolder">
+            <summary>
+            負責持有 Xml 的資料，此類別不會對 Xml 進行任何解析動作
+            </summary>
+        </member>
+        <member name="T:FISCA.DSAClient.IXmlable">
+            <summary>
+            代表物件狀態可以轉換成 Xml 資料。
+            </summary>
+        </member>
+        <member name="M:FISCA.DSAClient.IXmlable.WriteTo(System.String)">
+            <summary>
+            將 Xml 資料以 UTF-8 編碼後寫入到指定的檔案。
+            </summary>
+            <param name="fileName">檔案名稱。</param>
+        </member>
+        <member name="P:FISCA.DSAClient.IXmlable.XmlString">
+            <summary>
+            取得代表物件內容的 Xml 字串。
+            </summary>
+            <returns>完整 Xml 字串。</returns>
+        </member>
+        <member name="M:FISCA.DSAClient.XmlStringHolder.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:FISCA.DSAClient.XmlStringHolder.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="outerXml"></param>
+        </member>
+        <member name="M:FISCA.DSAClient.XmlStringHolder.#ctor(System.Xml.XmlElement)">
+            <summary>
+            
+            </summary>
+            <param name="element"></param>
+        </member>
+        <member name="M:FISCA.DSAClient.XmlStringHolder.#ctor(System.Xml.Linq.XElement)">
+            <summary>
+            
+            </summary>
+            <param name="element"></param>
+        </member>
+        <member name="M:FISCA.DSAClient.XmlStringHolder.WriteTo(System.String)">
+            <summary>
+            將 Xml 資料寫入到指定的檔案。
+            </summary>
+            <param name="fileName"></param>
+        </member>
+        <member name="P:FISCA.DSAClient.XmlStringHolder.XmlString">
+            <summary>
+            取得或設定 Xml 資料。
+            </summary>
+        </member>
+        <member name="T:FISCA.DSAClient.DSNameResolveException">
+            <summary>
+            用來表示解析 DSNS 名稱失敗。
+            </summary>
+        </member>
+        <member name="M:FISCA.DSAClient.DSNameResolveException.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:FISCA.DSAClient.DSNameResolveException.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="msg"></param>
+        </member>
+        <member name="M:FISCA.DSAClient.DSNameResolveException.#ctor(System.String,System.Exception)">
+            <summary>
+            
+            </summary>
+            <param name="msg"></param>
+            <param name="innerException"></param>
+        </member>
+        <member name="M:FISCA.DSAClient.DSNameResolveException.#ctor(System.String,System.String,System.String,System.Exception)">
+            <summary>
+            
+            </summary>
+            <param name="msg"></param>
+            <param name="nameToResolve"></param>
+            <param name="nameServer"></param>
+            <param name="innerException"></param>
+        </member>
+        <member name="P:FISCA.DSAClient.DSNameResolveException.NameServer">
+            <summary>
+            負責解析的主機位置。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAClient.DSNameResolveException.NameToResolve">
+            <summary>
+            解析錯誤的名稱。
+            </summary>
+        </member>
+        <member name="T:FISCA.DSAClient.SecurityToken">
+            <summary>
+            封裝 DSA 安全代符的基礎類別。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAClient.SecurityToken.TokenType">
+            <summary>
+            SecurityToken 類型。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAClient.SecurityToken.XmlString">
+            <summary>
+            是供 SecurityToken 的完整內容。
+            </summary>
+        </member>
+        <member name="T:FISCA.DSAClient.NameService">
+            <summary>
+            代表 Name Server 的功能。此類別有預設一組 Name Server 清單。
+            </summary>
+        </member>
+        <member name="M:FISCA.DSAClient.NameService.Resolve(System.String)">
+            <summary>
+            解析 DSNS 名稱。
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+            <exception cref="T:FISCA.DSAClient.DSAMultipleErrorException">當所有解析動作都失敗時丟出。</exception>
+        </member>
+        <member name="M:FISCA.DSAClient.NameService.ResolveParallel(System.String)">
+            <summary>
+            平行解析 DSNS 名稱。
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="P:FISCA.DSAClient.NameService.ProviderList">
+            <summary>
+            具有 Name  Service 的 AccessPoint 清單。可透過在應用程式目錄下放置一個「NameServiceProvider.txt」檔案自定清單，
+            裡面列出自定的 AccessPoint 位置清單，每行放置一個 HTTP Url 位置即可。如果無法從自定清單中載入任何 AccessPoint，
+            會自動載入預設清單。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAClient.NameService.ParallelResolve">
+            <summary>
+            取得或設定是否進行平行解析 DSNS 名稱，如果平行解析，則會同時對清單中所有 Name Server 送出解析的 Request，
+            然後將最先回應的結果回傳，非平行解析則會依序送出解析 Request，回傳第一個成功的解析結果，非平行解析
+            適用在不方便建立多執行緒的環境，例如 ASP.NET 網頁，預設值為 False。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAClient.NameService.PrintResolveMessage">
+            <summary>
+            取得或設定是否輸出解析偵錯訊息(詳細資訊請參考 System.Diagnostics.Trace 類別)。
+            預設值為 False。
+            </summary>
+        </member>
+        <member name="T:FISCA.DSAClient.BasicToken">
+            <summary>
+            代表基本認證的安全代符。
+            </summary>
+        </member>
+        <member name="M:FISCA.DSAClient.BasicToken.#ctor(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="userName"></param>
+            <param name="password"></param>
+        </member>
+        <member name="P:FISCA.DSAClient.BasicToken.UserName">
+            <summary>
+            取得使用者名稱。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAClient.BasicToken.TokenType">
+            <summary>
+            SecurityToken 類型。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAClient.BasicToken.XmlString">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:FISCA.DSAClient.HttpUtil.HttpManager">
+            <summary>
+            負責管理 Http 要求、Http 取消、傳送接收進度、失敗重新要求(Retry)、取消重新要求、
+            Timeout 相關工作。此類別執行緒安全。
+            使用此類別的相關「事件」必需要處理多執行緒問題，因為此類別最重要的方法「Send」，可能會
+            在不同執行緒同時叫用，而事件引發會在叫用的執行緒上，所以封鎖事件執行，會停止該 Trip 執行。
+            此類別預設會由所有 Connection 共用一個實體，但也可個別指定。
+            </summary>
+        </member>
+        <member name="M:FISCA.DSAClient.HttpUtil.HttpManager.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:FISCA.DSAClient.HttpUtil.HttpManager.Send(System.String,System.Byte[])">
+            <summary>
+            傳送 Request 到指定的 Url，並取得 Response，並在過程中引發相關事件。
+            </summary>
+            <param name="url">目標 Url。</param>
+            <param name="request">Request 資料。</param>
+            <returns>Response 資料。</returns>
+            <exception cref="T:FISCA.DSAClient.HttpUtil.TripCancelledException">當 Client 端取消 Trip 時發生。</exception>
+        </member>
+        <member name="M:FISCA.DSAClient.HttpUtil.HttpManager.OnTripStarting(FISCA.DSAClient.HttpUtil.HttpTrip)">
+            <summary>
+            當 Trip 要開始之前。
+            </summary>
+            <param name="trip"></param>
+        </member>
+        <member name="M:FISCA.DSAClient.HttpUtil.HttpManager.OnTripProgressChanged(FISCA.DSAClient.HttpUtil.HttpTrip)">
+            <summary>
+            當 Trip 進度變更時。
+            </summary>
+            <param name="trip"></param>
+        </member>
+        <member name="M:FISCA.DSAClient.HttpUtil.HttpManager.OnTripRetryOccurring(FISCA.DSAClient.HttpUtil.HttpTrip)">
+            <summary>
+            當準備重試之前。
+            </summary>
+            <param name="trip"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FISCA.DSAClient.HttpUtil.HttpManager.OnTripStatusChanged(FISCA.DSAClient.HttpUtil.HttpTrip)">
+            <summary>
+            當 Trip 狀態變更時。
+            </summary>
+            <param name="trip"></param>
+        </member>
+        <member name="M:FISCA.DSAClient.HttpUtil.HttpManager.OntripCompleted(FISCA.DSAClient.HttpUtil.HttpTrip)">
+            <summary>
+            當 Trip 完成時。
+            </summary>
+            <param name="trip"></param>
+        </member>
+        <member name="P:FISCA.DSAClient.HttpUtil.HttpManager.MaxRetryCount">
+            <summary>
+            當 HttpTrip 失敗時，最大重試次數，預設值為 0 次。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAClient.HttpUtil.HttpManager.CurrentTrips">
+            <summary>
+            正在執行的 Trip 清單。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAClient.HttpUtil.HttpManager.HttpSetup">
+            <summary>
+            取得或設定 Http 的相關設定。更改此設定只會影響新的 HttpTrip。
+            </summary>
+        </member>
+        <member name="E:FISCA.DSAClient.HttpUtil.HttpManager.TripStarting">
+            <summary>
+            當 Trip 開始之前，此事件可能會由數個不同的執行緒上同時發生。
+            </summary>
+        </member>
+        <member name="E:FISCA.DSAClient.HttpUtil.HttpManager.TripProgressChanged">
+            <summary>
+            當 Trip 的處理進度變更時，此事件可能會由數個不同的執行緒上同時發生。
+            </summary>
+        </member>
+        <member name="E:FISCA.DSAClient.HttpUtil.HttpManager.TripRetryOccurring">
+            <summary>
+            當 Trip 失敗，重試發生之前，事件參數中的 Trip 代表的是失敗的 Trip，此事件可能會由數個不同的執行緒上同時發生。
+            </summary>
+        </member>
+        <member name="E:FISCA.DSAClient.HttpUtil.HttpManager.TripStatusChanged">
+            <summary>
+            當 Trip 狀態變更時，此事件可能會由數個不同的執行緒上同時發生。
+            </summary>
+        </member>
+        <member name="E:FISCA.DSAClient.HttpUtil.HttpManager.TripCompleted">
+            <summary>
+            當 Trip 結束時，不管是否成功，所有 HttpTrip 最後都會引發此事件，此事件可能會由數個不同的執行緒上同時發生。
+            </summary>
+        </member>
+        <member name="T:FISCA.DSAClient.HttpUtil.HttpTripEventArgs">
+            <summary>
+            HttpTrip 事件參數。
+            </summary>
+        </member>
+        <member name="M:FISCA.DSAClient.HttpUtil.HttpTripEventArgs.#ctor(FISCA.DSAClient.HttpUtil.HttpTrip)">
+            <summary>
+            
+            </summary>
+            <param name="trip"></param>
+        </member>
+        <member name="P:FISCA.DSAClient.HttpUtil.HttpTripEventArgs.Trip">
+            <summary>
+            相關聯的 Trip 物件。
+            </summary>
+        </member>
+        <member name="T:FISCA.DSAClient.HttpUtil.HttpTripRetryEventArgs">
+            <summary>
+            HttpTrip 重試事件參數。
+            </summary>
+        </member>
+        <member name="M:FISCA.DSAClient.HttpUtil.HttpTripRetryEventArgs.#ctor(FISCA.DSAClient.HttpUtil.HttpTrip)">
+            <summary>
+            
+            </summary>
+            <param name="trip"></param>
+        </member>
+        <member name="P:FISCA.DSAClient.HttpUtil.HttpTripRetryEventArgs.Cancel">
+            <summary>
+            取得或設定是否取消 HttpTrip 重試。
+            </summary>
+        </member>
+        <member name="T:FISCA.DSAClient.HttpUtil.HttpTripStartingEventArgs">
+            <summary>
+            HttpTrip Starting 事件參數。
+            </summary>
+        </member>
+        <member name="M:FISCA.DSAClient.HttpUtil.HttpTripStartingEventArgs.#ctor(FISCA.DSAClient.HttpUtil.HttpTrip)">
+            <summary>
+            
+            </summary>
+            <param name="trip"></param>
+        </member>
+        <member name="P:FISCA.DSAClient.HttpUtil.HttpTripStartingEventArgs.HttpSetupOverridden">
+            <summary>
+            取得或設定 HTTP 設定，如果未指定，會使用 HttpManager 的預設值執行 HttpTrip。
+            </summary>
+        </member>
+        <member name="T:FISCA.DSAClient.HttpUtil.TripStatus">
+            <summary>
+            代表 Http 目前狀態。
+            </summary>
+        </member>
+        <member name="F:FISCA.DSAClient.HttpUtil.TripStatus.Padding">
+            <summary>
+            正在等待執行。
+            </summary>
+        </member>
+        <member name="F:FISCA.DSAClient.HttpUtil.TripStatus.Running">
+            <summary>
+            正在執行。
+            </summary>
+        </member>
+        <member name="F:FISCA.DSAClient.HttpUtil.TripStatus.Success">
+            <summary>
+            執行完成。
+            </summary>
+        </member>
+        <member name="F:FISCA.DSAClient.HttpUtil.TripStatus.Cancelled">
+            <summary>
+            工作被取消。
+            </summary>
+        </member>
+        <member name="F:FISCA.DSAClient.HttpUtil.TripStatus.Retry">
+            <summary>
+            工作已失敗，執行重試。
+            </summary>
+        </member>
+        <member name="F:FISCA.DSAClient.HttpUtil.TripStatus.Failure">
+            <summary>
+            執行失敗。
+            </summary>
+        </member>
+        <member name="T:FISCA.DSAClient.HttpUtil.HttpTrip">
+            <summary>
+            代表一個 Http 傳送/接收動作，每次 Request 都會建立新 Trip，包含 Retry 也會建立新的 Trip。
+            </summary>
+        </member>
+        <member name="M:FISCA.DSAClient.HttpUtil.HttpTrip.ResetResponseTime">
+            <summary>
+            重設最後回應時間。
+            </summary>
+        </member>
+        <member name="M:FISCA.DSAClient.HttpUtil.HttpTrip.Cancel">
+            <summary>
+            取消 Http 要求。
+            </summary>
+        </member>
+        <member name="M:FISCA.DSAClient.HttpUtil.HttpTrip.RaiseProgressChanged">
+            <summary>
+            發出 ProgressChanged 事件。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAClient.HttpUtil.HttpTrip.RequestHeaders">
+            <summary>
+            取得 Request Http Header 資訊。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAClient.HttpUtil.HttpTrip.ResponseHeaders">
+            <summary>
+            取得 Response Http Header 資訊。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAClient.HttpUtil.HttpTrip.Request">
+            <summary>
+            Request Data。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAClient.HttpUtil.HttpTrip.Response">
+            <summary>
+            Response Data。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAClient.HttpUtil.HttpTrip.TargetUrl">
+            <summary>
+            Target Url。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAClient.HttpUtil.HttpTrip.Manager">
+            <summary>
+            Manager。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAClient.HttpUtil.HttpTrip.BytesSend">
+            <summary>
+            取得傳送的位元組數目，-1代表未知狀態。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAClient.HttpUtil.HttpTrip.TotalSpendTime">
+            <summary>
+            從資料傳送完成到主機第一次回應時間(亳秒)。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAClient.HttpUtil.HttpTrip.TotalBytesToSend">
+            <summary>
+            取得要傳送的位元組總數，-1代表未知狀態。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAClient.HttpUtil.HttpTrip.BytesReceived">
+            <summary>
+            取得接收的位元組數目，-1代表未知狀態。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAClient.HttpUtil.HttpTrip.TotalBytesToReceive">
+            <summary>
+            總共接收位元組。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAClient.HttpUtil.HttpTrip.LastResponseTime">
+            <summary>
+            主機的最後回應時間。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAClient.HttpUtil.HttpTrip.IsWaitFirstResponse">
+            <summary>
+            是否在等待主機的第一個回應。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAClient.HttpUtil.HttpTrip.RelatedTrip">
+            <summary>
+            取得與此 Trip 相關聯的 Trip，由 HttpManager 管理其值。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAClient.HttpUtil.HttpTrip.Error">
+            <summary>
+            取得此 Trip 發生的錯誤，Null 代表沒有錯誤。
+            由 HttpManager 管理其值。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAClient.HttpUtil.HttpTrip.Status">
+            <summary>
+            取得工作目前的執行狀態。
+            由 HttpManager 管理其值。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAClient.HttpUtil.HttpTrip.RunningThread">
+            <summary>
+            取得執行 Trip 的執行緒。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAClient.HttpUtil.HttpTrip.CancellationRequested">
+            <summary>
+            取得或設定是否要取消工作。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAClient.HttpUtil.HttpTrip.BeginTimestamp">
+            <summary>
+            取得此 Trip 的開始時間。
+            </summary>
+        </member>
+        <member name="T:FISCA.DSAClient.HttpUtil.RetryRequiredException">
+            <summary>
+            用來表示 HttpTrip 失敗，需要重新再試一次的例外狀況。
+            </summary>
+        </member>
+        <member name="T:FISCA.DSAClient.AccessPoint">
+            <summary>
+            代表一個 DSA 的存取點。
+            </summary>
+        </member>
+        <member name="M:FISCA.DSAClient.AccessPoint.#ctor(System.String,System.String)">
+            <summary>
+            初始化 AccessPoint 的新執行個體。
+            </summary>
+            <param name="name">DSA 的 AccessPoint 名稱。</param>
+            <param name="url">實體位置。</param>
+        </member>
+        <member name="M:FISCA.DSAClient.AccessPoint.TryParse(System.String,FISCA.DSAClient.AccessPoint@)">
+            <summary>
+            解析 DSA 的 AccessPoint 名稱。
+            </summary>
+            <param name="accessPoint">要解析的 AccessPoint 名稱或實體位置。</param>
+            <param name="result">AccessPoint 的執行個體。</param>
+            <returns>是否解析成功。</returns>
+        </member>
+        <member name="M:FISCA.DSAClient.AccessPoint.Parse(System.String)">
+            <summary>
+            解析 DSA 的 AccessPoint 名稱。
+            </summary>
+            <param name="accessPoint">要解析的 AccessPoint 名稱或實體位置。</param>
+            <returns>AccessPoint 的執行個體。</returns>
+        </member>
+        <member name="P:FISCA.DSAClient.AccessPoint.Name">
+            <summary>
+            DSA 在 DSNS 上的名稱。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAClient.AccessPoint.Url">
+            <summary>
+            AccessPoint 的實體位置。
+            </summary>
+        </member>
+        <member name="T:FISCA.DSAClient.DSAServerException">
+            <summary>
+            用來表示 DSA Server 發生錯誤時。
+            </summary>
+        </member>
+        <member name="M:FISCA.DSAClient.DSAServerException.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:FISCA.DSAClient.DSAServerException.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="msg"></param>
+        </member>
+        <member name="M:FISCA.DSAClient.DSAServerException.#ctor(System.String,System.Exception)">
+            <summary>
+            
+            </summary>
+            <param name="msg"></param>
+            <param name="innerException"></param>
+        </member>
+        <member name="M:FISCA.DSAClient.DSAServerException.#ctor(System.String,System.String,System.String,System.String,System.Exception)">
+            <summary>
+            
+            </summary>
+            <param name="status"></param>
+            <param name="msg"></param>
+            <param name="request"></param>
+            <param name="response"></param>
+            <param name="innerException"></param>
+        </member>
+        <member name="P:FISCA.DSAClient.DSAServerException.AccessPoint">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAClient.DSAServerException.Status">
+            <summary>
+            DSA Server  的狀態代碼。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAClient.DSAServerException.Request">
+            <summary>
+            Request 資料。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAClient.DSAServerException.Response">
+            <summary>
+            Response  資料
+            </summary>
+        </member>
+        <member name="T:FISCA.DSAClient.NameResolver">
+            <summary>
+            代表名稱解析邏輯封裝類別。
+            </summary>
+        </member>
+        <member name="M:FISCA.DSAClient.NameResolver.#ctor(System.String,System.String)">
+            <summary>
+            建立執行個體。
+            </summary>
+            <param name="nameServer">DSNS Server 實體位置。</param>
+            <param name="nameToResolve">要解析的 DSNS 名稱。</param>
+        </member>
+        <member name="M:FISCA.DSAClient.NameResolver.Resolve">
+            <summary>
+            執行解析動作。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAClient.NameResolver.DefaultHttpManager">
+            <summary>
+            預設的 HttpManager，所有的 NameResolver 都預設使用此 HttpManager，
+            變更此屬性，只會影響新的執行個體。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAClient.NameResolver.WaitHandle">
+            <summary>
+            取得名稱解析的執行緒同步物件。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAClient.NameResolver.HttpManager">
+            <summary>
+            管理 HTTP 的連線。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAClient.NameResolver.NameServer">
+            <summary>
+            DSNS Server 實體位置。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAClient.NameResolver.NameToResolve">
+            <summary>
+            需要解析的 DSNS 名稱。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAClient.NameResolver.ResolveResult">
+            <summary>
+            解析結果。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAClient.NameResolver.Error">
+            <summary>
+            解析所發生的錯誤，如果沒有錯誤值為 Null。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAClient.NameResolver.Success">
+            <summary>
+            解析動作是否成功。
+            </summary>
+        </member>
+        <member name="T:FISCA.DSAClient.DSAProtocolException">
+            <summary>
+            用來表示 DSA 的 Protocol 錯誤。
+            </summary>
+        </member>
+        <member name="M:FISCA.DSAClient.DSAProtocolException.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:FISCA.DSAClient.DSAProtocolException.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="msg"></param>
+        </member>
+        <member name="M:FISCA.DSAClient.DSAProtocolException.#ctor(System.String,System.Exception)">
+            <summary>
+            
+            </summary>
+            <param name="msg"></param>
+            <param name="innerException"></param>
+        </member>
+        <member name="M:FISCA.DSAClient.DSAProtocolException.#ctor(System.String,System.String,System.String,System.String,System.Exception)">
+            <summary>
+            
+            </summary>
+            <param name="msg"></param>
+            <param name="request"></param>
+            <param name="response"></param>
+            <param name="accessPoint"></param>
+            <param name="innerException"></param>
+        </member>
+        <member name="P:FISCA.DSAClient.DSAProtocolException.TargetAccessPoint">
+            <summary>
+            取得目標 AccessPoint。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAClient.DSAProtocolException.Request">
+            <summary>
+            取得 Request 資料。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAClient.DSAProtocolException.Response">
+            <summary>
+            取得 Response 資料。
+            </summary>
+        </member>
+        <member name="T:FISCA.DSAClient.PassportToken">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:FISCA.DSAClient.PassportToken.#ctor(FISCA.DSAClient.IXmlable)">
+            <summary>
+            
+            </summary>
+            <param name="tokenContent"></param>
+        </member>
+        <member name="M:FISCA.DSAClient.PassportToken.#ctor(FISCA.DSAClient.IXmlable,FISCA.DSAClient.SecurityToken)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:FISCA.DSAClient.PassportToken.GetPassport(System.String,System.String,FISCA.DSAClient.SecurityToken)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:FISCA.DSAClient.PassportToken.TokenType">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAClient.PassportToken.XmlString">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAClient.PassportToken.PassportContent">
+            <summary>
+            Passport 內容。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAClient.PassportToken.OriginToken">
+            <summary>
+            取得換得此 PassportToken 的原始 SecurityToken。
+            </summary>
+        </member>
+        <member name="T:FISCA.DSAClient.Envelope">
+            <summary>
+            代表 DSA 的封包。
+            </summary>
+        </member>
+        <member name="M:FISCA.DSAClient.Envelope.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:FISCA.DSAClient.Envelope.#ctor(FISCA.DSAClient.IXmlable)">
+            <summary>
+            
+            </summary>
+            <param name="body"></param>
+        </member>
+        <member name="M:FISCA.DSAClient.Envelope.Parse(System.String)">
+            <summary>
+            解析 Xml 字串，將狀態寫入到指定的物件中。
+            </summary>
+            <param name="outerXml"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FISCA.DSAClient.Envelope.ReadToEnvelope(System.Xml.XmlReader)">
+            <summary>
+            將 Reader 移動到 Envelope 元素，如果找不到則丟出例外。
+            </summary>
+            <param name="reader"></param>
+        </member>
+        <member name="M:FISCA.DSAClient.Envelope.ReadToHeader(System.Xml.XmlReader)">
+            <summary>
+            將 Reader 移動到 Header 元素，如果找不到則丟出例外。
+            </summary>
+            <param name="reader"></param>
+        </member>
+        <member name="M:FISCA.DSAClient.Envelope.ParseHeader(FISCA.DSAClient.HeaderCollection,System.Xml.XmlReader)">
+            <summary>
+            解析 Header。
+            </summary>
+            <param name="headers"></param>
+            <param name="xr"></param>
+        </member>
+        <member name="M:FISCA.DSAClient.Envelope.ReadToBody(System.Xml.XmlReader)">
+            <summary>
+            將 Reader 移動到 Body 元素，如果找不到則丟出例外。
+            </summary>
+            <param name="reader"></param>
+        </member>
+        <member name="M:FISCA.DSAClient.Envelope.WriteTo(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="fileName"></param>
+        </member>
+        <member name="P:FISCA.DSAClient.Envelope.Headers">
+            <summary>
+            取得 DSA 標頭資料。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAClient.Envelope.Body">
+            <summary>
+            取得或設定 DSA Body 的資料。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAClient.Envelope.TransportBySecureTunnel">
+            <summary>
+            取得或設定是否使用安全通道傳送資料。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAClient.Envelope.XmlString">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:FISCA.DSAClient.HttpUtil.CancelType">
+            <summary>
+            取消的動作類型。
+            </summary>
+        </member>
+        <member name="F:FISCA.DSAClient.HttpUtil.CancelType.Trip">
+            <summary>
+            取消工作本身，例如 HttpTrip 進行之前或進行到一半，使用者取消了。
+            </summary>
+        </member>
+        <member name="F:FISCA.DSAClient.HttpUtil.CancelType.Retry">
+            <summary>
+            取消重試。
+            </summary>
+        </member>
+        <member name="T:FISCA.DSAClient.HttpUtil.TripCancelledException">
+            <summary>
+            表示用來傳達 HttpTrip 被取消的例外狀況。
+            </summary>
+        </member>
+        <member name="M:FISCA.DSAClient.HttpUtil.TripCancelledException.#ctor(FISCA.DSAClient.HttpUtil.HttpTrip,FISCA.DSAClient.HttpUtil.CancelType,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="trip"></param>
+            <param name="type"></param>
+            <param name="message"></param>
+        </member>
+        <member name="P:FISCA.DSAClient.HttpUtil.TripCancelledException.Trip">
+            <summary>
+            相關聯的 Trip 物件。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAClient.HttpUtil.TripCancelledException.Type">
+            <summary>
+            取消的動作類型。
+            </summary>
+        </member>
+        <member name="T:FISCA.DSAClient.HeaderCollection">
+            <summary>
+            代表 DSA 的標頭集合。
+            </summary>
+        </member>
+        <member name="M:FISCA.DSAClient.HeaderCollection.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:FISCA.DSAClient.HeaderCollection.Add(System.String)">
+            <summary>
+            新增標頭資料。
+            </summary>
+            <param name="outerXml">完整的標頭資料。</param>
+        </member>
+        <member name="M:FISCA.DSAClient.HeaderCollection.Set(System.String)">
+            <summary>
+            設定標頭資料，如果該標頭已存在，則會覆蓋。
+            </summary>
+            <param name="outerXml"></param>
+        </member>
+        <member name="M:FISCA.DSAClient.HeaderCollection.Add(System.String,System.String)">
+            <summary>
+            新增標頭資料。
+            </summary>
+            <param name="elmName">標頭名稱。</param>
+            <param name="innerXml">標頭內容，可以是單純的字串資料。</param>
+        </member>
+        <member name="M:FISCA.DSAClient.HeaderCollection.Set(System.String,System.String)">
+            <summary>
+            設定標頭資料，如果該標頭已存在，則會覆蓋。
+            </summary>
+            <param name="elmName"></param>
+            <param name="innerXml"></param>
+        </member>
+        <member name="M:FISCA.DSAClient.HeaderCollection.Add(FISCA.DSAClient.IXmlable)">
+            <summary>
+            新增標頭資料。
+            </summary>
+            <param name="header"></param>
+        </member>
+        <member name="M:FISCA.DSAClient.HeaderCollection.Set(FISCA.DSAClient.IXmlable)">
+            <summary>
+             設定標頭資料，如果該標頭已存在，則會覆蓋。
+            </summary>
+            <param name="header"></param>
+        </member>
+        <member name="M:FISCA.DSAClient.HeaderCollection.Remove(System.String)">
+            <summary>
+            移除指定名稱的標頭。
+            </summary>
+            <param name="elmName"></param>
+        </member>
+        <member name="M:FISCA.DSAClient.HeaderCollection.Contains(System.String)">
+            <summary>
+            判斷是否包含指定名稱的標頭。
+            </summary>
+            <param name="elmName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FISCA.DSAClient.HeaderCollection.WriteTo(System.String)">
+            <summary>
+            將物件狀態以 Xml 資料儲存到指定檔案。
+            </summary>
+            <param name="fileName"></param>
+        </member>
+        <member name="M:FISCA.DSAClient.HeaderCollection.GetEnumerator">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:FISCA.DSAClient.HeaderCollection.Item(System.String)">
+            <summary>
+            取得或設定標頭完整內容。
+            </summary>
+            <param name="elmName"></param>
+            <returns></returns>
+        </member>
+        <member name="P:FISCA.DSAClient.HeaderCollection.Count">
+            <summary>
+            取得標頭數量。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAClient.HeaderCollection.XmlString">
+            <summary>
+            取得以 Xml 構結表示的物件狀態。
+            </summary>
+        </member>
+        <member name="T:FISCA.DSAClient.BatchManager">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:FISCA.DSAClient.BatchManager.#ctor(FISCA.DSAClient.Connection)">
+            <summary>
+            建立批次呼叫管理物件。
+            </summary>
+            <param name="conn"></param>
+        </member>
+        <member name="M:FISCA.DSAClient.BatchManager.Cancel">
+            <summary>
+            取消此次 Batch 呼叫，清除 Server 的暫存資料。
+            </summary>
+        </member>
+        <member name="M:FISCA.DSAClient.BatchManager.Complete">
+            <summary>
+            完成 Batch 呼叫，Server 將確認所有呼叫。
+            </summary>
+        </member>
+        <member name="M:FISCA.DSAClient.BatchManager.AddBatchHeader(FISCA.DSAClient.Envelope)">
+            <summary>
+            將 Batch 資訊加入到 Header 中。
+            </summary>
+            <param name="env"></param>
+        </member>
+        <member name="M:FISCA.DSAClient.BatchManager.NextSequence">
+            <summary>
+            取得 Batch 的順序號碼。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:FISCA.DSAClient.BatchManager.BatchID">
+            <summary>
+            批次識別號。
+            </summary>
+        </member>
+        <member name="T:FISCA.DSAClient.SessionToken">
+            <summary>
+            代表 Session 的安全代符。
+            </summary>
+        </member>
+        <member name="M:FISCA.DSAClient.SessionToken.#ctor(System.String,FISCA.DSAClient.SecurityToken)">
+            <summary>
+            
+            </summary>
+            <param name="sessionId"></param>
+            <param name="originToken"></param>
+        </member>
+        <member name="P:FISCA.DSAClient.SessionToken.SessionID">
+            <summary>
+            取得 SessionID。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAClient.SessionToken.OriginToken">
+            <summary>
+            取得換得此 Session 的原始 SecurityToken，一般來說 Session 都是用其他的 SecurityToken 換來的。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAClient.SessionToken.TokenType">
+            <summary>
+            SecurityToken 類型。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAClient.SessionToken.XmlString">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:FISCA.DSAClient.XmlHelper">
+            <summary>
+            協助建立 Xml 文件的輔助類別。
+            </summary>
+        </member>
+        <member name="M:FISCA.DSAClient.XmlHelper.Format(System.String)">
+            <summary>
+            格式化 Xml 內容。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FISCA.DSAClient.XmlHelper.ReadToFollowing(System.Xml.XmlReader,System.String)">
+            <summary>
+            讀取到指定路徑上，用「~」分隔。例：Envelope~Header、Header、Header~Body，
+            第一個的意思是先讀到 Envelope 再到 Header，第二個是直接到 Header，
+            第三個是先到 Header 再到 Body。「~」的意思是接下來到哪裡。
+            </summary>
+            <param name="reader">XmlReader。</param>
+            <param name="path">路徑，不支援 XPath。</param>
+            <returns></returns>
+        </member>
+        <member name="M:FISCA.DSAClient.XmlHelper.ReadToElement(System.Xml.XmlReader)">
+            <summary>
+            讀取到是 Element 為止。
+            </summary>
+            <param name="reader"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FISCA.DSAClient.XmlHelper.ParseAsDOM(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="outerxml"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FISCA.DSAClient.XmlHelper.ParseAsHelper(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="outerxml"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FISCA.DSAClient.XmlHelper.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:FISCA.DSAClient.XmlHelper.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="outerXml"></param>
+        </member>
+        <member name="M:FISCA.DSAClient.XmlHelper.#ctor(System.Xml.XmlElement)">
+            <summary>
+            
+            </summary>
+            <param name="element"></param>
+        </member>
+        <member name="M:FISCA.DSAClient.XmlHelper.#ctor(FISCA.DSAClient.IXmlable)">
+            <summary>
+            
+            </summary>
+            <param name="xml"></param>
+        </member>
+        <member name="M:FISCA.DSAClient.XmlHelper.AddElement(System.String)">
+            <summary>
+            新增空白元素(Empyt Element)到文件中
+            </summary>
+            <param name="newName">新元素名稱。</param>
+            <returns>代表在<see cref="T:FISCA.DSAClient.XmlHelper"/>物件中新元素的實體。</returns>
+        </member>
+        <member name="M:FISCA.DSAClient.XmlHelper.AddElement(System.String,System.Xml.XmlElement)">
+            <summary>
+            在指定的元素下，新增空白子元素。
+            </summary>
+            <param name="xpath">要新增「空白子元素」的「父元素」路徑</param>
+            <param name="newElement">要新增的元素物件</param>
+            <returns>代表在<see cref="T:FISCA.DSAClient.XmlHelper"/>物件中新元素的實體。</returns>
+        </member>
+        <member name="M:FISCA.DSAClient.XmlHelper.AddElement(System.String,System.String)">
+            <summary>
+            在指定的元素下，新增空白子元素。
+            </summary>
+            <param name="xpath">要新增「空白子元素」的「父元素」路徑。</param>
+            <param name="newName">空白子元素名稱。</param>
+            <returns>代表在<see cref="T:FISCA.DSAClient.XmlHelper"/>物件中新元素的實體。</returns>
+        </member>
+        <member name="M:FISCA.DSAClient.XmlHelper.AddElement(System.String,System.String,System.String)">
+            <summary>
+            在指定的元素下，新增子元素，並指定文字資料。
+            </summary>
+            <param name="xpath">要新增「子元素」的「父元素」路徑。</param>
+            <param name="newName">子元素名稱。</param>
+            <param name="text">子元素文字資料。</param>
+            <returns>代表在<see cref="T:FISCA.DSAClient.XmlHelper"/>物件中新元素的實體。</returns>
+        </member>
+        <member name="M:FISCA.DSAClient.XmlHelper.AddElement(System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            在指定的元素下，新增子元素，並指定文字資料。
+            </summary>
+            <param name="xpath">要新增「子元素」的「父元素」路徑。</param>
+            <param name="newName">子元素名稱。</param>
+            <param name="text">子元素文字資料。</param>
+            <param name="isXmlContent">文字資料是否為 Xml 字串，可以是單一 Node 或 NodeList。</param>
+            <returns>代表在<see cref="T:FISCA.DSAClient.XmlHelper"/>物件中新元素的實體。</returns>
+            <remarks>其他AddElement範例可參考<see cref="M:FISCA.DSAClient.XmlHelper.AddElement(System.String,System.String)">
+            DSXmlHelper.AddElement</see>方法說明。</remarks>
+        </member>
+        <member name="M:FISCA.DSAClient.XmlHelper.SetAttribute(System.String,System.String,System.String)">
+            <summary>
+            在指定的元素下，新增屬性，並指定值。
+            </summary>
+            <param name="xpath">要新增屬性的元素路徑。</param>
+            <param name="name">屬性名稱。</param>
+            <param name="value">屬性值。</param>
+            <returns>XmlAttribute的新實體。</returns>
+        </member>
+        <member name="M:FISCA.DSAClient.XmlHelper.GetElement(System.String)">
+            <summary>
+            取得元素物件，但僅取得符合「元素路徑」的第一個元素。
+            </summary>
+            <param name="xpath">元素路徑。</param>
+            <returns>回傳的XmlElement實體。</returns>
+            <exception cref="T:System.Exception">發生再xpath取出的物件不是元素(Element)時。</exception>
+        </member>
+        <member name="M:FISCA.DSAClient.XmlHelper.GetElements(System.String)">
+            <summary>
+            取得元素物件陣列，將會取得所有符合「元素路徑」的所有元素。
+            </summary>
+            <param name="xpath">元素路徑。</param>
+            <returns>XmlElement的陣列。</returns>
+        </member>
+        <member name="M:FISCA.DSAClient.XmlHelper.TryGetInteger(System.String,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="xpath"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FISCA.DSAClient.XmlHelper.TryGetFloat(System.String,System.Single)">
+            <summary>
+            
+            </summary>
+            <param name="xpath"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FISCA.DSAClient.XmlHelper.TryGetDecimal(System.String,System.Decimal)">
+            <summary>
+            
+            </summary>
+            <param name="xpath"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FISCA.DSAClient.XmlHelper.TryGetBoolean(System.String,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="xpath"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FISCA.DSAClient.XmlHelper.TryGetString(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="xpath"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FISCA.DSAClient.XmlHelper.GetText(System.String)">
+            <summary>
+            取得指定元素下的文字資料。
+            </summary>
+            <param name="xpath">元素路徑。</param>
+            <returns>元素下的文字資料，如果指定的元素不存在則回傳String.Emtpy(空字串)。</returns>
+        </member>
+        <member name="M:FISCA.DSAClient.XmlHelper.WriteTo(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="fileName"></param>
+        </member>
+        <member name="P:FISCA.DSAClient.XmlHelper.Base">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAClient.XmlHelper.XmlString">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:FISCA.DSAClient.CommonResources">
+            <summary>
+              用於查詢當地語系化字串等的強型別資源類別
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAClient.CommonResources.ResourceManager">
+            <summary>
+              傳回這個類別使用的快取的 ResourceManager 執行個體。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAClient.CommonResources.Culture">
+            <summary>
+              覆寫目前執行緒的 CurrentUICulture 屬性，對象是所有
+              使用這個強型別資源類別的資源查閱。
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAClient.CommonResources.DSNSServerList">
+             <summary>
+               查詢類似 http://dsns1.ischool.com.tw/dsns/dsns
+            http://dsns2.ischool.com.tw/dsns/dsns
+            http://124.219.8.11/dsns/dsns
+            http://203.72.205.3/dsns/dsns
+            http://dsns-gae.appspot.com/dsns
+            http://dsns.blazer.org.tw/commonserver/dsnameservice/accesspoint.dsa
+            http://203.72.205.3/commonserver/dsnameservice/accesspoint.dsa
+            http://124.219.8.3/commonserver/dsnameservice/accesspoint.dsa 的當地語系化字串。
+             </summary>
+        </member>
+        <member name="P:FISCA.DSAClient.CommonResources.NameResolveRequest">
+             <summary>
+               查詢類似 &lt;Envelope&gt;
+                &lt;Header&gt;
+                    &lt;TargetContract&gt;&lt;/TargetContract&gt;
+                    &lt;TargetService&gt;DS.NameService.GetDoorwayURL&lt;/TargetService&gt;
+                    &lt;SecurityToken Type=&quot;Basic&quot;&gt;
+                        &lt;UserName&gt;anonymous&lt;/UserName&gt;
+                        &lt;Password&gt;&lt;/Password&gt;
+                    &lt;/SecurityToken&gt;
+                    &lt;Parameter&gt;
+                        &lt;LogID&gt;DSNS-{0}&lt;/LogID&gt;
+                    &lt;/Parameter&gt;
+                &lt;/Header&gt;
+                &lt;Body&gt;
+                    &lt;Name&gt;{1}&lt;/Name&gt;
+                &lt;/Body&gt;
+            &lt;/Envelope&gt; 的當地語系化字串。
+             </summary>
+        </member>
+        <member name="T:FISCA.DSAClient.PassportException">
+            <summary>
+            用來表示 DSA 的 Passport 錯誤。
+            </summary>
+        </member>
+        <member name="M:FISCA.DSAClient.PassportException.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:FISCA.DSAClient.PassportException.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="msg"></param>
+        </member>
+        <member name="M:FISCA.DSAClient.PassportException.#ctor(System.String,System.Exception)">
+            <summary>
+            
+            </summary>
+            <param name="msg"></param>
+            <param name="innerException"></param>
+        </member>
+        <member name="M:FISCA.DSAClient.PassportException.#ctor(System.String,System.String,System.String,System.Exception)">
+            <summary>
+            
+            </summary>
+            <param name="msg"></param>
+            <param name="passportProvider"></param>
+            <param name="providerContract"></param>
+            <param name="innerException"></param>
+        </member>
+        <member name="P:FISCA.DSAClient.PassportException.PassportProvider">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAClient.PassportException.ProviderContract">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:FISCA.DSAClient.SecureTunnelService">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:FISCA.DSAClient.SecureTunnelService.#ctor(FISCA.DSAClient.HttpUtil.HttpManager)">
+            <summary>
+            
+            </summary>
+            <param name="http"></param>
+        </member>
+        <member name="M:FISCA.DSAClient.SecureTunnelService.Init(FISCA.DSAClient.AccessPoint,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="accessPoint"></param>
+            <param name="targetContract"></param>
+        </member>
+        <member name="M:FISCA.DSAClient.SecureTunnelService.NewTunnel">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="F:FISCA.DSAClient.SecureTunnelService.CriticalKey.SyncRoot">
+            <summary>
+            用於執行緒同步。
+            </summary>
+        </member>
+        <member name="T:FISCA.DSAClient.SecureTunnelException">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:FISCA.DSAClient.SecureTunnelException.#ctor(System.String,System.Exception)">
+            <summary>
+            
+            </summary>
+            <param name="msg"></param>
+            <param name="ex"></param>
+        </member>
+        <member name="T:FISCA.DSAClient.EnvelopeSpecificationException">
+            <summary>
+            用來表示 Envelop 規格不正確例外。
+            </summary>
+        </member>
+        <member name="M:FISCA.DSAClient.EnvelopeSpecificationException.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:FISCA.DSAClient.EnvelopeSpecificationException.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="msg"></param>
+        </member>
+        <member name="M:FISCA.DSAClient.EnvelopeSpecificationException.#ctor(System.String,System.Exception)">
+            <summary>
+            
+            </summary>
+            <param name="msg"></param>
+            <param name="innerException"></param>
+        </member>
+        <member name="M:FISCA.DSAClient.EnvelopeSpecificationException.#ctor(System.String,System.Exception,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="msg"></param>
+            <param name="innerException"></param>
+            <param name="envelope"></param>
+        </member>
+        <member name="P:FISCA.DSAClient.EnvelopeSpecificationException.Envelope">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:FISCA.DSAClient.DSAMultipleErrorException">
+            <summary>
+            用來表示多個 DSA 失敗。
+            </summary>
+        </member>
+        <member name="M:FISCA.DSAClient.DSAMultipleErrorException.#ctor(System.String,System.Collections.Generic.IList{System.Exception})">
+            <summary>
+            
+            </summary>
+            <param name="msg"></param>
+            <param name="errors"></param>
+        </member>
+        <member name="P:FISCA.DSAClient.DSAMultipleErrorException.Errors">
+            <summary>
+            包含所有解析錯誤的例外集合。
+            </summary>
+        </member>
+        <member name="T:FISCA.DSAClient.ErrorReport">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:FISCA.DSAClient.ErrorReport.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:FISCA.DSAClient.ErrorReport.Generate(System.Exception)">
+            <summary>
+            將 Exception 物件的相關資訊產生成 Xml 資料。
+            </summary>
+            <param name="ex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FISCA.DSAClient.ErrorReport.AddType(System.Type)">
+            <summary>
+            
+            </summary>
+            <param name="type"></param>
+        </member>
+        <member name="M:FISCA.DSAClient.ErrorReport.AddType(System.Type,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="type"></param>
+            <param name="includeSubclass"></param>
+        </member>
+        <member name="M:FISCA.DSAClient.ErrorReport.Transform(System.Exception)">
+            <summary>
+            
+            </summary>
+            <param name="ex"></param>
+            <returns></returns>
+        </member>
+        <member name="T:FISCA.DSAClient.ExtraInformation">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:FISCA.DSAClient.ExtraInformation.#ctor(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="name"></param>
+            <param name="data"></param>
+        </member>
+        <member name="P:FISCA.DSAClient.ExtraInformation.Name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:FISCA.DSAClient.ExtraInformation.Data">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:FISCA.DSAClient.IExtraProcesser">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:FISCA.DSAClient.IExtraProcesser.Process(System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="instance"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

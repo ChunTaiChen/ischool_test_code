@@ -1,0 +1,1086 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{93F055E7-9422-4519-A359-524783E42A9F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SmartSchool.Evaluation</RootNamespace>
+    <AssemblyName>SmartSchool.Evaluation.HS</AssemblyName>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Aspose.Cells, Version=4.3.0.0, Culture=neutral, PublicKeyToken=9a40d5a4b59e5256, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Library\Aspose.Cells.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Aspose.Words, Version=4.4.0.0, Culture=neutral, PublicKeyToken=716fcc553a201e56, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Library\Aspose.Words.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevComponents.DotNetBar2, Version=9.5.0.1, Culture=neutral, PublicKeyToken=7eb7c3a35b91de04, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Library\DevComponents.DotNetBar2.dll</HintPath>
+    </Reference>
+    <Reference Include="FISCA, Version=2.1.1.22, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Library\FISCA.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="FISCA.Authentication, Version=1.9.0.10, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Library\FISCA.Authentication.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="FISCA.Data, Version=1.0.0.3, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Library\FISCA.Data.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="FISCA.DSAClient">
+      <HintPath>Library\FISCA.DSAClient.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="FISCA.DSAUtil, Version=3.9.0.10, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Library\FISCA.DSAUtil.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="FISCA.Permission, Version=1.2.0.2, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Library\FISCA.Permission.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="FISCA.Presentation, Version=1.1.0.15, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Library\FISCA.Presentation.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IntelliSchool.DSA.ClientFramework, Version=1.2.2.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Library\IntelliSchool.DSA.ClientFramework.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="K12.Data, Version=1.9.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Library\K12.Data.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="K12.Presentation, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Library\K12.Presentation.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SHSchool.Data, Version=1.8.0.4, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Library\SHSchool.Data.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SHStaticRank.Data, Version=1.0.0.2, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Library\SHStaticRank.Data.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SmartSchool.AccessControl, Version=1.0.0.5, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Library\SmartSchool.AccessControl.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SmartSchool.API.PlugIn, Version=0.0.0.3, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Library\SmartSchool.API.PlugIn.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SmartSchool.Broadcaster, Version=1.0.0.3, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Library\SmartSchool.Broadcaster.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SmartSchool.Common, Version=1.0.0.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Library\SmartSchool.Common.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SmartSchool.Common.Aspose, Version=1.0.0.4, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Library\SmartSchool.Common.Aspose.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SmartSchool.Common.DotNetBar, Version=1.0.0.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Library\SmartSchool.Common.DotNetBar.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SmartSchool.Core, Version=1.0.2.13, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Library\SmartSchool.Core.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SmartSchool.Core.General, Version=1.0.5.8, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Library\SmartSchool.Core.General.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SmartSchool.Core.HS, Version=1.0.4.7, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Library\SmartSchool.Core.HS.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SmartSchool.Customization.Data, Version=1.3.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Library\SmartSchool.Customization.Data.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SmartSchool.Customization.PlugIn, Version=1.1.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Library\SmartSchool.Customization.PlugIn.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SmartSchool.ExceptionHandler, Version=1.9.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Library\SmartSchool.ExceptionHandler.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AngelDemonComputer.cs" />
+    <Compile Include="CompleteForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CompleteForm.designer.cs">
+      <DependentUpon>CompleteForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Configuration\FrmGraduationPlanConfiguration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Configuration\FrmGraduationPlanConfiguration.Designer.cs">
+      <DependentUpon>FrmGraduationPlanConfiguration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Configuration\FrmReviseRuleName.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Configuration\FrmReviseRuleName.Designer.cs">
+      <DependentUpon>FrmReviseRuleName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Configuration\FrmScoreCalcConfiguration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Configuration\FrmScoreCalcConfiguration.Designer.cs">
+      <DependentUpon>FrmScoreCalcConfiguration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Configuration\FrmSubjectTableConfiguration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Configuration\FrmSubjectTableConfiguration.Designer.cs">
+      <DependentUpon>FrmSubjectTableConfiguration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Configuration\MoralConductEditors\AppraiseRuleEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Configuration\MoralConductEditors\AppraiseRuleEditor.Designer.cs">
+      <DependentUpon>AppraiseRuleEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Configuration\CommonPlanConfiguration.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Configuration\CommonPlanConfiguration.Designer.cs">
+      <DependentUpon>CommonPlanConfiguration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Configuration\GraduationPlanConfiguration.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Configuration\GraduationPlanConfiguration.Designer.cs">
+      <DependentUpon>GraduationPlanConfiguration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Configuration\GraduationPlanCreator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Configuration\GraduationPlanCreator.Designer.cs">
+      <DependentUpon>GraduationPlanCreator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Configuration\IMoralConductInstance.cs" />
+    <Compile Include="Configuration\MoralConductConfiguration.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Configuration\MoralConductConfiguration.Designer.cs">
+      <DependentUpon>MoralConductConfiguration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Configuration\MoralConductEditors\BasicScoreEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Configuration\MoralConductEditors\BasicScoreEditor.Designer.cs">
+      <DependentUpon>BasicScoreEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Configuration\MoralConductEditors\PeriodAbsenceCalcRuleEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Configuration\MoralConductEditors\PeriodAbsenceCalcRuleEditor.Designer.cs">
+      <DependentUpon>PeriodAbsenceCalcRuleEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Configuration\MoralConductEditors\RewardCalcRuleEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Configuration\MoralConductEditors\RewardCalcRuleEditor.Designer.cs">
+      <DependentUpon>RewardCalcRuleEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Configuration\ScoreCalcConfiguration.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Configuration\ScoreCalcConfiguration.Designer.cs">
+      <DependentUpon>ScoreCalcConfiguration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Configuration\ScoreCalcRuleCreator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Configuration\ScoreCalcRuleCreator.Designer.cs">
+      <DependentUpon>ScoreCalcRuleCreator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Configuration\ScoreCalcRuleEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Configuration\ScoreCalcRuleEditor.Designer.cs">
+      <DependentUpon>ScoreCalcRuleEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Configuration\SubjectTableConfiguration.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Configuration\SubjectTableConfiguration.Designer.cs">
+      <DependentUpon>SubjectTableConfiguration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Configuration\SubjectTableEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Configuration\SubjectTableEditor.Designer.cs">
+      <DependentUpon>SubjectTableEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Configuration\SubjectTableCreator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Configuration\SubjectTableCreator.Designer.cs">
+      <DependentUpon>SubjectTableCreator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Content\GradScorePalmerworm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Content\GradScorePalmerworm.Designer.cs">
+      <DependentUpon>GradScorePalmerworm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Content\SchoolYearScorePalmerworm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Content\SchoolYearScorePalmerworm.Designer.cs">
+      <DependentUpon>SchoolYearScorePalmerworm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Content\ScoreEditor\SchoolYearScoreEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Content\ScoreEditor\SchoolYearScoreEditor.Designer.cs">
+      <DependentUpon>SchoolYearScoreEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Content\ScoreEditor\SemesterScoreEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Content\ScoreEditor\SemesterScoreEditor.Designer.cs">
+      <DependentUpon>SemesterScoreEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Content\SemesterScorePalmerworm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Content\SemesterScorePalmerworm.Designer.cs">
+      <DependentUpon>SemesterScorePalmerworm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataGridViewExport.cs" />
+    <Compile Include="ExtandColumn\ClassGraduationPlan.cs" />
+    <Compile Include="ExtandColumn\ClassScoreCalcRule.cs" />
+    <Compile Include="ExtandColumn\StudentCalcRule.cs" />
+    <Compile Include="ExtandColumn\StudentGraduationPlan.cs" />
+    <Compile Include="GraduationPlan\Editor\CommonPlanEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GraduationPlan\Editor\CommonPlanEditor.Designer.cs">
+      <DependentUpon>CommonPlanEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GraduationPlan\Editor\GraduationPlanEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GraduationPlan\Editor\GraduationPlanEditor.designer.cs">
+      <DependentUpon>GraduationPlanEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GraduationPlan\Editor\IGraduationPlanEditor.cs" />
+    <Compile Include="GraduationPlan\GraduationPlan.cs" />
+    <Compile Include="GraduationPlan\GraduationPlanInfo.cs" />
+    <Compile Include="GraduationPlan\GraduationPlanInfoCollection.cs" />
+    <Compile Include="GraduationPlan\GraduationPlanSelector.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GraduationPlan\GraduationPlanSelector.Designer.cs">
+      <DependentUpon>GraduationPlanSelector.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GraduationPlan\GraduationPlanSubject.cs" />
+    <Compile Include="GraduationPlan\Validate\ValidateGraduationPlanInfo.cs" />
+    <Compile Include="ImportExport\ExportGradScore.cs" />
+    <Compile Include="ImportExport\ExportSemesterEntryScore.cs" />
+    <Compile Include="ImportExport\ExportSemesterSubjectScore.cs" />
+    <Compile Include="ImportExport\ImportSemesterEntryScore.cs" />
+    <Compile Include="ImportExport\ImportSemesterSubjectScore.cs" />
+    <Compile Include="ImportExport\ExportSchoolYearEntryScore.cs" />
+    <Compile Include="ImportExport\ExportSchoolYearSubjectScore.cs" />
+    <Compile Include="ImportExport\ImportSchoolYearEntryScore.cs" />
+    <Compile Include="ImportExport\ImportSchoolYearSubjectScore.cs" />
+    <Compile Include="ImportExport\ImportSemesterEntryScoreRank.cs" />
+    <Compile Include="Process\AssignClass.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Process\AssignClass.Designer.cs">
+      <DependentUpon>AssignClass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Process\Calculation.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Process\Calculation.Designer.cs">
+      <DependentUpon>Calculation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Process\CreateCourceForClass.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Process\CreateCourceForClass.Designer.cs">
+      <DependentUpon>CreateCourceForClass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Process\WarnViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Process\WarnViewer.Designer.cs">
+      <DependentUpon>WarnViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Process\ErrorViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Process\ErrorViewer.Designer.cs">
+      <DependentUpon>ErrorViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Process\Rating\AlgorithmModel\IRatingTarget.cs" />
+    <Compile Include="Process\Rating\AlgorithmModel\RatingItems.cs" />
+    <Compile Include="Process\Rating\AlgorithmModel\RatingMethod.cs" />
+    <Compile Include="Process\Rating\AlgorithmModel\RatingParameters.cs" />
+    <Compile Include="Process\Rating\AlgorithmModel\RatingScope.cs" />
+    <Compile Include="Process\Rating\AlgorithmModel\RatingUtility.cs" />
+    <Compile Include="Process\Rating\AlgorithmModel\ScopeFactory.cs" />
+    <Compile Include="Process\Rating\AlgorithmModel\Targets\SemsMoralTarget.cs" />
+    <Compile Include="Process\Rating\AlgorithmModel\Targets\SemsScoreTarget.cs" />
+    <Compile Include="Process\Rating\AlgorithmModel\Targets\SemsSubjectTarget.cs" />
+    <Compile Include="Process\Rating\AlgorithmModel\Targets\YearMoralTarget.cs" />
+    <Compile Include="Process\Rating\AlgorithmModel\Targets\YearScoreTarget.cs" />
+    <Compile Include="Process\Rating\AlgorithmModel\Targets\YearSubjectTarget.cs" />
+    <Compile Include="Process\Rating\DataAdapters\DataAdapter.cs" />
+    <Compile Include="Process\Rating\DataAdapters\SemsMoralAdapter.cs" />
+    <Compile Include="Process\Rating\DataAdapters\SemsScoreAdapter.cs" />
+    <Compile Include="Process\Rating\DataAdapters\SemsSubjectScoreAdapter.cs" />
+    <Compile Include="Process\Rating\DataAdapters\StudentAdapter.cs" />
+    <Compile Include="Process\Rating\DataAdapters\YearMoralAdapter.cs" />
+    <Compile Include="Process\Rating\DataAdapters\YearScoreAdapter.cs" />
+    <Compile Include="Process\Rating\DataAdapters\YearSubjectScoreAdapter.cs" />
+    <Compile Include="Process\Rating\DataModel\EntryScore.cs" />
+    <Compile Include="Process\Rating\DataModel\RatableScore.cs" />
+    <Compile Include="Process\Rating\DataModel\RatingResult.cs" />
+    <Compile Include="Process\Rating\DataModel\SchoolYearEntry.cs" />
+    <Compile Include="Process\Rating\DataModel\SemesterEntry.cs" />
+    <Compile Include="Process\Rating\DataModel\SemsSubjectScore.cs" />
+    <Compile Include="Process\Rating\DataModel\Student.cs" />
+    <Compile Include="Process\Rating\DataModel\YearSubjectScore.cs" />
+    <Compile Include="Process\Rating\Forms\RankProgressForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Process\Rating\Forms\RankProgressForm.Designer.cs">
+      <DependentUpon>RankProgressForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Process\Rating\Forms\ResultViewForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Process\Rating\Forms\ResultViewForm.Designer.cs">
+      <DependentUpon>ResultViewForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Process\Rating\Forms\SchoolYearRatingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Process\Rating\Forms\SchoolYearRatingForm.Designer.cs">
+      <DependentUpon>SchoolYearRatingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Process\Rating\Forms\SemesterRatingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Process\Rating\Forms\SemesterRatingForm.Designer.cs">
+      <DependentUpon>SemesterRatingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Process\Rating\ProgressModel\IProgressUI.cs" />
+    <Compile Include="Process\Rating\ProgressModel\JobWeightTable.cs" />
+    <Compile Include="Process\Rating\ProgressModel\MainProgress.cs" />
+    <Compile Include="Process\Rating\ProgressModel\SubProgress.cs" />
+    <Compile Include="Process\Rating\Utility.cs" />
+    <Compile Include="Process\Resit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Process\Resit.Designer.cs">
+      <DependentUpon>Resit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Process\RibbonBarBase.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Process\RibbonBarBase.Designer.cs">
+      <DependentUpon>RibbonBarBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Process\SelectSemesterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Process\SelectSemesterForm.Designer.cs">
+      <DependentUpon>SelectSemesterForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Process\Wizards\CalcSchoolYearScoreWizard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Process\Wizards\CalcSchoolYearScoreWizard.Designer.cs">
+      <DependentUpon>CalcSchoolYearScoreWizard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Process\Wizards\CalcSemesterSubjectScoreWizard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Process\Wizards\CalcSemesterSubjectScoreWizard.Designer.cs">
+      <DependentUpon>CalcSemesterSubjectScoreWizard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Process\Wizards\CalcSemesterMoralScoreWizard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Process\Wizards\CalcSemesterMoralScoreWizard.Designer.cs">
+      <DependentUpon>CalcSemesterMoralScoreWizard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Process\Wizards\CalcSemesterEntryScoreWizard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Process\Wizards\CalcSemesterEntryScoreWizard.Designer.cs">
+      <DependentUpon>CalcSemesterEntryScoreWizard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Process\Wizards\CalcSchoolYearEntryScoreWizard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Process\Wizards\CalcSchoolYearEntryScoreWizard.Designer.cs">
+      <DependentUpon>CalcSchoolYearEntryScoreWizard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Process\Wizards\CalcSchoolYearMoralScoreWizard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Process\Wizards\CalcSchoolYearMoralScoreWizard.Designer.cs">
+      <DependentUpon>CalcSchoolYearMoralScoreWizard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Process\Wizards\CalcSchoolYearSubjectScoreWizard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Process\Wizards\CalcSchoolYearSubjectScoreWizard.Designer.cs">
+      <DependentUpon>CalcSchoolYearSubjectScoreWizard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Process\CalculationBatch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Process\CalculationBatch.Designer.cs">
+      <DependentUpon>CalculationBatch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Process\Wizards\CalsSemesterScoreWizard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Process\Wizards\CalsSemesterScoreWizard.Designer.cs">
+      <DependentUpon>CalsSemesterScoreWizard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Process\Wizards\Common.cs" />
+    <Compile Include="Process\Retake.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Process\Retake.Designer.cs">
+      <DependentUpon>Retake.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Process\AssignStudent.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Process\AssignStudent.Designer.cs">
+      <DependentUpon>AssignStudent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Process\Wizards\CreateClassCourse.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Process\Wizards\CreateClassCourse.Designer.cs">
+      <DependentUpon>CreateClassCourse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Process\Wizards\ISubjectCalcPostProcess.cs" />
+    <Compile Include="Process\Wizards\LogUtility.cs" />
+    <Compile Include="Process\Wizards\CalcSchoolYearApplyScoreWizard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Process\Wizards\CalcSchoolYearApplyScoreWizard.Designer.cs">
+      <DependentUpon>CalcSchoolYearApplyScoreWizard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ClassSemesterScore\ClassSemesterScore.cs" />
+    <Compile Include="Reports\ClassSemesterScore\ClassSemesterScoreConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\ClassSemesterScore\ClassSemesterScoreConfig.Designer.cs">
+      <DependentUpon>ClassSemesterScoreConfig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ClassSemesterScore\ClassSemesterScoreForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\ClassSemesterScore\ClassSemesterScoreForm.Designer.cs">
+      <DependentUpon>ClassSemesterScoreForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\CreditStatistic\CreditCalcluator.cs" />
+    <Compile Include="Reports\CreditStatistic\CreditStatistic.cs" />
+    <Compile Include="Reports\MultiSemesterScore\DataModel\EntryInfo.cs" />
+    <Compile Include="Reports\MultiSemesterScore\DataModel\IScoreInfo.cs" />
+    <Compile Include="Reports\MultiSemesterScore\DataModel\ScoreInfo.cs" />
+    <Compile Include="Reports\MultiSemesterScore\DataModel\Student.cs" />
+    <Compile Include="Reports\MultiSemesterScore\DataModel\SubjectInfo.cs" />
+    <Compile Include="Reports\MultiSemesterScore\Forms\MoralLevelForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\MultiSemesterScore\Forms\MoralLevelForm.Designer.cs">
+      <DependentUpon>MoralLevelForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\MultiSemesterScore\DataModel\ReportOptions.cs" />
+    <Compile Include="Reports\MultiSemesterScore\Forms\TemplateSetupForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\MultiSemesterScore\Forms\TemplateSetupForm.Designer.cs">
+      <DependentUpon>TemplateSetupForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\MultiSemesterScore\MultiSemesterScore.cs" />
+    <Compile Include="Reports\MultiSemesterScore\Forms\MultiSemesterScoreForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\MultiSemesterScore\Forms\MultiSemesterScoreForm.Designer.cs">
+      <DependentUpon>MultiSemesterScoreForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Resit\NotReachStandardList.cs" />
+    <Compile Include="Reports\Resit\ResitListByStudent.cs" />
+    <Compile Include="Reports\Resit\ResitListBySubject.cs" />
+    <Compile Include="Reports\Resit\ResitScoreImport.cs" />
+    <Compile Include="Reports\Retake\RetakeListByStudent.cs" />
+    <Compile Include="Reports\Retake\RetakeListBySubject.cs" />
+    <Compile Include="Reports\Retake\RetakeScoreImport.cs" />
+    <Compile Include="Reports\Retake\RetakeSelectSemesterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\Retake\RetakeSelectSemesterForm.Designer.cs">
+      <DependentUpon>RetakeSelectSemesterForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Retake\RetakeWithCourseList.cs" />
+    <Compile Include="Reports\Retake\XMLEncoding.cs" />
+    <Compile Include="Reports\SelectSemesterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\SelectSemesterForm.Designer.cs">
+      <DependentUpon>SelectSemesterForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\SelectTypeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\SelectTypeForm.Designer.cs">
+      <DependentUpon>SelectTypeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\SemesterMoralScore\SemesterMoralScoreTotal.cs" />
+    <Compile Include="Reports\SemesterMoralScore\SemesterMoralScoreCalcConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\SemesterMoralScore\SemesterMoralScoreCalcConfig.Designer.cs">
+      <DependentUpon>SemesterMoralScoreCalcConfig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\SemesterMoralScore\SemesterMoralScoreCalc.cs" />
+    <Compile Include="Reports\SemesterMoralScore\SemesterMoralScoreCalcForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\SemesterMoralScore\SemesterMoralScoreCalcForm.Designer.cs">
+      <DependentUpon>SemesterMoralScoreCalcForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\SemesterMoralScore\SemesterMoralScoreTotalConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\SemesterMoralScore\SemesterMoralScoreTotalConfig.Designer.cs">
+      <DependentUpon>SemesterMoralScoreTotalConfig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\SemesterMoralScore\SemesterMoralScoreTotalForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\SemesterMoralScore\SemesterMoralScoreTotalForm.Designer.cs">
+      <DependentUpon>SemesterMoralScoreTotalForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\SemesterScoreReportNew\SemesterScoreReport.cs" />
+    <Compile Include="Reports\SemesterScoreReportNew\SemesterScoreReportConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\SemesterScoreReportNew\SemesterScoreReportConfig.Designer.cs">
+      <DependentUpon>SemesterScoreReportConfig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\SemesterScoreReportNew\SemesterScoreReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\SemesterScoreReportNew\SemesterScoreReportForm.Designer.cs">
+      <DependentUpon>SemesterScoreReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\SemesterScoreReport\SemesterScoreReport.cs" />
+    <Compile Include="Reports\SemesterScoreReport\SemesterScoreReportConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\SemesterScoreReport\SemesterScoreReportConfig.Designer.cs">
+      <DependentUpon>SemesterScoreReportConfig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\SemesterScoreReport\SemesterScoreReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\SemesterScoreReport\SemesterScoreReportForm.Designer.cs">
+      <DependentUpon>SemesterScoreReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ScoreCalcRule\ScoreCalcRule.cs" />
+    <Compile Include="ScoreCalcRule\ScoreCalcRuleInfo.cs" />
+    <Compile Include="ScoreCalcRule\ScoreCalcRuleInfoCollection.cs" />
+    <Compile Include="EventHub.cs" />
+    <Compile Include="SecureButtonAdapter.cs" />
+    <Compile Include="StudSemsEntryRating.cs" />
+    <Compile Include="StudSemsSubjRatingXML.cs" />
+    <Compile Include="StudSemsSubjRating.cs" />
+    <Compile Include="SubjectTable.cs" />
+    <Compile Include="UpdateHelper.cs" />
+    <Compile Include="Utility.cs" />
+    <Compile Include="WearyDogComputer.cs" />
+    <Compile Include="WearyDogComputerHelper\GraduateEvaluator.cs" />
+    <Compile Include="WearyDogComputerHelper\GraduateRule.cs" />
+    <Compile Include="WearyDogComputerHelper\ScoreEvaluator.cs" />
+    <Compile Include="WearyDogComputerHelper\SemesterData.cs" />
+    <Compile Include="WearyDogComputerHelper\SubjectName.cs" />
+    <Compile Include="WearyDogComputerHelper\WearyDogComputer_ExtensionMethod.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\calc_save_64.png" />
+    <None Include="Resources\course_plan.png" />
+    <Content Include="Library\Aspose.Cells.dll" />
+    <Content Include="Library\Aspose.Cells.xml" />
+    <Content Include="Library\Aspose.Words.dll" />
+    <Content Include="Library\Aspose.Words.xml" />
+    <Content Include="Library\DevComponents.DotNetBar2.dll" />
+    <Content Include="Library\DevComponents.DotNetBar2.xml" />
+    <Content Include="Library\FISCA.Authentication.dll" />
+    <Content Include="Library\FISCA.Authentication.pdb" />
+    <Content Include="Library\FISCA.Authentication.xml" />
+    <Content Include="Library\FISCA.Data.dll" />
+    <Content Include="Library\FISCA.Data.pdb" />
+    <Content Include="Library\FISCA.Data.xml" />
+    <Content Include="Library\FISCA.dll" />
+    <Content Include="Library\FISCA.DSAUtil.dll" />
+    <Content Include="Library\FISCA.DSAUtil.pdb" />
+    <Content Include="Library\FISCA.DSAUtil.xml" />
+    <Content Include="Library\FISCA.pdb" />
+    <Content Include="Library\FISCA.Presentation.dll" />
+    <Content Include="Library\FISCA.Presentation.pdb" />
+    <Content Include="Library\FISCA.Presentation.xml" />
+    <Content Include="Library\FISCA.xml" />
+    <Content Include="Library\IntelliSchool.DSA.ClientFramework.dll" />
+    <Content Include="Library\IntelliSchool.DSA.ClientFramework.xml" />
+    <Content Include="Library\K12.Data.dll" />
+    <Content Include="Library\K12.Data.pdb" />
+    <Content Include="Library\K12.Data.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Library\K12.Presentation.dll" />
+    <Content Include="Library\K12.Presentation.pdb" />
+    <Content Include="Library\K12.Presentation.xml" />
+    <Content Include="Library\SHSchool.Data.dll" />
+    <Content Include="Library\SHSchool.Data.pdb" />
+    <Content Include="Library\SHSchool.Data.xml" />
+    <Content Include="Library\SHStaticRank.Data.dll" />
+    <Content Include="Library\SHStaticRank.Data.pdb" />
+    <Content Include="Library\SkypeControl.dll" />
+    <Content Include="Library\SmartSchool.AccessControl.dll" />
+    <Content Include="Library\SmartSchool.AccessControl.pdb" />
+    <Content Include="Library\SmartSchool.API.PlugIn.dll" />
+    <Content Include="Library\SmartSchool.Broadcaster.dll" />
+    <Content Include="Library\SmartSchool.Broadcaster.pdb" />
+    <Content Include="Library\SmartSchool.Common.Aspose.dll" />
+    <Content Include="Library\SmartSchool.Common.Aspose.pdb" />
+    <Content Include="Library\SmartSchool.Common.Aspose.xml" />
+    <Content Include="Library\SmartSchool.Common.dll" />
+    <Content Include="Library\SmartSchool.Common.DotNetBar.dll" />
+    <Content Include="Library\SmartSchool.Common.DotNetBar.pdb" />
+    <Content Include="Library\SmartSchool.Common.DotNetBar.xml" />
+    <Content Include="Library\SmartSchool.Common.pdb" />
+    <Content Include="Library\SmartSchool.Common.xml" />
+    <Content Include="Library\SmartSchool.Core.dll" />
+    <Content Include="Library\SmartSchool.Core.General.dll" />
+    <Content Include="Library\SmartSchool.Core.General.pdb" />
+    <Content Include="Library\SmartSchool.Core.HS.dll" />
+    <Content Include="Library\SmartSchool.Core.HS.pdb" />
+    <Content Include="Library\SmartSchool.Core.pdb" />
+    <Content Include="Library\SmartSchool.Customization.Data.dll" />
+    <Content Include="Library\SmartSchool.Customization.Data.pdb" />
+    <Content Include="Library\SmartSchool.Customization.Data.xml" />
+    <Content Include="Library\SmartSchool.Customization.PlugIn.dll" />
+    <Content Include="Library\SmartSchool.Customization.PlugIn.xml" />
+    <Content Include="Library\SmartSchool.ExceptionHandler.dll" />
+    <Content Include="Library\SmartSchool.ExceptionHandler.pdb" />
+    <None Include="Resources\classroom_64.ico" />
+    <None Include="Resources\elementary_school_64.ico" />
+    <Content Include="Resources\ExportScoreImage.png" />
+    <Content Include="Resources\ImportScoreImage.png" />
+    <None Include="Resources\subject_64.png" />
+    <None Include="Resources\loading5.gif" />
+    <None Include="Resources\Info3D.ico" />
+    <None Include="Resources\多學期成績單.doc" />
+    <None Include="Resources\學分統計表.xls" />
+    <None Include="Resources\學期成績單1.doc" />
+    <None Include="Resources\學生重修科目清單.xls" />
+    <None Include="Resources\德行成績總表A3.xls" />
+    <None Include="Resources\德行成績總表A4.xls" />
+    <None Include="Resources\德行成績總表B4.xls" />
+    <None Include="Resources\德行成績試算表A3.xls" />
+    <None Include="Resources\德行成績試算表A4.xls" />
+    <None Include="Resources\德行成績試算表B4.xls" />
+    <None Include="Resources\班級學生學期成績一覽表A3.xls" />
+    <None Include="Resources\班級學生學期成績一覽表B4.xls" />
+    <None Include="Resources\科目重修學生清單.xls" />
+    <None Include="Resources\補考成績匯入.xls" />
+    <None Include="Resources\重修成績匯入.xls" />
+    <None Include="Resources\重新整理.png" />
+    <None Include="Resources\warning.ico" />
+    <None Include="Resources\error.ico" />
+    <None Include="Resources\warning.png" />
+    <None Include="Resources\學期成績單.doc" />
+    <None Include="Resources\補考名單-依學生.xls" />
+    <None Include="Resources\補考名單-依科目.xls" />
+    <None Include="Resources\隨堂重修清單.xls" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CompleteForm.resx">
+      <DependentUpon>CompleteForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuration\FrmGraduationPlanConfiguration.resx">
+      <DependentUpon>FrmGraduationPlanConfiguration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuration\FrmReviseRuleName.resx">
+      <DependentUpon>FrmReviseRuleName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuration\FrmScoreCalcConfiguration.resx">
+      <DependentUpon>FrmScoreCalcConfiguration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuration\FrmSubjectTableConfiguration.resx">
+      <DependentUpon>FrmSubjectTableConfiguration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuration\MoralConductEditors\AppraiseRuleEditor.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>AppraiseRuleEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuration\CommonPlanConfiguration.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>CommonPlanConfiguration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuration\GraduationPlanConfiguration.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>GraduationPlanConfiguration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuration\GraduationPlanCreator.resx">
+      <DependentUpon>GraduationPlanCreator.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuration\MoralConductConfiguration.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>MoralConductConfiguration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuration\MoralConductEditors\BasicScoreEditor.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>BasicScoreEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuration\MoralConductEditors\PeriodAbsenceCalcRuleEditor.resx">
+      <DependentUpon>PeriodAbsenceCalcRuleEditor.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuration\MoralConductEditors\RewardCalcRuleEditor.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>RewardCalcRuleEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuration\ScoreCalcConfiguration.resx">
+      <DependentUpon>ScoreCalcConfiguration.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuration\ScoreCalcRuleCreator.resx">
+      <DependentUpon>ScoreCalcRuleCreator.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuration\ScoreCalcRuleEditor.resx">
+      <DependentUpon>ScoreCalcRuleEditor.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuration\SubjectTableConfiguration.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>SubjectTableConfiguration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuration\SubjectTableEditor.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>SubjectTableEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuration\SubjectTableCreator.resx">
+      <DependentUpon>SubjectTableCreator.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Content\GradScorePalmerworm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>GradScorePalmerworm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Content\SchoolYearScorePalmerworm.resx">
+      <DependentUpon>SchoolYearScorePalmerworm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Content\ScoreEditor\SchoolYearScoreEditor.resx">
+      <DependentUpon>SchoolYearScoreEditor.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Content\ScoreEditor\SemesterScoreEditor.resx">
+      <DependentUpon>SemesterScoreEditor.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Content\SemesterScorePalmerworm.resx">
+      <DependentUpon>SemesterScorePalmerworm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GraduationPlan\Editor\CommonPlanEditor.resx">
+      <DependentUpon>CommonPlanEditor.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GraduationPlan\Editor\GraduationPlanEditor.resx">
+      <DependentUpon>GraduationPlanEditor.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GraduationPlan\GraduationPlanSelector.resx">
+      <DependentUpon>GraduationPlanSelector.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Process\AssignClass.resx">
+      <DependentUpon>AssignClass.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Process\Calculation.resx">
+      <DependentUpon>Calculation.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Process\CreateCourceForClass.resx">
+      <DependentUpon>CreateCourceForClass.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Process\WarnViewer.resx">
+      <DependentUpon>WarnViewer.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Process\ErrorViewer.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ErrorViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Process\Rating\Forms\RankProgressForm.resx">
+      <DependentUpon>RankProgressForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Process\Rating\Forms\ResultViewForm.resx">
+      <DependentUpon>ResultViewForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Process\Rating\Forms\SchoolYearRatingForm.resx">
+      <DependentUpon>SchoolYearRatingForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Process\Rating\Forms\SemesterRatingForm.resx">
+      <DependentUpon>SemesterRatingForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Process\Resit.resx">
+      <DependentUpon>Resit.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Process\RibbonBarBase.resx">
+      <DependentUpon>RibbonBarBase.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Process\SelectSemesterForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>SelectSemesterForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Process\Wizards\CalcSchoolYearScoreWizard.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>CalcSchoolYearScoreWizard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Process\Wizards\CalcSemesterSubjectScoreWizard.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>CalcSemesterSubjectScoreWizard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Process\Wizards\CalcSemesterMoralScoreWizard.resx">
+      <DependentUpon>CalcSemesterMoralScoreWizard.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Process\Wizards\CalcSemesterEntryScoreWizard.resx">
+      <DependentUpon>CalcSemesterEntryScoreWizard.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Process\Wizards\CalcSchoolYearEntryScoreWizard.resx">
+      <DependentUpon>CalcSchoolYearEntryScoreWizard.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Process\Wizards\CalcSchoolYearMoralScoreWizard.resx">
+      <DependentUpon>CalcSchoolYearMoralScoreWizard.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Process\Wizards\CalcSchoolYearSubjectScoreWizard.resx">
+      <DependentUpon>CalcSchoolYearSubjectScoreWizard.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Process\CalculationBatch.resx">
+      <DependentUpon>CalculationBatch.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Process\Retake.resx">
+      <DependentUpon>Retake.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Process\AssignStudent.resx">
+      <DependentUpon>AssignStudent.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Process\Wizards\CalsSemesterScoreWizard.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>CalsSemesterScoreWizard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Process\Wizards\CreateClassCourse.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>CreateClassCourse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Process\Wizards\CalcSchoolYearApplyScoreWizard.resx">
+      <DependentUpon>CalcSchoolYearApplyScoreWizard.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ClassSemesterScore\ClassSemesterScoreConfig.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ClassSemesterScoreConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ClassSemesterScore\ClassSemesterScoreForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ClassSemesterScoreForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\MultiSemesterScore\Forms\MoralLevelForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>MoralLevelForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\MultiSemesterScore\Forms\MultiSemesterScoreForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>MultiSemesterScoreForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\MultiSemesterScore\Forms\TemplateSetupForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>TemplateSetupForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Retake\RetakeSelectSemesterForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>RetakeSelectSemesterForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\SelectSemesterForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>SelectSemesterForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\SelectTypeForm.resx">
+      <DependentUpon>SelectTypeForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\SemesterMoralScore\SemesterMoralScoreCalcConfig.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>SemesterMoralScoreCalcConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\SemesterMoralScore\SemesterMoralScoreCalcForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>SemesterMoralScoreCalcForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\SemesterMoralScore\SemesterMoralScoreTotalConfig.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>SemesterMoralScoreTotalConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\SemesterMoralScore\SemesterMoralScoreTotalForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>SemesterMoralScoreTotalForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\SemesterScoreReportNew\SemesterScoreReportConfig.resx">
+      <DependentUpon>SemesterScoreReportConfig.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\SemesterScoreReportNew\SemesterScoreReportForm.resx">
+      <DependentUpon>SemesterScoreReportForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\SemesterScoreReport\SemesterScoreReportConfig.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>SemesterScoreReportConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\SemesterScoreReport\SemesterScoreReportForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>SemesterScoreReportForm.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

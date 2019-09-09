@@ -1,0 +1,877 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SmartSchool.Common</name>
+    </assembly>
+    <members>
+        <member name="M:SmartSchool.Common.XmlDataObject.GetString(System.String)">
+            <summary>
+            取得指定元素的字串資料，如果元素不存在則回傳空字串(string.Empty)。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SmartSchool.Common.XmlDataObject.GetString(System.String,System.String)">
+            <summary>
+            取得指定元素的字串資料。
+            </summary>
+            <param name="defaultValue">如果指定的元素不存在時回傳的值。</param>
+            <returns></returns>
+        </member>
+        <member name="M:SmartSchool.Common.XmlDataObject.GetInteger(System.String)">
+            <summary>
+            取得指定元素的值，並轉型成數字，如果指定的元素不存在則回傳「0」。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SmartSchool.Common.XmlDataObject.GetInteger(System.String,System.Int32)">
+            <summary>
+            取得指定元素的值，並轉型成數字，如果指定的元素不存在則回傳「0」。
+            </summary>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SmartSchool.Common.XmlDataObject.GetBoolean(System.String)">
+            <summary>
+            取得指定元素的值，並轉型成 Boolean ，如果指定的元素不存在則回傳「false」。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SmartSchool.Common.XmlDataObject.GetBoolean(System.String,System.Boolean)">
+            <summary>
+            取得指定元素的值，並轉型成 Boolean 。
+            </summary>
+            <param name="defaultValue">指定的元素不存在時回傳的值。</param>
+            <returns></returns>
+        </member>
+        <member name="M:SmartSchool.Common.XmlDataObject.GetImage(System.String)">
+            <summary>
+            取得指定元素的值，並轉換成圖型檔，如果元素不存在或是格式(base64)不正確，將回傳 Null 。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SmartSchool.Common.XmlDataObject.GetBinary(System.String)">
+            <summary>
+            取得指定元素的值，並轉換成 Binary 資料，如果元素不存在或是格式(base64)錯誤，將回傳空陣列(空陣列不是 Null)。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SmartSchool.Common.XmlDataObject.ToString">
+            <summary>
+            回傳完整的 Xml 字串。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="F:SmartSchool.Common.DateTimeProcess.DateTimeHelper.StdDateTimeFormat">
+            <summary>
+            標準日期時間格式，例：2007/05/10 14:30:05
+            </summary>
+        </member>
+        <member name="F:SmartSchool.Common.DateTimeProcess.DateTimeHelper.StdDateFormat">
+            <summary>
+            標準日期格式，例：2007/05/10
+            </summary>
+        </member>
+        <member name="F:SmartSchool.Common.DateTimeProcess.DateTimeHelper.StdTimeFormat">
+            <summary>
+            標準時間格式，例：14:30:05
+            </summary>
+        </member>
+        <member name="M:SmartSchool.Common.DateTimeProcess.DateTimeHelper.ParseGregorian(System.String)">
+            <summary>
+            將日期當作是「西元」年處理。
+            </summary>
+            <param name="dtString">日期字串。</param>
+        </member>
+        <member name="M:SmartSchool.Common.DateTimeProcess.DateTimeHelper.ParseGregorian(System.String,SmartSchool.Common.DateTimeProcess.PaddingMethod)">
+            <summary>
+            將日期當作是「西元」年處理。
+            </summary>
+            <param name="dtString">日期字串。 </param>
+            <param name="method">如果日期缺少的欄位用何種方式補上。</param>
+            <returns></returns>
+        </member>
+        <member name="M:SmartSchool.Common.DateTimeProcess.DateTimeHelper.ParseTaiwan(System.String)">
+            <summary>
+            將日期當作是「民國」年處理。
+            </summary>
+            <param name="dtString">日期字串。</param>
+        </member>
+        <member name="M:SmartSchool.Common.DateTimeProcess.DateTimeHelper.ParseTaiwan(System.String,SmartSchool.Common.DateTimeProcess.PaddingMethod)">
+            <summary>
+            將日期當作是「民國」年處理。
+            </summary>
+            <param name="dtString">日期字串。</param>
+            <param name="method">如果日期中缺少的欄位用何種方式補上。</param>
+        </member>
+        <member name="M:SmartSchool.Common.DateTimeProcess.DateTimeHelper.Parse(System.String)">
+            <summary>
+            使用內鍵的 DateTime 的 TryParse 處理。
+            </summary>
+            <param name="dtString">日期字串。</param>
+            <returns></returns>
+        </member>
+        <member name="T:SmartSchool.Common.MessageResource">
+            <summary>
+              用於查詢當地語系化字串等的強型別資源類別
+            </summary>
+        </member>
+        <member name="P:SmartSchool.Common.MessageResource.ResourceManager">
+            <summary>
+              傳回這個類別使用的快取的 ResourceManager 執行個體。
+            </summary>
+        </member>
+        <member name="P:SmartSchool.Common.MessageResource.Culture">
+            <summary>
+              覆寫目前執行緒的 CurrentUICulture 屬性，對象是所有
+              使用這個強型別資源類別的資源查閱。
+            </summary>
+        </member>
+        <member name="P:SmartSchool.Common.MessageResource.ConnectedError">
+            <summary>
+              查詢類似 已在連線狀態，無法執行此動作。 的當地語系化字串。
+            </summary>
+        </member>
+        <member name="P:SmartSchool.Common.MessageResource.ConnectFailNoErrorMessage">
+            <summary>
+              查詢類似 未連線成功，但未產生錯誤訊息。 的當地語系化字串。
+            </summary>
+        </member>
+        <member name="P:SmartSchool.Common.MessageResource.ConnectionInfoNotInitialize">
+            <summary>
+              查詢類似 未初始化連線資訊，無法進行連線動作。 的當地語系化字串。
+            </summary>
+        </member>
+        <member name="P:SmartSchool.Common.MessageResource.ConnectOccureUnknowError">
+            <summary>
+              查詢類似 要求連接時發生未預期的錯誤。 的當地語系化字串。
+            </summary>
+        </member>
+        <member name="P:SmartSchool.Common.MessageResource.ConnectServiceError">
+            <summary>
+              查詢類似 連接服務(&lt;%ServiceName%&gt;)內部執行錯誤。 的當地語系化字串。
+            </summary>
+        </member>
+        <member name="P:SmartSchool.Common.MessageResource.ConnectToDSNSError">
+            <summary>
+              查詢類似 連線到 DSNS 主機錯誤。(&lt;%Url%&gt;) 的當地語系化字串。
+            </summary>
+        </member>
+        <member name="P:SmartSchool.Common.MessageResource.ConvertDSAServerStatusError">
+            <summary>
+              查詢類似 將 DSA 狀態代碼(StatusCode)轉型成 DSAServerStatus 列舉錯誤，DSA 回傳狀態不存在於 DSAServerStatus 中。 的當地語系化字串。
+            </summary>
+        </member>
+        <member name="P:SmartSchool.Common.MessageResource.CredentialInvalid">
+            <summary>
+              查詢類似 登入資訊不正確。 的當地語系化字串。
+            </summary>
+        </member>
+        <member name="P:SmartSchool.Common.MessageResource.ElementNotFound">
+            <summary>
+              查詢類似 指定的元素不存在。 的當地語系化字串。
+            </summary>
+        </member>
+        <member name="P:SmartSchool.Common.MessageResource.ElementNullReferenceNotSupport">
+            <summary>
+              查詢類似 不可以使用 Null 物件建立物件。 的當地語系化字串。
+            </summary>
+        </member>
+        <member name="P:SmartSchool.Common.MessageResource.EmptyXmlDocument">
+            <summary>
+              查詢類似 XmlDocument 物件中沒有資料。 的當地語系化字串。
+            </summary>
+        </member>
+        <member name="P:SmartSchool.Common.MessageResource.GetDSAResponseError">
+            <summary>
+              查詢類似 從 DSA Application 取得回覆文件錯誤。 的當地語系化字串。
+            </summary>
+        </member>
+        <member name="P:SmartSchool.Common.MessageResource.GetHttpResponseError">
+            <summary>
+              查詢類似 從 HTTP Server 取得 Response 錯誤 的當地語系化字串。
+            </summary>
+        </member>
+        <member name="P:SmartSchool.Common.MessageResource.GetHTTPResponseStreamError">
+            <summary>
+              查詢類似 從 HTTP Response 中取出資料串流錯誤。 的當地語系化字串。
+            </summary>
+        </member>
+        <member name="P:SmartSchool.Common.MessageResource.HeaderNameNotValidate">
+            <summary>
+              查詢類似 標頭的名稱不合法。(&lt;%Name%&gt;)。 的當地語系化字串。
+            </summary>
+        </member>
+        <member name="P:SmartSchool.Common.MessageResource.HttpMethodNotSupported">
+            <summary>
+              查詢類似 不支援此種 HTTP 方法(&lt;%Method%&gt;)。 的當地語系化字串。
+            </summary>
+        </member>
+        <member name="P:SmartSchool.Common.MessageResource.MustConnected">
+            <summary>
+              查詢類似 必需是連線狀態才能執行此動作。 的當地語系化字串。
+            </summary>
+        </member>
+        <member name="P:SmartSchool.Common.MessageResource.NodeTypeNotSupport">
+            <summary>
+              查詢類似 不可以使用 XmlNodeType.Element 之外的 XmlNode 建立物件。 的當地語系化字串。
+            </summary>
+        </member>
+        <member name="P:SmartSchool.Common.MessageResource.ObjectStatusError">
+            <summary>
+              查詢類似 物件狀態不正確，請通知開發人員修正此問題。 的當地語系化字串。
+            </summary>
+        </member>
+        <member name="P:SmartSchool.Common.MessageResource.RenewDSAPassportFail">
+            <summary>
+              查詢類似 重置(Renew) DSA Passport Token 失敗。 的當地語系化字串。
+            </summary>
+        </member>
+        <member name="P:SmartSchool.Common.MessageResource.RenewSecurityTokenFail">
+            <summary>
+              查詢類似 重置(Renew) Security Token 失敗。 的當地語系化字串。
+            </summary>
+        </member>
+        <member name="P:SmartSchool.Common.MessageResource.RenewSessionIDFail">
+            <summary>
+              查詢類似 重新要求 SessionID 失敗。 的當地語系化字串。
+            </summary>
+        </member>
+        <member name="P:SmartSchool.Common.MessageResource.RequestPassportError">
+            <summary>
+              查詢類似 向主機要求 DSAPassport 時產生錯誤！(&lt;%AuthAccessPoint%&gt;) 的當地語系化字串。
+            </summary>
+        </member>
+        <member name="P:SmartSchool.Common.MessageResource.RequestSessionIDFail">
+            <summary>
+              查詢類似 向 DSA Application 取得 SessionID 失敗。 的當地語系化字串。
+            </summary>
+        </member>
+        <member name="P:SmartSchool.Common.MessageResource.ResolveAccessPointNameFail">
+            <summary>
+              查詢類似 傳送「名稱解析」申請文件失敗。 的當地語系化字串。
+            </summary>
+        </member>
+        <member name="P:SmartSchool.Common.MessageResource.ResponseDocumentInvalidate">
+            <summary>
+              查詢類似 主機回傳的文件不符DSA規格(訊息：&lt;%ValidMessage%&gt;)。 的當地語系化字串。
+            </summary>
+        </member>
+        <member name="P:SmartSchool.Common.MessageResource.SecurityTokenNotSupported">
+            <summary>
+              查詢類似 不可以使用此類型的 SecurityToken 進行連線動作。 的當地語系化字串。
+            </summary>
+        </member>
+        <member name="P:SmartSchool.Common.MessageResource.SessionServiceNotSupported">
+            <summary>
+              查詢類似 向 DSA Application 要求 SessionID，但並未得到 SessionID。(可能是 DSA Server 不支援 Session 功能) 的當地語系化字串。
+            </summary>
+        </member>
+        <member name="P:SmartSchool.Common.MessageResource.SpecialHeaderNotFound">
+            <summary>
+              查詢類似 指定的標頭不存在(&lt;%Name%&gt;)。 的當地語系化字串。
+            </summary>
+        </member>
+        <member name="P:SmartSchool.Common.MessageResource.UriPrefixNotSupport">
+            <summary>
+              查詢類似 不支援指定的配置識別項(&lt;%Prefix%&gt;)。 的當地語系化字串。
+            </summary>
+        </member>
+        <member name="P:SmartSchool.Common.MessageResource.XmlDocNullReferenceNotSupport">
+            <summary>
+              查詢類似 不可以使用 Null 的 XmlDocument 建立物件。 的當地語系化字串。
+            </summary>
+        </member>
+        <member name="P:SmartSchool.Common.MessageResource.XmlDocumentNotIsDSDocument">
+            <summary>
+              查詢類似 Xml 不符合 DSEnvelope 規格：&lt;%Reason%&gt; 的當地語系化字串。
+            </summary>
+        </member>
+        <member name="P:SmartSchool.Common.MessageResource.XPathSyntaxError">
+            <summary>
+              查詢類似 指定的 XPath 語法錯誤，找不到指定的元素(&lt;%XPath%&gt;)。 的當地語系化字串。
+            </summary>
+        </member>
+        <member name="T:SmartSchool.Common.MultiThreadLoading">
+            <summary>
+            負載
+            </summary>
+        </member>
+        <member name="T:SmartSchool.Common.MultiThreadBackgroundWorker`1">
+            <summary>
+            自動分包多續執行的BackgroundWorker
+            </summary>
+        </member>
+        <member name="M:SmartSchool.Common.MultiThreadBackgroundWorker`1.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SmartSchool.Common.MultiThreadBackgroundWorker`1.RunWorkerAsync">
+            <summary>
+            開始執行背景作業。 
+            </summary>
+        </member>
+        <member name="M:SmartSchool.Common.MultiThreadBackgroundWorker`1.RunWorkerAsync(System.Object)">
+            <summary>
+            開始執行背景作業。 
+            </summary>
+        </member>
+        <member name="M:SmartSchool.Common.MultiThreadBackgroundWorker`1.RunWorkerAsync(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            開始執行背景作業。 
+            </summary>
+        </member>
+        <member name="M:SmartSchool.Common.MultiThreadBackgroundWorker`1.RunWorkerAsync(System.Collections.Generic.IEnumerable{`0},System.Object)">
+            <summary>
+            開始執行背景作業。 
+            </summary>
+        </member>
+        <member name="P:SmartSchool.Common.MultiThreadBackgroundWorker`1.AutoReportsProgress">
+            <summary>
+            是否自動依完成的封包數與總封包數計算及回報進度
+            </summary>
+        </member>
+        <member name="P:SmartSchool.Common.MultiThreadBackgroundWorker`1.Loading">
+            <summary>
+            負載
+            </summary>
+        </member>
+        <member name="P:SmartSchool.Common.MultiThreadBackgroundWorker`1.PackageSize">
+            <summary>
+            分割時每個封包的大小
+            </summary>
+        </member>
+        <member name="E:SmartSchool.Common.MultiThreadBackgroundWorker`1.DoWork">
+            <summary>
+            當任何一個封包被處理時發生 
+            </summary>
+        </member>
+        <member name="T:SmartSchool.Common.PackageDoWorkEventArgs`1">
+            <summary>
+            提供 DoWork 事件處理常式的資料。 並提供此封包的內容。
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:SmartSchool.Common.PackageDoWorkEventArgs`1.Items">
+            <summary>
+            封包的內容
+            </summary>
+        </member>
+        <member name="T:SmartSchool.Common.MultiThreadWorker`1">
+            <summary>
+            切割封包並以多執行緒模式逐一處理各個封包
+            </summary>
+        </member>
+        <member name="M:SmartSchool.Common.MultiThreadWorker`1.Run(System.Collections.Generic.IEnumerable{`0},System.Object)">
+            <summary>
+            執行
+            </summary>
+            <param name="list">要處理的資料</param>
+            <param name="argument">額外的參數</param>
+        </member>
+        <member name="M:SmartSchool.Common.MultiThreadWorker`1.Run(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            執行
+            </summary>
+            <param name="list">要處理的資料</param>
+        </member>
+        <member name="P:SmartSchool.Common.MultiThreadWorker`1.PackageSize">
+            <summary>
+            每個封包的最大容量
+            </summary>
+        </member>
+        <member name="P:SmartSchool.Common.MultiThreadWorker`1.MaxThreads">
+            <summary>
+            同時執行的最大執行緒數量
+            </summary>
+        </member>
+        <member name="E:SmartSchool.Common.MultiThreadWorker`1.PackageWorker">
+            <summary>
+            處理單一封包
+            </summary>
+        </member>
+        <member name="T:SmartSchool.Common.PackageWorkEventArgs`1">
+            <summary>
+            處理單一封包事件傳遞
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:SmartSchool.Common.PackageWorkEventArgs`1.HasException">
+            <summary>
+            是否發生錯誤
+            </summary>
+        </member>
+        <member name="P:SmartSchool.Common.PackageWorkEventArgs`1.Exception">
+            <summary>
+            發生錯誤時的錯誤內容
+            </summary>
+        </member>
+        <member name="P:SmartSchool.Common.PackageWorkEventArgs`1.List">
+            <summary>
+            封包內容
+            </summary>
+        </member>
+        <member name="P:SmartSchool.Common.PackageWorkEventArgs`1.Result">
+            <summary>
+            回傳
+            </summary>
+        </member>
+        <member name="P:SmartSchool.Common.PackageWorkEventArgs`1.Argument">
+            <summary>
+            額外的參數
+            </summary>
+        </member>
+        <member name="T:SmartSchool.Common.XmlProcessException">
+            <summary>
+            代表 Xml 處理錯誤。
+            </summary>
+        </member>
+        <!-- 忽略成員 "T:SmartSchool.Common.StringComparer" 中格式錯誤的 XML 註解 -->
+        <member name="M:SmartSchool.Common.StringComparer.Comparer(System.String,System.String)">
+            <summary>
+            使用預設字根比較字串
+            </summary>
+        </member>
+        <member name="M:SmartSchool.Common.StringComparer.Comparer(System.String,System.String,System.String[])">
+            <summary>
+            使用自訂字根比較字串
+            </summary>
+            <param name="keys">使用字根</param>
+        </member>
+        <member name="M:SmartSchool.Common.StringComparer.#ctor">
+            <summary>
+            建構子
+            </summary>
+        </member>
+        <member name="M:SmartSchool.Common.StringComparer.#ctor(System.String[])">
+            <summary>
+            建構子，傳入自訂的字根
+            </summary>
+            <param name="keys">使用字根</param>
+        </member>
+        <member name="M:SmartSchool.Common.StringComparer.Compare(System.String,System.String)">
+            <summary>
+            比較
+            </summary>
+        </member>
+        <member name="T:SmartSchool.Common.DateTimeProcess.PaddingMethod">
+            <summary>
+            當沒有該欄位時的處理方式。
+            </summary>
+        </member>
+        <member name="F:SmartSchool.Common.DateTimeProcess.PaddingMethod.First">
+            <summary>
+            給該欄位的第一個值，例如「秒」就是 0。
+            </summary>
+        </member>
+        <member name="F:SmartSchool.Common.DateTimeProcess.PaddingMethod.Last">
+            <summary>
+            給該欄位的最後一個值，例如「秒」就是 59。
+            </summary>
+        </member>
+        <member name="F:SmartSchool.Common.DateTimeProcess.PaddingMethod.Now">
+            <summary>
+            給該欄位「現在」值(自已思考是什麼意思)。
+            </summary>
+        </member>
+        <member name="F:SmartSchool.Common.DateTimeProcess.PaddingMethod.None">
+            <summary>
+            不給該欄位值。
+            </summary>
+        </member>
+        <member name="T:SmartSchool.Common.FontStyles">
+            <summary>
+            系統字型
+            </summary>
+        </member>
+        <member name="P:SmartSchool.Common.FontStyles.General">
+            <summary>
+            系統字型
+            </summary>
+        </member>
+        <member name="P:SmartSchool.Common.FontStyles.GeneralFontFamily">
+            <summary>
+            系統字型的FontFamily
+            </summary>
+        </member>
+        <member name="T:SmartSchool.Common.XmlHelper">
+            <summary>
+            代表Xml的資料，內容必需是有「根」的Xml內容。
+            </summary>
+        </member>
+        <member name="T:SmartSchool.Common.XmlBaseObject">
+            <summary>
+            代表以 Xml 為基礎的類別，內部狀態是以 Xml 來儲存的類別。
+            </summary>
+        </member>
+        <member name="F:SmartSchool.Common.XmlBaseObject.BaseNode">
+            <summary>
+            代表基礎的 Xml 資料。
+            </summary>
+        </member>
+        <member name="F:SmartSchool.Common.XmlBaseObject.Owner">
+            <summary>
+            代表 Xml 資料的 XmlDocument 物件。
+            </summary>
+        </member>
+        <member name="M:SmartSchool.Common.XmlBaseObject.GetRawXml">
+            <summary>
+            取得Xml的完整 Xml 字串。
+            </summary>
+            <returns>完整 Xml 字串。</returns>
+        </member>
+        <member name="M:SmartSchool.Common.XmlBaseObject.GetRawBinary">
+            <summary>
+            取得Xml的完整資料，用 UTF-8 的編碼方式以 Binary 的型式回傳。
+            </summary>
+            <returns>UTF-8 編碼的完整 Binary 資料。</returns>
+        </member>
+        <member name="M:SmartSchool.Common.XmlBaseObject.GetRawBinary(System.Text.Encoding)">
+            <summary>
+            取得Xml的完整資料，以 Binary 的型式回傳。
+            </summary>
+            <returns>完整Binary資料。</returns>
+        </member>
+        <member name="M:SmartSchool.Common.XmlBaseObject.LoadFromFile(System.String)">
+            <summary>
+            從檔案載入 Xml 資料。
+            </summary>
+            <param name="fileName">檔案名稱。 </param>
+        </member>
+        <member name="M:SmartSchool.Common.XmlBaseObject.Load(System.IO.Stream,System.Text.Encoding)">
+            <summary>
+            從串流載入 Xml 資料。
+            </summary>
+            <param name="inStream">資料串流。</param>
+            <param name="enc">串流的編碼方式。</param>
+        </member>
+        <member name="M:SmartSchool.Common.XmlBaseObject.Load(System.String)">
+            <summary>
+            從檔案載入Xml資料。
+            </summary>
+            <param name="xmlContent">檔案名稱。</param>
+        </member>
+        <member name="M:SmartSchool.Common.XmlBaseObject.Load(System.Xml.XmlElement)">
+            <summary>
+            從XmlElement物件Xml資料，內容不符Envelop則會產生Exception。
+            </summary>
+            <param name="xmlContent">要載入的<see cref="T:System.Xml.XmlElement"/>物件。</param>
+        </member>
+        <member name="M:SmartSchool.Common.XmlBaseObject.Save(System.String)">
+            <summary>
+            將內部Xml資料以UTF-8的編碼方式儲存到檔案中，如果檔案已存在，會覆寫該檔案。
+            </summary>
+            <param name="fileName">檔案名稱。</param>
+        </member>
+        <member name="M:SmartSchool.Common.XmlBaseObject.Save(System.String,System.Text.Encoding)">
+            <summary>
+            將內部Xml資料儲存到檔案中，如果檔案已存在，會覆寫該檔案。
+            </summary>
+            <param name="fileName">檔案名稱。</param>
+            <param name="enc">檔案編碼方式</param>
+        </member>
+        <member name="M:SmartSchool.Common.XmlBaseObject.Save(System.IO.Stream,System.Text.Encoding)">
+            <summary>
+            將內部Xml資料儲存到串流中。
+            </summary>
+            <param name="outStream">串流物件。</param>
+            <param name="enc">編碼方式。</param>
+            <remarks>此方法在執行之後，不會自動關閉串流。</remarks>
+        </member>
+        <member name="M:SmartSchool.Common.XmlHelper.#ctor">
+            <summary>
+            建立一個空的文件，預設會有「根」名稱「Content」。
+            </summary>
+        </member>
+        <member name="M:SmartSchool.Common.XmlHelper.#ctor(System.Xml.XmlDocument)">
+            <summary>
+            依XmDocument的內容建立<see cref="!:DSXmlHelper"/>，XmlDocument物件不可以為Null。
+            </summary>
+            <param name="xmlDoc">要依據的XmlDocument物件。</param>
+        </member>
+        <member name="M:SmartSchool.Common.XmlHelper.#ctor(System.Xml.XmlElement)">
+            <summary>
+            依XmlElement的內容建立物件。
+            </summary>
+            <param name="element">要依據的XmlElement物件。</param>
+        </member>
+        <member name="M:SmartSchool.Common.XmlHelper.#ctor(System.String)">
+            <summary>
+            依指定的「根」元素名稱建立Document
+            </summary>
+            <param name="rootName">根元素的名稱，不可加任何的特殊符號</param>
+        </member>
+        <member name="M:SmartSchool.Common.XmlHelper.SetAttribute(System.String,System.String,System.String)">
+            <summary>
+            在指定的元素下，新增屬性，並指定值。
+            </summary>
+            <param name="xpath">要新增屬性的元素路徑。</param>
+            <param name="name">屬性名稱。</param>
+            <param name="value">屬性值。</param>
+            <returns>XmlAttribute的新實體。</returns>
+        </member>
+        <member name="M:SmartSchool.Common.XmlHelper.SetAttribute(System.String,System.Xml.XmlAttribute)">
+            <summary>
+            在指定的元素下，新增屬性。
+            </summary>
+            <param name="xpath">要新增屬性的元素路徑。</param>
+            <param name="attribute">屬性物件。</param>
+            <returns>XmlAttribute的新實體</returns>
+        </member>
+        <member name="M:SmartSchool.Common.XmlHelper.AddElement(System.String)">
+            <summary>
+            新增空白元素(Empyt Element)到文件中
+            </summary>
+            <param name="newName">新元素名稱。</param>
+            <returns>代表在<see cref="!:DSXmlHelper"/>物件中新元素的實體。</returns>
+            <!-- 無法插入某些或所有 include 的 XML--><include file="Util30\LibDocument\DSXmlHelper.xml" path="Documents/Document[@Name=&quot;AddElement1&quot;]/*"/>
+        </member>
+        <member name="M:SmartSchool.Common.XmlHelper.AddElement(System.String,System.Xml.XmlElement)">
+            <summary>
+            在指定的元素下，新增空白子元素。
+            </summary>
+            <param name="xpath">要新增「空白子元素」的「父元素」路徑</param>
+            <param name="newElement">要新增的元素物件</param>
+            <returns>代表在<see cref="!:DSXmlHelper"/>物件中新元素的實體。</returns>
+            <!-- 無法插入某些或所有 include 的 XML--><include file="Util30\LibDocument\DSXmlHelper.xml" path="Documents/Document[@Name=&quot;AddElement1&quot;]/*"/>
+        </member>
+        <member name="M:SmartSchool.Common.XmlHelper.AddElement(System.String,System.String)">
+            <summary>
+            在指定的元素下，新增空白子元素。
+            </summary>
+            <param name="xpath">要新增「空白子元素」的「父元素」路徑。</param>
+            <param name="newName">空白子元素名稱。</param>
+            <returns>代表在<see cref="!:DSXmlHelper"/>物件中新元素的實體。</returns>
+            <!-- 無法插入某些或所有 include 的 XML--><include file="Util30\LibDocument\DSXmlHelper.xml" path="Documents/Document[@Name=&quot;AddElement1&quot;]/*"/>
+        </member>
+        <member name="M:SmartSchool.Common.XmlHelper.AddElement(System.String,System.String,System.String)">
+            <summary>
+            在指定的元素下，新增子元素，並指定文字資料。
+            </summary>
+            <param name="xpath">要新增「子元素」的「父元素」路徑。</param>
+            <param name="newName">子元素名稱。</param>
+            <param name="text">子元素文字資料。</param>
+            <returns>代表在<see cref="!:DSXmlHelper"/>物件中新元素的實體。</returns>
+            <!-- 無法插入某些或所有 include 的 XML--><include file="Util30\LibDocument\DSXmlHelper.xml" path="Documents/Document[@Name=&quot;AddElement1&quot;]/*"/>
+        </member>
+        <member name="M:SmartSchool.Common.XmlHelper.AddElement(System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            在指定的元素下，新增子元素，並指定文字資料。
+            </summary>
+            <param name="xpath">要新增「子元素」的「父元素」路徑。</param>
+            <param name="newName">子元素名稱。</param>
+            <param name="text">子元素文字資料。</param>
+            <param name="isXmlContent">文字資料是否為 Xml 字串，可以是單一 Node 或 NodeList。</param>
+            <returns>代表在<see cref="!:DSXmlHelper"/>物件中新元素的實體。</returns>
+            <!-- 無法插入某些或所有 include 的 XML--><include file="Util30\LibDocument\DSXmlHelper.xml" path="Documents/Document[@Name=&quot;AddElement2&quot;]/*"/>
+            <remarks>其他AddElement範例可參考<see cref="!:DSXmlHelper.AddElement(string,string)">
+            DSXmlHelper.AddElement</see>方法說明。</remarks>
+        </member>
+        <member name="M:SmartSchool.Common.XmlHelper.AddXmlString(System.String,System.String)">
+            <summary>
+            增加Xml內容，可以是單一Node或NodeList。
+            </summary>
+            <param name="xpath">要新增Xml資料的的「父元素」路徑。</param>
+            <param name="xmlString">要新增的Xml內容。</param>
+        </member>
+        <member name="M:SmartSchool.Common.XmlHelper.AddText(System.String,System.String)">
+            <summary>
+            在指定的元素下增加文字資料，如果指定的文字已存在，會被取代。
+            </summary>
+            <param name="xpath">元素路徑，如果路徑不存在會產生Exception。</param>
+            <param name="text">要增加的文字資料。</param>
+        </member>
+        <member name="M:SmartSchool.Common.XmlHelper.GetText(System.String)">
+            <summary>
+            取得指定元素下的文字資料。
+            </summary>
+            <param name="xpath">元素路徑。</param>
+            <returns>元素下的文字資料，如果指定的元素不存在則回傳String.Emtpy(空字串)。</returns>
+        </member>
+        <member name="M:SmartSchool.Common.XmlHelper.AddCDataSection(System.String,System.String)">
+            <summary>
+            在指定的元素下增加CDATA文字資料。
+            </summary>
+            <param name="xpath">元素路徑。</param>
+            <param name="text">要增加的CDATA文字資料。</param>
+        </member>
+        <member name="M:SmartSchool.Common.XmlHelper.PathExist(System.String)">
+            <summary>
+            測試指定的元素是否存在。
+            </summary>
+            <param name="xpath">元素路徑。</param>
+            <returns>Boolean值，已存在回傳True,不存在回傳False。</returns>
+        </member>
+        <member name="M:SmartSchool.Common.XmlHelper.HasCDataSection(System.String)">
+            <summary>
+            測試指定的元素的內容是否有CDATA。
+            </summary>
+            <param name="xpath">元素路徑。</param>
+            <returns>Boolean值，是CDATA回傳True，非則回傳False。</returns>
+        </member>
+        <member name="M:SmartSchool.Common.XmlHelper.GetElement(System.String)">
+            <summary>
+            取得元素物件，但僅取得符合「元素路徑」的第一個元素。
+            </summary>
+            <param name="xpath">元素路徑。</param>
+            <returns>回傳的XmlElement實體。</returns>
+            <exception cref="T:System.Exception">發生再xpath取出的物件不是元素(Element)時。</exception>
+        </member>
+        <member name="M:SmartSchool.Common.XmlHelper.GetAttribute(System.String)">
+            <summary>
+            取得元素物件，但僅取得符合「元素路徑」的第一個元素。
+            </summary>
+            <param name="xpath">元素路徑。</param>
+            <returns>回傳的 XmlAttribute 實體。</returns>
+            <exception cref="T:System.Exception">發生在xpath所取得的資料不是屬性時。</exception>
+        </member>
+        <member name="M:SmartSchool.Common.XmlHelper.GetCDataSection(System.String)">
+            <summary>
+            取得指定元素下的CDATA資料，如果有數個CDATA資料，則會回傳第一個。
+            </summary>
+            <param name="xpath">元素路徑。</param>
+            <returns>如果有CDATA，回傳文字資料，沒有回傳String.Emtpy。</returns>
+        </member>
+        <member name="M:SmartSchool.Common.XmlHelper.GetElements(System.String)">
+            <summary>
+            取得元素物件陣列，將會取得所有符合「元素路徑」的所有元素。
+            </summary>
+            <param name="xpath">元素路徑。</param>
+            <returns>XmlElement的陣列。</returns>
+        </member>
+        <member name="M:SmartSchool.Common.XmlHelper.RemoveElement(System.String)">
+            <summary>
+            移除元素，元素不存在會產生Exception。
+            </summary>
+            <param name="xpath">要移除的元素路徑。</param>
+        </member>
+        <member name="M:SmartSchool.Common.XmlHelper.ToString(System.String)">
+            <summary>
+            將特定的節點轉換成字串(取InnerXml)。
+            </summary>
+            <param name="xpath">XPath路徑。</param>
+            <returns>Xml字串。</returns>
+        </member>
+        <member name="M:SmartSchool.Common.XmlHelper.ToString">
+            <summary>
+            回傳完整的Xml字串。
+            </summary>
+            <returns>完整的Xml字串。</returns>
+        </member>
+        <member name="M:SmartSchool.Common.XmlHelper.Format(System.String)">
+            <summary>
+            格式化 Xml 內容。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SmartSchool.Common.XmlHelper.CloneElement(System.Xml.XmlElement)">
+            <summary>
+            複製XmlElement物件，變更其內容不會反應到原來的XmlElement中。
+            </summary>
+            <param name="srcElement">要複製的XmlElement物件。</param>
+            <returns>已複製的XmlElement物件。</returns>
+        </member>
+        <member name="M:SmartSchool.Common.XmlHelper.AppendChild(System.Xml.XmlNode,System.Xml.XmlNode)">
+            <summary>
+            將Xml字串加入到XmlNode中，可處理不同XmlDocument物件的XmlNode。
+            </summary>
+            <param name="parent"></param>
+            <param name="child"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SmartSchool.Common.XmlHelper.AppendChild(System.Xml.XmlNode,System.String)">
+            <summary>
+            將Xml字串加入到XmlNode中。
+            </summary>
+            <param name="parent"></param>
+            <param name="childXmlContent">包含「根」的Xml字串</param>
+        </member>
+        <member name="M:SmartSchool.Common.XmlHelper.LoadXml(System.IO.FileInfo,System.Boolean)">
+            <summary>
+            載入指定的 Xml 檔案。
+            </summary>
+            <param name="fileName">檔案名稱。</param>
+            <returns><see cref="T:System.Xml.XmlElement"/>物件。</returns>
+        </member>
+        <member name="M:SmartSchool.Common.XmlHelper.LoadXml(System.IO.FileInfo)">
+            <summary>
+            載入指定的 Xml 檔案。
+            </summary>
+            <param name="fileName">檔案名稱。</param>
+            <returns><see cref="T:System.Xml.XmlElement"/>物件。</returns>
+        </member>
+        <member name="M:SmartSchool.Common.XmlHelper.LoadXml(System.String)">
+            <summary>
+            載入指定的 Xml 資料。
+            </summary>
+            <param name="xmlContent">要載入的 Xml 字串資料。</param>
+            <returns><see cref="T:System.Xml.XmlElement"/>物件。</returns>
+        </member>
+        <member name="M:SmartSchool.Common.XmlHelper.LoadXml(System.String,System.Boolean)">
+            <summary>
+            載入指定的 Xml 資料。
+            </summary>
+            <param name="xmlString">要載入的 Xml 字串資料。</param>
+            <param name="preserveWhitespace">是否保留字串中的泛空白字元。</param>
+            <returns><see cref="T:System.Xml.XmlElement"/>物件。</returns>
+        </member>
+        <member name="M:SmartSchool.Common.XmlHelper.SaveXml(System.String,System.Xml.XmlNode)">
+            <summary>
+            將指定的 Xml 資料以 UTF-8 的編碼方式儲存到檔案。
+            </summary>
+            <param name="fileName">檔案名稱。</param>
+            <param name="elm">要儲存的 Xml 物件。</param>
+        </member>
+        <member name="M:SmartSchool.Common.XmlHelper.SaveXml(System.String,System.Xml.XmlNode,System.Text.Encoding)">
+            <summary>
+            將指定的 Xml 資料儲存到檔案。
+            </summary>
+            <param name="fileName">檔案名稱。</param>
+            <param name="node">要儲存的 Xml 物件。</param>
+            <param name="enc">儲存的編碼方式。</param>
+        </member>
+        <member name="M:SmartSchool.Common.XmlHelper.SaveXml(System.IO.Stream,System.Xml.XmlNode)">
+            <summary>
+            將指定的 Xml 資料以UTF-8的編碼方式寫入到串流中。
+            </summary>
+            <param name="outStream">指定的串流。</param>
+            <param name="node">要輸出的 Xml 物件。</param>
+        </member>
+        <member name="M:SmartSchool.Common.XmlHelper.SaveXml(System.IO.Stream,System.Xml.XmlNode,System.Text.Encoding)">
+            <summary>
+            將指定的 Xml 資料寫入到串流中。
+            </summary>
+            <param name="outStream">指定的串流。</param>
+            <param name="node">要輸出的 Xml 物件。</param>
+            <param name="enc">輸出的編碼方式。</param>
+        </member>
+        <member name="M:SmartSchool.Common.XmlHelper.HttpSendTo(System.String,System.String)">
+            <summary>
+            傳送Xml內容到某個網址。
+            </summary>
+            <param name="url">目的URL。</param>
+            <param name="xmlContent">要傳送的Xml內容。</param>
+            <returns>回傳的Xml資料。</returns>
+        </member>
+        <member name="M:SmartSchool.Common.XmlHelper.HttpSendTo(System.String,System.String,System.String)">
+            <summary>
+            傳送Xml內容到某個網址。
+            </summary>
+            <param name="url">目的URL。</param>
+            <param name="method">傳送的方法(POST、GET)</param>
+            <param name="xmlContent">要傳送的Xml內容。</param>
+            <returns>回傳的Xml資料。</returns>
+        </member>
+        <member name="P:SmartSchool.Common.XmlHelper.BaseElement">
+            <summary>
+            取得目前文件的基礎XmlElement物件。
+            </summary>
+            <returns>此物件的基本XmlElement物件。</returns>
+        </member>
+        <member name="P:SmartSchool.Common.XmlHelper.RootName">
+            <summary>
+            文件根名稱。
+            </summary>
+        </member>
+    </members>
+</doc>

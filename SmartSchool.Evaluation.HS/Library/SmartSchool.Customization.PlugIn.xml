@@ -1,0 +1,991 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SmartSchool.Customization.PlugIn</name>
+    </assembly>
+    <members>
+        <member name="T:SmartSchool.Customization.PlugIn.Report.StudentReport">
+            <summary>
+            學生相關報表
+            </summary>
+        </member>
+        <member name="M:SmartSchool.Customization.PlugIn.Report.StudentReport.AddReport(SmartSchool.Customization.PlugIn.ButtonAdapter)">
+            <summary>
+            新增學生相關報表按鈕
+            </summary>
+            <param name="report"></param>
+        </member>
+        <member name="M:SmartSchool.Customization.PlugIn.Report.StudentReport.RemoveReport(SmartSchool.Customization.PlugIn.ButtonAdapter)">
+            <summary>
+            移除學生相關報表按鈕
+            </summary>
+            <param name="report"></param>
+        </member>
+        <member name="T:SmartSchool.Customization.PlugIn.ImportExport.ExportCourse">
+            <summary>
+            匯出課程相依資料
+            </summary>
+        </member>
+        <member name="M:SmartSchool.Customization.PlugIn.ImportExport.ExportCourse.AddProcess(SmartSchool.Customization.PlugIn.ImportExport.ExportProcess)">
+            <summary>
+            新增匯出課程相關流程
+            </summary>
+        </member>
+        <member name="T:SmartSchool.Customization.PlugIn.ImportExport.ExportTeacher">
+            <summary>
+            匯出教師相依資料
+            </summary>
+        </member>
+        <member name="M:SmartSchool.Customization.PlugIn.ImportExport.ExportTeacher.AddProcess(SmartSchool.Customization.PlugIn.ImportExport.ExportProcess)">
+            <summary>
+            新增匯出教師相關流程
+            </summary>
+        </member>
+        <member name="T:SmartSchool.Customization.PlugIn.ImportExport.ImportStudent">
+            <summary>
+            匯入學生相依資料
+            </summary>
+        </member>
+        <member name="M:SmartSchool.Customization.PlugIn.ImportExport.ImportStudent.AddProcess(SmartSchool.Customization.PlugIn.ImportExport.ImportProcess)">
+            <summary>
+            新增匯入學生相關流程
+            </summary>
+        </member>
+        <member name="T:SmartSchool.Customization.PlugIn.ExtendedContent.IContentItem">
+            <summary>
+            延伸資料的管理畫面
+            </summary>
+        </member>
+        <member name="M:SmartSchool.Customization.PlugIn.ExtendedContent.IContentItem.LoadContent(System.String)">
+            <summary>
+            讀取資料
+            </summary>
+            <param name="id">主資料的系統編號</param>
+        </member>
+        <member name="M:SmartSchool.Customization.PlugIn.ExtendedContent.IContentItem.Save">
+            <summary>
+            儲存
+            </summary>
+        </member>
+        <member name="M:SmartSchool.Customization.PlugIn.ExtendedContent.IContentItem.Undo">
+            <summary>
+            取消變更
+            </summary>
+        </member>
+        <member name="P:SmartSchool.Customization.PlugIn.ExtendedContent.IContentItem.SaveButtonVisible">
+            <summary>
+            儲存按鈕Visible
+            </summary>
+        </member>
+        <member name="P:SmartSchool.Customization.PlugIn.ExtendedContent.IContentItem.CancelButtonVisible">
+            <summary>
+            取消按鈕Visible
+            </summary>
+        </member>
+        <member name="P:SmartSchool.Customization.PlugIn.ExtendedContent.IContentItem.Title">
+            <summary>
+            標題
+            </summary>
+        </member>
+        <member name="P:SmartSchool.Customization.PlugIn.ExtendedContent.IContentItem.DisplayControl">
+            <summary>
+            管理畫面的控制項(Panel)
+            </summary>
+        </member>
+        <member name="E:SmartSchool.Customization.PlugIn.ExtendedContent.IContentItem.SaveButtonVisibleChanged">
+            <summary>
+            SaveButtonVisible屬性改變時
+            </summary>
+        </member>
+        <member name="E:SmartSchool.Customization.PlugIn.ExtendedContent.IContentItem.CancelButtonVisibleChanged">
+            <summary>
+            CancelButtonVisible屬性改變時
+            </summary>
+        </member>
+        <member name="T:SmartSchool.Customization.PlugIn.IManager`1">
+            <summary>
+            通用管理介面
+            </summary>
+            <typeparam name="T">管理項目型別</typeparam>
+        </member>
+        <member name="M:SmartSchool.Customization.PlugIn.IManager`1.Add(`0)">
+            <summary>
+            新增
+            </summary>
+        </member>
+        <member name="M:SmartSchool.Customization.PlugIn.IManager`1.Remove(`0)">
+            <summary>
+            移除
+            </summary>
+        </member>
+        <member name="T:SmartSchool.Customization.PlugIn.ExtendedColumn.ExtendCourseColumn">
+            <summary>
+            課程的延伸資料行管理
+            </summary>
+        </member>
+        <member name="M:SmartSchool.Customization.PlugIn.ExtendedColumn.ExtendCourseColumn.AddItem(SmartSchool.Customization.PlugIn.ExtendedColumn.IColumnItem)">
+            <summary>
+            新增課程的延伸資料行
+            </summary>
+        </member>
+        <member name="T:SmartSchool.Customization.PlugIn.ContextMenu.CourseMenuControl">
+            <summary>
+            課程右鍵選單控制項
+            </summary>
+        </member>
+        <member name="M:SmartSchool.Customization.PlugIn.ContextMenu.CourseMenuControl.AddItem(SmartSchool.Customization.PlugIn.ControlContainer)">
+            <summary>
+            新增課程相關右鍵選單控制項
+            </summary>
+        </member>
+        <member name="T:SmartSchool.Customization.PlugIn.ContextMenu.ClassMenuButton">
+            <summary>
+            班級右鍵選單按鈕
+            </summary>
+        </member>
+        <member name="M:SmartSchool.Customization.PlugIn.ContextMenu.ClassMenuButton.AddItem(SmartSchool.Customization.PlugIn.ButtonAdapter)">
+            <summary>
+            新增班級相關右鍵選單按鈕
+            </summary>
+        </member>
+        <member name="T:SmartSchool.Customization.PlugIn.ImportExport.DataImportEventArgs">
+            <summary>
+            分批次匯入資料的單一封包資訊
+            </summary>
+        </member>
+        <member name="P:SmartSchool.Customization.PlugIn.ImportExport.DataImportEventArgs.Items">
+            <summary>
+            要匯入的資料
+            </summary>
+        </member>
+        <member name="P:SmartSchool.Customization.PlugIn.ImportExport.DataImportEventArgs.ImportFields">
+            <summary>
+            被選取要匯入的欄位
+            </summary>
+        </member>
+        <member name="T:SmartSchool.Customization.PlugIn.ExtendedContent.ExtendTeacherContent">
+            <summary>
+            教師的延伸資料管理畫面
+            </summary>
+        </member>
+        <member name="M:SmartSchool.Customization.PlugIn.ExtendedContent.ExtendTeacherContent.AddItem(SmartSchool.Customization.PlugIn.ExtendedContent.IContentItem)">
+            <summary>
+            新增教師的延伸資料管理
+            </summary>
+        </member>
+        <member name="T:SmartSchool.Customization.PlugIn.ExtendedColumn.ExtendClassColumn">
+            <summary>
+            班級的延伸資料行管理
+            </summary>
+        </member>
+        <member name="M:SmartSchool.Customization.PlugIn.ExtendedColumn.ExtendClassColumn.AddItem(SmartSchool.Customization.PlugIn.ExtendedColumn.IColumnItem)">
+            <summary>
+            新增班級的延伸資料行
+            </summary>
+        </member>
+        <member name="T:SmartSchool.Customization.PlugIn.ContextMenu.StudentMenuButton">
+            <summary>
+            學生右鍵選單按鈕
+            </summary>
+        </member>
+        <member name="M:SmartSchool.Customization.PlugIn.ContextMenu.StudentMenuButton.AddItem(SmartSchool.Customization.PlugIn.ButtonAdapter)">
+            <summary>
+            新增學生相關右鍵選單按鈕
+            </summary>
+        </member>
+        <member name="T:SmartSchool.Customization.PlugIn.ImportExport.ExportProcess">
+            <summary>
+            匯出資料作業
+            </summary>
+        </member>
+        <member name="M:SmartSchool.Customization.PlugIn.ImportExport.ExportProcess.#ctor">
+            <summary>
+            建構子
+            </summary>
+        </member>
+        <member name="M:SmartSchool.Customization.PlugIn.ImportExport.ExportProcess.GetExportData(System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            填入這個Package的RowData
+            </summary>
+        </member>
+        <member name="M:SmartSchool.Customization.PlugIn.ImportExport.ExportProcess.StartupProcess">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="E:SmartSchool.Customization.PlugIn.ImportExport.ExportProcess.ExportPackage">
+            <summary>
+            資料匯出
+            </summary>
+        </member>
+        <member name="E:SmartSchool.Customization.PlugIn.ImportExport.ExportProcess.ExportableFieldsChanged">
+            <summary>
+            可匯出欄未變更
+            </summary>
+        </member>
+        <member name="E:SmartSchool.Customization.PlugIn.ImportExport.ExportProcess.Initialize">
+            <summary>
+            起始一個匯出作業
+            </summary>
+        </member>
+        <member name="P:SmartSchool.Customization.PlugIn.ImportExport.ExportProcess.Title">
+            <summary>
+            標題
+            </summary>
+        </member>
+        <member name="P:SmartSchool.Customization.PlugIn.ImportExport.ExportProcess.Image">
+            <summary>
+            圖示
+            </summary>
+        </member>
+        <member name="P:SmartSchool.Customization.PlugIn.ImportExport.ExportProcess.Group">
+            <summary>
+            群組
+            </summary>
+        </member>
+        <member name="P:SmartSchool.Customization.PlugIn.ImportExport.ExportProcess.PackageLimit">
+            <summary>
+            分割封包的期望值
+            </summary>
+        </member>
+        <member name="P:SmartSchool.Customization.PlugIn.ImportExport.ExportProcess.ExportableFields">
+            <summary>
+            允許匯入的欄位
+            </summary>
+        </member>
+        <member name="P:SmartSchool.Customization.PlugIn.ImportExport.ExportProcess.Configuration">
+            <summary>
+            進階設定表單
+            </summary>
+        </member>
+        <member name="T:SmartSchool.Customization.PlugIn.ExtendedContent.ExtendClassContent">
+            <summary>
+            班級的延伸資料管理畫面
+            </summary>
+        </member>
+        <member name="M:SmartSchool.Customization.PlugIn.ExtendedContent.ExtendClassContent.AddItem(SmartSchool.Customization.PlugIn.ExtendedContent.IContentItem)">
+            <summary>
+            新增班級的延伸資料管理
+            </summary>
+        </member>
+        <member name="T:SmartSchool.Customization.PlugIn.ContextMenu.StudentMenuControl">
+            <summary>
+            學生右鍵選單控制項
+            </summary>
+        </member>
+        <member name="M:SmartSchool.Customization.PlugIn.ContextMenu.StudentMenuControl.AddItem(SmartSchool.Customization.PlugIn.ControlContainer)">
+            <summary>
+            新增學生相關右鍵選單控制項
+            </summary>
+        </member>
+        <member name="T:SmartSchool.Customization.PlugIn.ContextMenu.CourseMenuButton">
+            <summary>
+            課程右鍵選單按鈕
+            </summary>
+        </member>
+        <member name="M:SmartSchool.Customization.PlugIn.ContextMenu.CourseMenuButton.AddItem(SmartSchool.Customization.PlugIn.ButtonAdapter)">
+            <summary>
+            新增課程相關右鍵選單按鈕
+            </summary>
+        </member>
+        <member name="T:SmartSchool.Customization.PlugIn.ContextMenu.ClassMenuControl">
+            <summary>
+            班級右鍵選單控制項
+            </summary>
+        </member>
+        <member name="M:SmartSchool.Customization.PlugIn.ContextMenu.ClassMenuControl.AddItem(SmartSchool.Customization.PlugIn.ControlContainer)">
+            <summary>
+            新增班級相關右鍵選單控制項
+            </summary>
+        </member>
+        <member name="T:SmartSchool.Customization.PlugIn.Configure.ConfigurationItem">
+            <summary>
+            系統設定介面
+            </summary>
+        </member>
+        <member name="T:SmartSchool.Customization.PlugIn.Configure.IConfigurationItem">
+            <summary>
+            系統設定項目
+            </summary>
+        </member>
+        <member name="M:SmartSchool.Customization.PlugIn.Configure.IConfigurationItem.Active">
+            <summary>
+            當此項目第一次被開啟時
+            </summary>
+        </member>
+        <member name="P:SmartSchool.Customization.PlugIn.Configure.IConfigurationItem.TabGroup">
+            <summary>
+            所屬的設定群組
+            </summary>
+        </member>
+        <member name="P:SmartSchool.Customization.PlugIn.Configure.IConfigurationItem.HasControlPanel">
+            <summary>
+            是否有控制頁面
+            </summary>
+        </member>
+        <member name="P:SmartSchool.Customization.PlugIn.Configure.IConfigurationItem.ControlPanel">
+            <summary>
+            控制頁面(當HasControlPanel為true時)
+            </summary>
+        </member>
+        <member name="P:SmartSchool.Customization.PlugIn.Configure.IConfigurationItem.ContentPanel">
+            <summary>
+            內容頁面
+            </summary>
+        </member>
+        <member name="P:SmartSchool.Customization.PlugIn.Configure.IConfigurationItem.Caption">
+            <summary>
+            項目名稱
+            </summary>
+        </member>
+        <member name="P:SmartSchool.Customization.PlugIn.Configure.IConfigurationItem.Category">
+            <summary>
+            項目類別
+            </summary>
+        </member>
+        <member name="P:SmartSchool.Customization.PlugIn.Configure.IConfigurationItem.Image">
+            <summary>
+            照片
+            </summary>
+        </member>
+        <member name="M:SmartSchool.Customization.PlugIn.Configure.ConfigurationItem.OnActive">
+            <summary>
+            當此項目第一次被開啟時
+            </summary>
+        </member>
+        <member name="F:SmartSchool.Customization.PlugIn.Configure.ConfigurationItem.components">
+            <summary> 
+            設計工具所需的變數。
+            </summary>
+        </member>
+        <member name="M:SmartSchool.Customization.PlugIn.Configure.ConfigurationItem.Dispose(System.Boolean)">
+            <summary> 
+            清除任何使用中的資源。
+            </summary>
+            <param name="disposing">如果應該公開 Managed 資源則為 true，否則為 false。</param>
+        </member>
+        <member name="M:SmartSchool.Customization.PlugIn.Configure.ConfigurationItem.InitializeComponent">
+             <summary> 
+             此為設計工具支援所需的方法 - 請勿使用程式碼編輯器修改這個方法的內容。
+            
+             </summary>
+        </member>
+        <member name="P:SmartSchool.Customization.PlugIn.Configure.ConfigurationItem.HasControlPanel">
+            <summary>
+            擁有ControlPanel
+            </summary>
+        </member>
+        <member name="P:SmartSchool.Customization.PlugIn.Configure.ConfigurationItem.Caption">
+            <summary>
+            項目名稱
+            </summary>
+        </member>
+        <member name="P:SmartSchool.Customization.PlugIn.Configure.ConfigurationItem.Category">
+            <summary>
+            項目類別
+            </summary>
+        </member>
+        <member name="P:SmartSchool.Customization.PlugIn.Configure.ConfigurationItem.Image">
+            <summary>
+            照片
+            </summary>
+        </member>
+        <member name="T:SmartSchool.Customization.PlugIn.ContextMenu.TeacherMenuButton">
+            <summary>
+            教師右鍵選單按鈕
+            </summary>
+        </member>
+        <member name="M:SmartSchool.Customization.PlugIn.ContextMenu.TeacherMenuButton.AddItem(SmartSchool.Customization.PlugIn.ButtonAdapter)">
+            <summary>
+            新增教師相關右鍵選單按鈕
+            </summary>
+        </member>
+        <member name="M:SmartSchool.Customization.PlugIn.ButtonAdapter.Click">
+            <summary>
+             
+            </summary>
+        </member>
+        <member name="M:SmartSchool.Customization.PlugIn.ButtonAdapter.SetBarMessage(System.String)">
+            <summary>
+            在StatusBar上顯示訊息
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:SmartSchool.Customization.PlugIn.ButtonAdapter.SetBarMessage(System.String,System.Int32)">
+            <summary>
+            在StatusBar上顯示訊息及進度
+            </summary>
+            <param name="progress">進度(0-100)</param>
+        </member>
+        <member name="P:SmartSchool.Customization.PlugIn.ButtonAdapter.Image">
+            <summary>
+            照片
+            </summary>
+        </member>
+        <member name="P:SmartSchool.Customization.PlugIn.ButtonAdapter.Text">
+            <summary>
+            文字
+            </summary>
+        </member>
+        <member name="P:SmartSchool.Customization.PlugIn.ButtonAdapter.Path">
+            <summary>
+            路徑
+            </summary>
+        </member>
+        <member name="E:SmartSchool.Customization.PlugIn.ButtonAdapter.OnClick">
+            <summary>
+            被按下時的事件
+            </summary>
+        </member>
+        <member name="E:SmartSchool.Customization.PlugIn.ButtonAdapter.OnSetBarMessage">
+            <summary>
+            設定StatusBar上顯示訊息時
+            </summary>
+        </member>
+        <member name="T:SmartSchool.Customization.PlugIn.ButtonAdapter.SetBarMessageEventArgs">
+            <summary>
+            傳遞要顯示的訊息及進度
+            </summary>
+        </member>
+        <member name="M:SmartSchool.Customization.PlugIn.ButtonAdapter.SetBarMessageEventArgs.#ctor(System.String,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="message"></param>
+            <param name="progress"></param>
+        </member>
+        <member name="M:SmartSchool.Customization.PlugIn.ButtonAdapter.SetBarMessageEventArgs.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="P:SmartSchool.Customization.PlugIn.ButtonAdapter.SetBarMessageEventArgs.Message">
+            <summary>
+            訊息
+            </summary>
+        </member>
+        <member name="P:SmartSchool.Customization.PlugIn.ButtonAdapter.SetBarMessageEventArgs.Progress">
+            <summary>
+            進度
+            </summary>
+        </member>
+        <member name="P:SmartSchool.Customization.PlugIn.ButtonAdapter.SetBarMessageEventArgs.HasProgress">
+            <summary>
+            有進度
+            </summary>
+        </member>
+        <member name="T:SmartSchool.Customization.PlugIn.Global">
+            <summary>
+            全域功能
+            </summary>
+        </member>
+        <member name="M:SmartSchool.Customization.PlugIn.Global.SetStatusBarMessage(System.String)">
+            <summary>
+            在StatusBar上顯示訊息
+            </summary>
+            <param name="message">訊息</param>
+        </member>
+        <member name="M:SmartSchool.Customization.PlugIn.Global.SetStatusBarMessage(System.String,System.Int32)">
+            <summary>
+            在StatusBar上顯示訊息及進度
+            </summary>
+            <param name="message">訊息</param>
+            <param name="progress">進度(0-100)</param>
+        </member>
+        <member name="E:SmartSchool.Customization.PlugIn.Global.OnSetStatusBarMessage">
+            <summary>
+            設定StatusBar上顯示訊息時
+            </summary>
+        </member>
+        <member name="T:SmartSchool.Customization.PlugIn.Global.SetStatusBarMessageEventArgs">
+            <summary>
+            傳遞要顯示的訊息及進度
+            </summary>
+        </member>
+        <member name="M:SmartSchool.Customization.PlugIn.Global.SetStatusBarMessageEventArgs.#ctor(System.String,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="message"></param>
+            <param name="progress"></param>
+        </member>
+        <member name="M:SmartSchool.Customization.PlugIn.Global.SetStatusBarMessageEventArgs.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="P:SmartSchool.Customization.PlugIn.Global.SetStatusBarMessageEventArgs.Message">
+            <summary>
+            訊息
+            </summary>
+        </member>
+        <member name="P:SmartSchool.Customization.PlugIn.Global.SetStatusBarMessageEventArgs.Progress">
+            <summary>
+            進度
+            </summary>
+        </member>
+        <member name="P:SmartSchool.Customization.PlugIn.Global.SetStatusBarMessageEventArgs.HasProgress">
+            <summary>
+            有進度
+            </summary>
+        </member>
+        <member name="T:SmartSchool.Customization.PlugIn.Report.CourseReport">
+            <summary>
+            課程相關報表
+            </summary>
+        </member>
+        <member name="M:SmartSchool.Customization.PlugIn.Report.CourseReport.AddReport(SmartSchool.Customization.PlugIn.ButtonAdapter)">
+            <summary>
+            新增課程相關報表按鈕
+            </summary>
+        </member>
+        <member name="M:SmartSchool.Customization.PlugIn.Report.CourseReport.RemoveReport(SmartSchool.Customization.PlugIn.ButtonAdapter)">
+            <summary>
+            移除課程相關報表按鈕
+            </summary>
+        </member>
+        <member name="T:SmartSchool.Customization.PlugIn.ImportExport.ExportClass">
+            <summary>
+            匯出班級相依資料
+            </summary>
+        </member>
+        <member name="M:SmartSchool.Customization.PlugIn.ImportExport.ExportClass.AddProcess(SmartSchool.Customization.PlugIn.ImportExport.ExportProcess)">
+            <summary>
+            新增匯出班級相關流程
+            </summary>
+        </member>
+        <member name="T:SmartSchool.Customization.PlugIn.ImportExport.RowData">
+            <summary>
+            要匯入的一筆資料
+            </summary>
+        </member>
+        <member name="P:SmartSchool.Customization.PlugIn.ImportExport.RowData.ID">
+            <summary>
+            編號
+            </summary>
+        </member>
+        <member name="T:SmartSchool.Customization.PlugIn.ImportExport.BeginValidateEventArgs">
+            <summary>
+            開始驗證
+            </summary>
+        </member>
+        <member name="P:SmartSchool.Customization.PlugIn.ImportExport.BeginValidateEventArgs.List">
+            <summary>
+            所有相關資料的系統編號
+            </summary>
+        </member>
+        <member name="T:SmartSchool.Customization.PlugIn.ImportExport.ImportCourse">
+            <summary>
+            匯入課程相依資料
+            </summary>
+        </member>
+        <member name="M:SmartSchool.Customization.PlugIn.ImportExport.ImportCourse.AddProcess(SmartSchool.Customization.PlugIn.ImportExport.ImportProcess)">
+            <summary>
+            新增匯入課程相關流程
+            </summary>
+        </member>
+        <member name="T:SmartSchool.Customization.PlugIn.ImportExport.ExportStudent">
+            <summary>
+            匯出學生相依資料
+            </summary>
+        </member>
+        <member name="M:SmartSchool.Customization.PlugIn.ImportExport.ExportStudent.AddProcess(SmartSchool.Customization.PlugIn.ImportExport.ExportProcess)">
+            <summary>
+            新增匯出學生相關流程
+            </summary>
+        </member>
+        <member name="T:SmartSchool.Customization.PlugIn.Report.ClassReport">
+            <summary>
+            班級相關報表
+            </summary>
+        </member>
+        <member name="M:SmartSchool.Customization.PlugIn.Report.ClassReport.AddReport(SmartSchool.Customization.PlugIn.ButtonAdapter)">
+            <summary>
+            新增班級相關報表按鈕
+            </summary>
+            <param name="report"></param>
+        </member>
+        <member name="M:SmartSchool.Customization.PlugIn.Report.ClassReport.RemoveReport(SmartSchool.Customization.PlugIn.ButtonAdapter)">
+            <summary>
+            移除斑級相關報表按鈕
+            </summary>
+            <param name="report"></param>
+        </member>
+        <member name="T:SmartSchool.Customization.PlugIn.ImportExport.ImportTeacher">
+            <summary>
+            匯入教師相依資料
+            </summary>
+        </member>
+        <member name="M:SmartSchool.Customization.PlugIn.ImportExport.ImportTeacher.AddProcess(SmartSchool.Customization.PlugIn.ImportExport.ImportProcess)">
+            <summary>
+            新增匯入教師相關流程
+            </summary>
+        </member>
+        <member name="T:SmartSchool.Customization.PlugIn.ExtendedColumn.ExtendTeacherColumn">
+            <summary>
+            教師的延伸資料行管理
+            </summary>
+        </member>
+        <member name="M:SmartSchool.Customization.PlugIn.ExtendedColumn.ExtendTeacherColumn.AddItem(SmartSchool.Customization.PlugIn.ExtendedColumn.IColumnItem)">
+            <summary>
+            新增教師的延伸資料行
+            </summary>
+        </member>
+        <member name="T:SmartSchool.Customization.PlugIn.ControlContainer">
+            <summary>
+            控制項容器
+            </summary>
+        </member>
+        <member name="M:SmartSchool.Customization.PlugIn.ControlContainer.#ctor">
+            <summary>
+            建構子
+            </summary>
+        </member>
+        <member name="M:SmartSchool.Customization.PlugIn.ControlContainer.#ctor(System.Windows.Forms.Control)">
+            <summary>
+            建構子
+            </summary>
+            <param name="control">控制項</param>
+        </member>
+        <member name="M:SmartSchool.Customization.PlugIn.ControlContainer.#ctor(System.Windows.Forms.Control,System.String)">
+            <summary>
+            建構子
+            </summary>
+            <param name="control">控制項</param>
+            <param name="path">路徑</param>
+        </member>
+        <member name="P:SmartSchool.Customization.PlugIn.ControlContainer.Control">
+            <summary>
+            控制項
+            </summary>
+        </member>
+        <member name="P:SmartSchool.Customization.PlugIn.ControlContainer.Path">
+            <summary>
+            路徑
+            </summary>
+        </member>
+        <member name="T:SmartSchool.Customization.PlugIn.ContextMenu.TeacherMenuControl">
+            <summary>
+            教師右鍵選單控制項
+            </summary>
+        </member>
+        <member name="M:SmartSchool.Customization.PlugIn.ContextMenu.TeacherMenuControl.AddItem(SmartSchool.Customization.PlugIn.ControlContainer)">
+            <summary>
+            新增教師相關右鍵選單控制項
+            </summary>
+        </member>
+        <member name="T:SmartSchool.Customization.PlugIn.ImportExport.RowDataValidatedEventArgs">
+            <summary>
+            驗證資料
+            </summary>
+        </member>
+        <member name="P:SmartSchool.Customization.PlugIn.ImportExport.RowDataValidatedEventArgs.Data">
+            <summary>
+            驗證中的資料
+            </summary>
+        </member>
+        <member name="P:SmartSchool.Customization.PlugIn.ImportExport.RowDataValidatedEventArgs.SelectFields">
+            <summary>
+            被選取要匯入的欄位
+            </summary>
+        </member>
+        <member name="P:SmartSchool.Customization.PlugIn.ImportExport.RowDataValidatedEventArgs.WarningFields">
+            <summary>
+            各欄位警示資訊
+            </summary>
+        </member>
+        <member name="P:SmartSchool.Customization.PlugIn.ImportExport.RowDataValidatedEventArgs.ErrorFields">
+            <summary>
+            各欄位錯誤資訊
+            </summary>
+        </member>
+        <member name="P:SmartSchool.Customization.PlugIn.ImportExport.RowDataValidatedEventArgs.ErrorMessage">
+            <summary>
+            整筆資料錯誤資訊
+            </summary>
+        </member>
+        <member name="T:SmartSchool.Customization.PlugIn.ImportExport.ImportProcess">
+            <summary>
+            匯入資料作業
+            </summary>
+        </member>
+        <member name="M:SmartSchool.Customization.PlugIn.ImportExport.ImportProcess.#ctor">
+            <summary>
+            建構子
+            </summary>
+        </member>
+        <member name="M:SmartSchool.Customization.PlugIn.ImportExport.ImportProcess.StartValidate(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            開始驗證
+            </summary>
+        </member>
+        <member name="M:SmartSchool.Customization.PlugIn.ImportExport.ImportProcess.OnBeginValidate(SmartSchool.Customization.PlugIn.ImportExport.BeginValidateEventArgs)">
+            <summary>
+            開始驗證資料
+            </summary>
+            <param name="args"></param>
+        </member>
+        <member name="M:SmartSchool.Customization.PlugIn.ImportExport.ImportProcess.ValidateRow(SmartSchool.Customization.PlugIn.ImportExport.RowData,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            驗證資料
+            </summary>
+        </member>
+        <member name="M:SmartSchool.Customization.PlugIn.ImportExport.ImportProcess.OnValidateRow(SmartSchool.Customization.PlugIn.ImportExport.RowDataValidatedEventArgs)">
+            <summary>
+            驗證資料
+            </summary>
+            <param name="args"></param>
+        </member>
+        <member name="M:SmartSchool.Customization.PlugIn.ImportExport.ImportProcess.FinishValidate">
+            <summary>
+            結束驗證
+            </summary>
+        </member>
+        <member name="M:SmartSchool.Customization.PlugIn.ImportExport.ImportProcess.OnEndValidate">
+            <summary>
+            結束驗證
+            </summary>
+        </member>
+        <member name="M:SmartSchool.Customization.PlugIn.ImportExport.ImportProcess.StartImport">
+            <summary>
+            開始匯入
+            </summary>
+        </member>
+        <member name="M:SmartSchool.Customization.PlugIn.ImportExport.ImportProcess.OnBeginImport">
+            <summary>
+            開始匯入
+            </summary>
+        </member>
+        <member name="M:SmartSchool.Customization.PlugIn.ImportExport.ImportProcess.ImportPackage(System.Collections.Generic.IEnumerable{SmartSchool.Customization.PlugIn.ImportExport.RowData},System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            匯入資料
+            </summary>
+        </member>
+        <member name="M:SmartSchool.Customization.PlugIn.ImportExport.ImportProcess.OnDataImport(SmartSchool.Customization.PlugIn.ImportExport.DataImportEventArgs)">
+            <summary>
+            匯入資料
+            </summary>
+            <param name="args"></param>
+        </member>
+        <member name="M:SmartSchool.Customization.PlugIn.ImportExport.ImportProcess.FinishImport">
+            <summary>
+            結束匯入
+            </summary>
+        </member>
+        <member name="M:SmartSchool.Customization.PlugIn.ImportExport.ImportProcess.OnEndImport">
+            <summary>
+            結束匯入
+            </summary>
+        </member>
+        <member name="M:SmartSchool.Customization.PlugIn.ImportExport.ImportProcess.StartupProcess">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="E:SmartSchool.Customization.PlugIn.ImportExport.ImportProcess.BeginValidate">
+            <summary>
+            開始驗證
+            </summary>
+        </member>
+        <member name="E:SmartSchool.Customization.PlugIn.ImportExport.ImportProcess.RowDataValidated">
+            <summary>
+            檢驗資料欄位
+            </summary>
+        </member>
+        <member name="E:SmartSchool.Customization.PlugIn.ImportExport.ImportProcess.EndValidate">
+            <summary>
+            驗證結束
+            </summary>
+        </member>
+        <member name="E:SmartSchool.Customization.PlugIn.ImportExport.ImportProcess.BeginImport">
+            <summary>
+            開始匯入
+            </summary>
+        </member>
+        <member name="E:SmartSchool.Customization.PlugIn.ImportExport.ImportProcess.DataImport">
+            <summary>
+            進行資料匯入
+            </summary>
+        </member>
+        <member name="E:SmartSchool.Customization.PlugIn.ImportExport.ImportProcess.EndImport">
+            <summary>
+            結束匯入
+            </summary>
+        </member>
+        <member name="E:SmartSchool.Customization.PlugIn.ImportExport.ImportProcess.ImportableFieldsChanged">
+            <summary>
+            ImportableFields被變更時
+            </summary>
+        </member>
+        <member name="E:SmartSchool.Customization.PlugIn.ImportExport.ImportProcess.RequiredFieldsChanged">
+            <summary>
+            RequiredFields被變更時
+            </summary>
+        </member>
+        <member name="E:SmartSchool.Customization.PlugIn.ImportExport.ImportProcess.Initialize">
+            <summary>
+            起始一個匯入作業
+            </summary>
+        </member>
+        <member name="P:SmartSchool.Customization.PlugIn.ImportExport.ImportProcess.Title">
+            <summary>
+            標題
+            </summary>
+        </member>
+        <member name="P:SmartSchool.Customization.PlugIn.ImportExport.ImportProcess.Image">
+            <summary>
+            圖示
+            </summary>
+        </member>
+        <member name="P:SmartSchool.Customization.PlugIn.ImportExport.ImportProcess.Group">
+            <summary>
+            群組
+            </summary>
+        </member>
+        <member name="P:SmartSchool.Customization.PlugIn.ImportExport.ImportProcess.PackageLimit">
+            <summary>
+            分割封包的期望值
+            </summary>
+        </member>
+        <member name="P:SmartSchool.Customization.PlugIn.ImportExport.ImportProcess.ImportableFields">
+            <summary>
+            允許匯入的欄位
+            </summary>
+        </member>
+        <member name="P:SmartSchool.Customization.PlugIn.ImportExport.ImportProcess.RequiredFields">
+            <summary>
+            必需的欄位
+            </summary>
+        </member>
+        <member name="P:SmartSchool.Customization.PlugIn.ImportExport.ImportProcess.Configuration">
+            <summary>
+            進階設定表單
+            </summary>
+        </member>
+        <member name="T:SmartSchool.Customization.PlugIn.ExtendedContent.ExtendCourseContent">
+            <summary>
+            課程的延伸資料管理畫面
+            </summary>
+        </member>
+        <member name="M:SmartSchool.Customization.PlugIn.ExtendedContent.ExtendCourseContent.AddItem(SmartSchool.Customization.PlugIn.ExtendedContent.IContentItem)">
+            <summary>
+            新增課程的延伸資料管理
+            </summary>
+        </member>
+        <member name="M:SmartSchool.Customization.PlugIn.Configure.SystemConfiguration.AddConfigurationItem(SmartSchool.Customization.PlugIn.Configure.IConfigurationItem)">
+            <summary>
+            新增系統設定項目
+            </summary>
+        </member>
+        <member name="T:SmartSchool.Customization.PlugIn.Report.TeacherReport">
+            <summary>
+            教師相關報表
+            </summary>
+        </member>
+        <member name="M:SmartSchool.Customization.PlugIn.Report.TeacherReport.AddReport(SmartSchool.Customization.PlugIn.ButtonAdapter)">
+            <summary>
+            新增教師相關報表按鈕
+            </summary>
+            <param name="report"></param>
+        </member>
+        <member name="M:SmartSchool.Customization.PlugIn.Report.TeacherReport.RemoveReport(SmartSchool.Customization.PlugIn.ButtonAdapter)">
+            <summary>
+            移除教師相關報表按鈕
+            </summary>
+            <param name="report"></param>
+        </member>
+        <member name="T:SmartSchool.Customization.PlugIn.MainMethodAttribute">
+            <summary>
+            訂定此方法為客製化模組的進入點
+            </summary>
+        </member>
+        <member name="T:SmartSchool.Customization.PlugIn.ExtendedContent.ExtendStudentContent">
+            <summary>
+            學生的延伸資料管理畫面
+            </summary>
+        </member>
+        <member name="M:SmartSchool.Customization.PlugIn.ExtendedContent.ExtendStudentContent.AddItem(SmartSchool.Customization.PlugIn.ExtendedContent.IContentItem)">
+            <summary>
+            新增學生的延伸資料管理
+            </summary>
+        </member>
+        <member name="T:SmartSchool.Customization.PlugIn.ExtendedColumn.IColumnItem">
+            <summary>
+            擴充延伸資料行
+            </summary>
+        </member>
+        <member name="M:SmartSchool.Customization.PlugIn.ExtendedColumn.IColumnItem.FillExtendedValues(System.Collections.Generic.List{System.String})">
+            <summary>
+            填入延伸資料值
+            </summary>
+            <param name="identities">相依的索引鍵值</param>
+        </member>
+        <member name="P:SmartSchool.Customization.PlugIn.ExtendedColumn.IColumnItem.ColumnHeader">
+            <summary>
+            延伸資料行的標題
+            </summary>
+        </member>
+        <member name="P:SmartSchool.Customization.PlugIn.ExtendedColumn.IColumnItem.ExtendedValues">
+            <summary>
+            延伸資料的值
+            </summary>
+        </member>
+        <member name="E:SmartSchool.Customization.PlugIn.ExtendedColumn.IColumnItem.VariableChanged">
+            <summary>
+            資料發生變動
+            </summary>
+        </member>
+        <member name="T:SmartSchool.Customization.PlugIn.ImportExport.ImportClass">
+            <summary>
+            匯入班級相依資料
+            </summary>
+        </member>
+        <member name="M:SmartSchool.Customization.PlugIn.ImportExport.ImportClass.AddProcess(SmartSchool.Customization.PlugIn.ImportExport.ImportProcess)">
+            <summary>
+            新增匯入班級相關流程
+            </summary>
+        </member>
+        <member name="T:SmartSchool.Customization.PlugIn.GeneralizationPluhgInManager`1">
+            <summary>
+            通用PlugIn管理
+            </summary>
+            <remarks>
+            不同的型別會有各自獨立的管理器集合。
+            在管理器集合中，以字串的值做為管理器的索引，不同的管理器應會PlugIn至不同地方。
+            </remarks>
+            <typeparam name="T">PlugIn內容物的型別</typeparam>
+        </member>
+        <member name="P:SmartSchool.Customization.PlugIn.GeneralizationPluhgInManager`1.Instance">
+            <summary>
+            GeneralizationPluhgInManager在此泛型的唯一實體
+            </summary>
+        </member>
+        <member name="T:SmartSchool.Customization.PlugIn.ExtendedColumn.ExtendStudentColumn">
+            <summary>
+            學生的延伸資料行管理
+            </summary>
+        </member>
+        <member name="M:SmartSchool.Customization.PlugIn.ExtendedColumn.ExtendStudentColumn.AddItem(SmartSchool.Customization.PlugIn.ExtendedColumn.IColumnItem)">
+            <summary>
+            新增學生的延伸資料行
+            </summary>
+        </member>
+        <member name="P:SmartSchool.Customization.PlugIn.ImportExport.ExportPackageEventArgs.List">
+            <summary>
+            要匯出資料的編號
+            </summary>
+        </member>
+        <member name="P:SmartSchool.Customization.PlugIn.ImportExport.ExportPackageEventArgs.ExportFields">
+            <summary>
+            被選取要匯出的欄位
+            </summary>
+        </member>
+        <member name="P:SmartSchool.Customization.PlugIn.ImportExport.ExportPackageEventArgs.Items">
+            <summary>
+            要匯出的資料
+            </summary>
+        </member>
+    </members>
+</doc>

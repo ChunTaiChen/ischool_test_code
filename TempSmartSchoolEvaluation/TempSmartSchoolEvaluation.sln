@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.16
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TempSmartSchoolEvaluation", "TempSmartSchoolEvaluation.csproj", "{C85BA715-447F-4D64-B785-451F4AD253BE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartSchool.Evaluation.HS", "..\SmartSchool.Evaluation.HS\SmartSchool.Evaluation.HS.csproj", "{93F055E7-9422-4519-A359-524783E42A9F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C85BA715-447F-4D64-B785-451F4AD253BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C85BA715-447F-4D64-B785-451F4AD253BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C85BA715-447F-4D64-B785-451F4AD253BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C85BA715-447F-4D64-B785-451F4AD253BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{93F055E7-9422-4519-A359-524783E42A9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93F055E7-9422-4519-A359-524783E42A9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93F055E7-9422-4519-A359-524783E42A9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93F055E7-9422-4519-A359-524783E42A9F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
