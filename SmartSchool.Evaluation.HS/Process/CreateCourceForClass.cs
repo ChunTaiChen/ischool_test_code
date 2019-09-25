@@ -12,6 +12,8 @@ using SmartSchool.ExceptionHandler;
 using SmartSchool.Security;
 using SystemInformation = SmartSchool.Customization.Data.SystemInformation;
 using SHSchool.Data;
+using FISCA.Data;
+using System.Data;
 
 namespace SmartSchool.Evaluation.Process
 {
@@ -102,7 +104,7 @@ namespace SmartSchool.Evaluation.Process
                     foreach (GraduationPlanSubject gplanSubject in gplan.SemesterSubjects(gradeYear, form.Semester))
                     {
                         // 如果開選課程沒有勾起，只開必修課程。
-                        if(!form.isCreateAll)
+                        if (!form.isCreateAll)
                         {
                             if (gplanSubject.Required == "選修")
                                 continue;
@@ -122,14 +124,31 @@ namespace SmartSchool.Evaluation.Process
                 }
                 #endregion
                 //本學期已開的課程
-                Dictionary<string, CourseRecord> existSubject = new Dictionary<string, CourseRecord>();
+                Dictionary<string, CourseRecord> existSubject = new Dictionary<string, CourseRecord>();              
+                string qry_class_course = "" +
+                    "SELECT DISTINCT " +
+                    "course.id AS course_id " +
+                    " FROM course " +                    
+                    " WHERE ref_class_id = " +classRec.ClassID +
+                    " AND course.school_year="+ form.SchoolYear +
+                    " AND course.semester= " + form.Semester + ";";
+
+                QueryHelper qh_class_course = new QueryHelper();
+                DataTable dt_class_course = qh_class_course.Select(qry_class_course);
+                List<string> courseIDList = new List<string>();
+
+                foreach (DataRow dr in dt_class_course.Rows)
+                    courseIDList.Add(dr["course_id"].ToString());
+
                 #region 整裡本學期已開的課程
-                foreach (CourseRecord courseRec in accessHelper.CourseHelper.GetClassCourse(form.SchoolYear, form.Semester, classRec))
+                List<CourseRecord> tmpCourse = accessHelper.CourseHelper.GetCourse(courseIDList);
+                foreach (CourseRecord courseRec in tmpCourse)
                 {
                     string key = courseRec.Subject + "^_^" + courseRec.SubjectLevel;
                     if (!existSubject.ContainsKey(key))
                         existSubject.Add(key, courseRec);
                 }
+
                 #endregion
                 #region 開課
                 List<SmartSchool.Feature.Course.AddCourse.InsertCourse> newCourses = new List<SmartSchool.Feature.Course.AddCourse.InsertCourse>();
@@ -163,14 +182,25 @@ namespace SmartSchool.Evaluation.Process
                 #endregion
                 #region 重新整理已開的課程
                 existSubject.Clear();
-                foreach (CourseRecord courseRec in accessHelper.CourseHelper.GetClassCourse(form.SchoolYear, form.Semester, classRec))
+
+             
+                DataTable dt_class_courseN = qh_class_course.Select(qry_class_course);
+                courseIDList.Clear();
+                foreach (DataRow dr in dt_class_courseN.Rows)
+                    courseIDList.Add(dr["course_id"].ToString());
+
+                List<CourseRecord> tmpCourse2 = accessHelper.CourseHelper.GetCourse(courseIDList);
+                foreach (CourseRecord courseRec in tmpCourse2)
                 {
                     string key = courseRec.Subject + "^_^" + courseRec.SubjectLevel;
                     if (!existSubject.ContainsKey(key))
                         existSubject.Add(key, courseRec);
                 }
+
                 //填入修課學生
                 accessHelper.CourseHelper.FillStudentAttend(existSubject.Values);
+
+
                 #endregion
                 #region 加入學生修課
                 DSXmlHelper insertSCAttendHelper = new DSXmlHelper("InsertSCAttend");
@@ -201,7 +231,7 @@ namespace SmartSchool.Evaluation.Process
                                     //insertSCAttendHelper.AddElement(".", attend);
                                     addAttend = true;
                                 }
-                            }
+                            }                            
                         }
                     }
                 }
@@ -240,5 +270,5 @@ namespace SmartSchool.Evaluation.Process
         {
             new SmartSchool.Evaluation.Process.Wizards.CreateClassCourse().ShowDialog();
         }
-    }
+    }    
 }
