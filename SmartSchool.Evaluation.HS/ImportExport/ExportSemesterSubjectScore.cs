@@ -45,10 +45,8 @@ namespace SmartSchool.Evaluation.ImportExport
                 , "不計學分"
                 , "不需評分"
                 , "註記"
-
                 , "計算規則-及格標準"
                 , "計算規則-補考標準"
-
                 , "畢業採計-學分數"
                 , "畢業採計-分項類別"
                 , "畢業採計-必選修"
@@ -58,6 +56,11 @@ namespace SmartSchool.Evaluation.ImportExport
                 , "是否補修成績"
                 , "重修學年度"
                 , "重修學期"
+                , "修課及格標準"
+                , "修課補考標準"
+                , "修課科目代碼"
+                , "修課備註"
+                , "修課直接指定總成績"
                 );
             filterRepeat.CheckedChanged += delegate
             {
@@ -217,6 +220,11 @@ namespace SmartSchool.Evaluation.ImportExport
                                     case "是否補修成績": row.Add(field, var.Detail.GetAttribute("是否補修成績") == "是" ? "是" : ""); break;
                                     case "重修學年度": row.Add(field, var.Detail.GetAttribute("重修學年度")); break;
                                     case "重修學期": row.Add(field, var.Detail.GetAttribute("重修學期")); break;
+                                    case "修課及格標準": row.Add(field, var.Detail.GetAttribute("修課及格標準")); break;
+                                    case "修課補考標準": row.Add(field, var.Detail.GetAttribute("修課補考標準")); break;
+                                    case "修課科目代碼": row.Add(field, var.Detail.GetAttribute("修課科目代碼")); break;
+                                    case "修課備註": row.Add(field, var.Detail.GetAttribute("修課備註")); break;
+                                    case "修課直接指定總成績": row.Add(field, var.Detail.GetAttribute("修課直接指定總成績")); break;
                                 }
                             }
                         }
