@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HsinChuExamScore_JH", "HsinChuExamScore_JH\HsinChuExamScore_JH.csproj", "{DCF4DC0B-9CBF-41AD-95C4-255A4881374D}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 2
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://10.1.1.204:8080/tfs/tfs2008
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = HsinChuExamScore_JH\\HsinChuExamScore_JH.csproj
+		SccProjectName1 = HsinChuExamScore_JH
+		SccLocalPath1 = HsinChuExamScore_JH
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DCF4DC0B-9CBF-41AD-95C4-255A4881374D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DCF4DC0B-9CBF-41AD-95C4-255A4881374D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DCF4DC0B-9CBF-41AD-95C4-255A4881374D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DCF4DC0B-9CBF-41AD-95C4-255A4881374D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

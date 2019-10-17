@@ -1,0 +1,166 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>KaoHsiung.JHEvaluation.Data</name>
+    </assembly>
+    <members>
+        <member name="T:KaoHsiung.JHEvaluation.Data.KH">
+            <summary>
+            高雄
+            </summary>
+            <summary>
+            高雄
+            </summary>
+        </member>
+        <member name="T:KaoHsiung.JHEvaluation.Data.KH.JHSCETakeRecord">
+            <summary>
+            高雄國中評量成績記錄
+            </summary>
+        </member>
+        <member name="M:KaoHsiung.JHEvaluation.Data.KH.JHSCETakeRecord.#ctor(JHSchool.Data.JHSCETakeRecord)">
+            <summary>
+            建構子
+            </summary>
+            <param name="record"></param>
+        </member>
+        <member name="M:KaoHsiung.JHEvaluation.Data.KH.JHSCETakeRecord.AsJHSCETakeRecord">
+            <summary>
+            轉型成JHSCETakeRecord
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:KaoHsiung.JHEvaluation.Data.KH.JHSCETakeRecord.RefStudentID">
+            <summary>
+            取得或設定學生ID
+            </summary>
+        </member>
+        <member name="P:KaoHsiung.JHEvaluation.Data.KH.JHSCETakeRecord.RefCourseID">
+            <summary>
+            取得或設定課程ID
+            </summary>
+        </member>
+        <member name="P:KaoHsiung.JHEvaluation.Data.KH.JHSCETakeRecord.RefSCAttendID">
+            <summary>
+            取得或設定修課ID
+            </summary>
+        </member>
+        <member name="P:KaoHsiung.JHEvaluation.Data.KH.JHSCETakeRecord.RefExamID">
+            <summary>
+            取得或設定試別ID
+            </summary>
+        </member>
+        <member name="P:KaoHsiung.JHEvaluation.Data.KH.JHSCETakeRecord.Score">
+            <summary>
+            取得或設定分數評量
+            </summary>
+        </member>
+        <member name="P:KaoHsiung.JHEvaluation.Data.KH.JHSCETakeRecord.Effort">
+            <summary>
+            取得或設定努力程度
+            </summary>
+        </member>
+        <member name="P:KaoHsiung.JHEvaluation.Data.KH.JHSCETakeRecord.Text">
+            <summary>
+            取得或設定文字描述
+            </summary>
+        </member>
+        <member name="T:KaoHsiung.JHEvaluation.Data.KH.JHAEIncludeRecord">
+            <summary>
+            高雄國中AEIncludeRecord
+            </summary>
+        </member>
+        <member name="M:KaoHsiung.JHEvaluation.Data.KH.JHAEIncludeRecord.#ctor(JHSchool.Data.JHAEIncludeRecord)">
+            <summary>
+            建構子
+            </summary>
+            <param name="record"></param>
+        </member>
+        <member name="M:KaoHsiung.JHEvaluation.Data.KH.JHAEIncludeRecord.AsJHAEIncludeRecord">
+            <summary>
+            轉型成JHAEIncludeRecord
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:KaoHsiung.JHEvaluation.Data.KH.JHAEIncludeRecord.AssessmentSetup">
+            <summary>
+            取得AssessmentSetupRecord
+            </summary>
+        </member>
+        <member name="P:KaoHsiung.JHEvaluation.Data.KH.JHAEIncludeRecord.Exam">
+            <summary>
+            取得ExamRecord
+            </summary>
+        </member>
+        <member name="P:KaoHsiung.JHEvaluation.Data.KH.JHAEIncludeRecord.EndTime">
+            <summary>
+            取得或設定結束時間
+            </summary>
+        </member>
+        <member name="P:KaoHsiung.JHEvaluation.Data.KH.JHAEIncludeRecord.RefExamID">
+            <summary>
+            取得或設定試別ID
+            </summary>
+        </member>
+        <member name="P:KaoHsiung.JHEvaluation.Data.KH.JHAEIncludeRecord.ExamName">
+            <summary>
+            取得或設定試別名稱
+            </summary>
+        </member>
+        <member name="P:KaoHsiung.JHEvaluation.Data.KH.JHAEIncludeRecord.RefAssessmentSetupID">
+            <summary>
+            取得或設定評量設定ID
+            </summary>
+        </member>
+        <member name="P:KaoHsiung.JHEvaluation.Data.KH.JHAEIncludeRecord.StartTime">
+            <summary>
+            取得或設定開始時間
+            </summary>
+        </member>
+        <member name="P:KaoHsiung.JHEvaluation.Data.KH.JHAEIncludeRecord.UseScore">
+            <summary>
+            取得或設定是否需評分數評量
+            </summary>
+        </member>
+        <member name="P:KaoHsiung.JHEvaluation.Data.KH.JHAEIncludeRecord.UseEffort">
+            <summary>
+            取得或設定是否需評努力程度
+            </summary>
+        </member>
+        <member name="P:KaoHsiung.JHEvaluation.Data.KH.JHAEIncludeRecord.UseText">
+            <summary>
+            取得或設定是否需評文字描述
+            </summary>
+        </member>
+        <member name="P:KaoHsiung.JHEvaluation.Data.KH.JHAEIncludeRecord.Weight">
+            <summary>
+            取得或設定權重
+            </summary>
+        </member>
+        <member name="T:KaoHsiung.JHEvaluation.Data.EffortMapper">
+            <summary>
+            努力程度對照表
+            </summary>
+        </member>
+        <member name="M:KaoHsiung.JHEvaluation.Data.EffortMapper.GetCodeByScore(System.Decimal)">
+            <summary>
+            取得努力程度代碼
+            </summary>
+            <param name="d">分數</param>
+            <returns>努力程度代碼</returns>
+        </member>
+        <member name="M:KaoHsiung.JHEvaluation.Data.EffortMapper.GetTextByScore(System.Decimal)">
+            <summary>
+            取得努力程度文字
+            </summary>
+            <param name="d">分數</param>
+            <returns>努力程度文字</returns>
+        </member>
+        <member name="M:KaoHsiung.JHEvaluation.Data.EffortMapper.GetTextByCode(System.Int32)">
+            <summary>
+            取得努力程度文字
+            </summary>
+            <param name="i">努力程度代碼</param>
+            <returns>努力程度文字</returns>
+        </member>
+    </members>
+</doc>

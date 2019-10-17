@@ -1,0 +1,637 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FISCA.UDT</name>
+    </assembly>
+    <members>
+        <member name="T:FISCA_Data_ActiveRecords_Extension_Methods">
+            <summary>
+            你看不到我 你看不到我 ㄞ   ㄟㄇ   ㄤ   ㄈㄧㄙㄅㄛ
+            </summary>
+        </member>
+        <member name="M:FISCA_Data_ActiveRecords_Extension_Methods.SaveAll``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            儲存全部，將集合內所有的資料自動依RecordStatus屬性進行新增修改與刪除的動作
+            </summary>
+            <param name="records"></param>
+            <returns>所有變更資料(含新增)的UID</returns>
+        </member>
+        <member name="T:FISCA.UDT.FieldAttribute">
+            <summary>
+            貼在屬性上，指定為資料庫欄位
+            </summary>
+        </member>
+        <member name="M:FISCA.UDT.FieldAttribute.#ctor">
+            <summary>
+            建構子
+            </summary>
+        </member>
+        <member name="P:FISCA.UDT.FieldAttribute.Field">
+            <summary>
+            取得或設定，資料庫內欄位名稱
+            </summary>
+        </member>
+        <member name="P:FISCA.UDT.FieldAttribute.Indexed">
+            <summary>
+            取得或設定，此欄位是否建立索引
+            </summary>
+        </member>
+        <member name="T:FISCA.UDT.Condition.QueryCompiler">
+            <summary>
+            條件式的編譯器
+            </summary>
+            <remarks>
+            條件式支援( ) and or >= &lt;= &lt;> > = &lt; is not in ,等運算子
+            可使用如 ( (uid=123 or uid=234 or uid=345) and uid &lt; 200 ) 之語法做為Select條件
+            </remarks>
+        </member>
+        <member name="M:FISCA.UDT.Condition.QueryCompiler.#ctor">
+            <summary>
+            建構子
+            </summary>
+        </member>
+        <member name="M:FISCA.UDT.Condition.QueryCompiler.Compiler(System.String)">
+            <summary>
+            執行編譯
+            </summary>
+            <param name="query">條件式， 支援支援( ) and or >= &lt;= &lt;> > = &lt; is not in ,等運算子</param>
+            <returns>與條件式同意含的物件</returns>
+        </member>
+        <member name="P:FISCA.UDT.Condition.QueryCompiler.Symbols">
+            <summary>
+            取得編譯期間切割過的集合
+            </summary>
+        </member>
+        <member name="P:FISCA.UDT.Condition.QueryCompiler.PostfixSymbols">
+            <summary>
+            取得編譯期間轉換成後置後的集合
+            </summary>
+        </member>
+        <member name="P:FISCA.UDT.Condition.QueryCompiler.Fields">
+            <summary>
+            取得，所有欄位及型別的對照表
+            </summary>
+        </member>
+        <member name="T:FISCA.UDT.Condition.Symbol">
+            <summary>
+            編譯過程中的暫存物件
+            </summary>
+        </member>
+        <member name="P:FISCA.UDT.Condition.Symbol.Thing">
+            <summary>
+            取得或設定，表示是運算子或欄位或資料
+            </summary>
+        </member>
+        <member name="P:FISCA.UDT.Condition.Symbol.Index">
+            <summary>
+            取得或設定，表示在條件式字串中以0為始的位置
+            </summary>
+        </member>
+        <member name="P:FISCA.UDT.Condition.Symbol.Value">
+            <summary>
+            取得或設定，內容
+            </summary>
+        </member>
+        <member name="T:FISCA.UDT.Condition.GreaterEqualsCondition">
+            <summary>
+            比較欄位是否大於或等於某個值
+            </summary>
+        </member>
+        <member name="T:FISCA.UDT.Condition.ICondition">
+            <summary>
+            描述一個條件式
+            </summary>
+        </member>
+        <member name="M:FISCA.UDT.Condition.ICondition.GetCondtionElement">
+            <summary>
+            傳回以Xml描述的條件式
+            </summary>
+            <returns>代表此條件式的XmlElement</returns>
+        </member>
+        <member name="M:FISCA.UDT.Condition.GreaterEqualsCondition.#ctor">
+            <summary>
+            建構子
+            </summary>
+        </member>
+        <member name="M:FISCA.UDT.Condition.GreaterEqualsCondition.GetCondtionElement">
+            <summary>
+            傳回以Xml描述的條件式
+            </summary>
+            <returns>代表此條件式的XmlElement</returns>
+        </member>
+        <member name="P:FISCA.UDT.Condition.GreaterEqualsCondition.Field">
+            <summary>
+            取得或設定，要比較的欄位
+            </summary>
+        </member>
+        <member name="P:FISCA.UDT.Condition.GreaterEqualsCondition.Value">
+            <summary>
+            取得或設定，要比較的值
+            </summary>
+        </member>
+        <member name="T:FISCA.UDT.Condition.NotEqualsCondition">
+            <summary>
+            比較欄位是否不等於某個值
+            </summary>
+        </member>
+        <member name="M:FISCA.UDT.Condition.NotEqualsCondition.#ctor">
+            <summary>
+            建構子
+            </summary>
+        </member>
+        <member name="M:FISCA.UDT.Condition.NotEqualsCondition.GetCondtionElement">
+            <summary>
+            傳回以Xml描述的條件式
+            </summary>
+            <returns>代表此條件式的XmlElement</returns>
+        </member>
+        <member name="P:FISCA.UDT.Condition.NotEqualsCondition.Field">
+            <summary>
+            取得或設定，欄位名稱
+            </summary>
+        </member>
+        <member name="P:FISCA.UDT.Condition.NotEqualsCondition.Value">
+            <summary>
+            取得或設定，要比較的值
+            </summary>
+        </member>
+        <member name="T:FISCA.UDT.RecordStatus">
+            <summary>
+            資料變更狀態
+            </summary>
+        </member>
+        <member name="F:FISCA.UDT.RecordStatus.Insert">
+            <summary>
+            新增
+            </summary>
+        </member>
+        <member name="F:FISCA.UDT.RecordStatus.Update">
+            <summary>
+            修改
+            </summary>
+        </member>
+        <member name="F:FISCA.UDT.RecordStatus.Delete">
+            <summary>
+            刪除
+            </summary>
+        </member>
+        <member name="F:FISCA.UDT.RecordStatus.NoChange">
+            <summary>
+            沒有變更
+            </summary>
+        </member>
+        <member name="T:FISCA.UDT.ActiveRecord">
+            <summary>
+            可編輯的資料
+            </summary>
+        </member>
+        <member name="M:FISCA.UDT.ActiveRecord.TableName">
+            <summary>
+            傳回資料表名稱，預設是TypeName。如資料表名稱與TypeName不同時可覆寫此方法，或利用TableNameAttribute
+            </summary>
+        </member>
+        <member name="M:FISCA.UDT.ActiveRecord.#ctor">
+            <summary>
+            建構子
+            </summary>
+        </member>
+        <member name="M:FISCA.UDT.ActiveRecord.Save">
+            <summary>
+            儲存變更，如果是新增資料，新資料的UID將自動填入
+            </summary>
+        </member>
+        <member name="P:FISCA.UDT.ActiveRecord.UID">
+            <summary>
+            取得資料編號(PrimaryKey)
+            </summary>
+        </member>
+        <member name="P:FISCA.UDT.ActiveRecord.Deleted">
+            <summary>
+            取得或設定，指出是否刪除這筆資料(Deleted為true後呼叫Save()才會真的從資料庫刪除)
+            </summary>
+        </member>
+        <member name="P:FISCA.UDT.ActiveRecord.RecordStatus">
+            <summary>
+            取得資料變更狀態
+            </summary>
+        </member>
+        <member name="P:FISCA.UDT.ActiveRecord.DSConnection">
+            <summary>
+            取得或設定，資料所屬的主機
+            </summary>
+        </member>
+        <member name="T:FISCA.UDT.AccessHelper">
+            <summary>
+            存取UDT資料
+            </summary>
+        </member>
+        <member name="M:FISCA.UDT.AccessHelper.InsertValuesBehavior(System.Collections.Generic.IEnumerable{FISCA.UDT.ActiveRecord})">
+            <summary>
+            新增資料
+            </summary>
+            <param name="values">要新增的資料</param>
+            <returns>新資料的UID的集合</returns>
+        </member>
+        <member name="M:FISCA.UDT.AccessHelper.UpdateValuesBehavior(System.Collections.Generic.IEnumerable{FISCA.UDT.ActiveRecord})">
+            <summary>
+            更新資料
+            </summary>
+            <param name="values">要更新的資料集合</param>
+        </member>
+        <member name="M:FISCA.UDT.AccessHelper.DeletedValuesBehavior(System.Collections.Generic.IEnumerable{FISCA.UDT.ActiveRecord})">
+            <summary>
+            刪除資料
+            </summary>
+            <param name="values">要刪除的資料集合</param>
+        </member>
+        <member name="M:FISCA.UDT.AccessHelper.SaveAllBehavior(System.Collections.Generic.IEnumerable{FISCA.UDT.ActiveRecord})">
+            <summary>
+            儲存全部，將集合內所有的資料自動依RecordStatus屬性進行新增修改與刪除的動作。
+            </summary>
+            <param name="records"></param>
+            <returns>所有變更資料(含新增)的UID</returns>
+        </member>
+        <member name="M:FISCA.UDT.AccessHelper.#ctor">
+            <summary>
+            建構子，使用FISCA.Authentication的預設登入做為入主機。
+            </summary>
+        </member>
+        <member name="M:FISCA.UDT.AccessHelper.#ctor(FISCA.DSAUtil.DSConnection)">
+            <summary>
+            連線到指定主機的建構子
+            </summary>
+            <param name="conn">指定連線主機</param>
+            <overloads>建構子</overloads>
+        </member>
+        <member name="M:FISCA.UDT.AccessHelper.GetCompiler``1">
+            <summary>
+            取得條件式編譯器
+            </summary>
+        </member>
+        <member name="M:FISCA.UDT.AccessHelper.Select``1">
+            <summary>
+            取得所有的資料
+            </summary>
+            <returns>所有的資料</returns>
+            <overloads>取得資料</overloads>
+        </member>
+        <member name="M:FISCA.UDT.AccessHelper.Select``1(System.String)">
+            <summary>
+            使用條件式取得資料
+            </summary>
+            <remarks>
+            條件式支援( ) and or >= &lt;= &lt;> > = &lt; is not in ,等運算子
+            可使用如 ( (uid=123 or uid=234 or uid=345) and uid &lt; 200 ) 之語法做為Select條件
+            </remarks>
+            <param name="query">條件式</param>
+            <returns>符合條件的資料集合</returns>
+        </member>
+        <member name="M:FISCA.UDT.AccessHelper.Select``1(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            用UID取得資料
+            </summary>
+            <param name="uid">UID集合</param>
+            <returns>符合條件的資料集合</returns>
+        </member>
+        <member name="M:FISCA.UDT.AccessHelper.Select``1(FISCA.UDT.Condition.ICondition)">
+            <summary>
+            使用已建立的<see cref="T:FISCA.UDT.Condition.ICondition">ICondition</see>取得資料
+            </summary>
+            <param name="condtion">條件</param>
+            <returns>符合條件的資料集合</returns>
+        </member>
+        <member name="M:FISCA.UDT.AccessHelper.InsertValues(System.Collections.Generic.IEnumerable{FISCA.UDT.ActiveRecord})">
+            <summary>
+            新增資料
+            </summary>
+            <param name="values">要新增的資料</param>
+            <returns>新資料的UID的集合</returns>
+        </member>
+        <member name="M:FISCA.UDT.AccessHelper.UpdateValues(System.Collections.Generic.IEnumerable{FISCA.UDT.ActiveRecord})">
+            <summary>
+            更新資料
+            </summary>
+            <param name="values">要更新的資料集合</param>
+        </member>
+        <member name="M:FISCA.UDT.AccessHelper.DeletedValues(System.Collections.Generic.IEnumerable{FISCA.UDT.ActiveRecord})">
+            <summary>
+            刪除資料
+            </summary>
+            <param name="values">要刪除的資料集合</param>
+        </member>
+        <member name="M:FISCA.UDT.AccessHelper.SaveAll(System.Collections.Generic.IEnumerable{FISCA.UDT.ActiveRecord})">
+            <summary>
+            儲存全部，將集合內所有的資料自動依RecordStatus屬性進行新增修改與刪除的動作
+            </summary>
+            <param name="records"></param>
+            <returns>所有變更資料(含新增)的UID</returns>
+        </member>
+        <member name="P:FISCA.UDT.AccessHelper.DSConnection">
+            <summary>
+            取得連線主機
+            </summary>
+        </member>
+        <member name="T:FISCA.UDT.Condition.OrCondition">
+            <summary>
+            描述兩個條件做or運算
+            </summary>
+        </member>
+        <member name="M:FISCA.UDT.Condition.OrCondition.GetCondtionElement">
+            <summary>
+            傳回以Xml描述的條件式
+            </summary>
+            <returns>代表此條件式的XmlElement</returns>
+        </member>
+        <member name="P:FISCA.UDT.Condition.OrCondition.Condtion1">
+            <summary>
+            取得或設定，第一個條件
+            </summary>
+        </member>
+        <member name="P:FISCA.UDT.Condition.OrCondition.Condtion2">
+            <summary>
+            取得或設定，第二個條件
+            </summary>
+        </member>
+        <member name="T:FISCA.UDT.Condition.GreaterCondition">
+            <summary>
+            比較欄位是否大於某個值
+            </summary>
+        </member>
+        <member name="M:FISCA.UDT.Condition.GreaterCondition.#ctor">
+            <summary>
+            建構子
+            </summary>
+        </member>
+        <member name="M:FISCA.UDT.Condition.GreaterCondition.GetCondtionElement">
+            <summary>
+            傳回以Xml描述的條件式
+            </summary>
+            <returns>代表此條件式的XmlElement</returns>
+        </member>
+        <member name="P:FISCA.UDT.Condition.GreaterCondition.Field">
+            <summary>
+            取得或設定，要比較的欄位
+            </summary>
+        </member>
+        <member name="P:FISCA.UDT.Condition.GreaterCondition.Value">
+            <summary>
+            取得或設定，要比較的值
+            </summary>
+        </member>
+        <member name="T:FISCA.UDT.SchemaManager">
+            <summary>
+            同步UDT的Schema
+            </summary>
+        </member>
+        <member name="M:FISCA.UDT.SchemaManager.#ctor(FISCA.DSAUtil.DSConnection)">
+            <summary>
+            建構子
+            </summary>
+            <param name="conn">同步的對像</param>
+        </member>
+        <member name="M:FISCA.UDT.SchemaManager.SyncSchema(FISCA.UDT.ActiveRecord)">
+            <summary>
+            自動同步Schema
+            </summary>
+            <param name="sampleRecord"></param>
+        </member>
+        <member name="T:FISCA.UDT.DataType">
+            <summary>
+            支援的資料型別
+            </summary>
+        </member>
+        <member name="F:FISCA.UDT.DataType.String">
+            <summary>
+            字串
+            </summary>
+        </member>
+        <member name="F:FISCA.UDT.DataType.Number">
+            <summary>
+            數字
+            </summary>
+        </member>
+        <member name="F:FISCA.UDT.DataType.DateTime">
+            <summary>
+            日期
+            </summary>
+        </member>
+        <member name="F:FISCA.UDT.DataType.Boolean">
+            <summary>
+            布林
+            </summary>
+        </member>
+        <member name="T:FISCA.UDT.Condition.LessCondition">
+            <summary>
+            比較欄位是否小於某個值
+            </summary>
+        </member>
+        <member name="M:FISCA.UDT.Condition.LessCondition.#ctor">
+            <summary>
+            建構子
+            </summary>
+        </member>
+        <member name="M:FISCA.UDT.Condition.LessCondition.GetCondtionElement">
+            <summary>
+            傳回以Xml描述的條件式
+            </summary>
+            <returns>代表此條件式的XmlElement</returns>
+        </member>
+        <member name="P:FISCA.UDT.Condition.LessCondition.Field">
+            <summary>
+            取得或設定，欄位名稱
+            </summary>
+        </member>
+        <member name="P:FISCA.UDT.Condition.LessCondition.Value">
+            <summary>
+            取得或設定，欄位的值
+            </summary>
+        </member>
+        <member name="T:FISCA.UDT.Condition.NotCondition">
+            <summary>
+            描述將一個條件做Not運算
+            </summary>
+        </member>
+        <member name="M:FISCA.UDT.Condition.NotCondition.GetCondtionElement">
+            <summary>
+            傳回以Xml描述的條件式
+            </summary>
+            <returns>代表此條件式的XmlElement</returns>
+        </member>
+        <member name="P:FISCA.UDT.Condition.NotCondition.Condtion">
+            <summary>
+            條件
+            </summary>
+        </member>
+        <member name="T:FISCA.UDT.TableNameAttribute">
+            <summary>
+            貼在ActiveRecord的實作類別上，效果與override TableName()相同
+            </summary>
+        </member>
+        <member name="M:FISCA.UDT.TableNameAttribute.#ctor(System.String)">
+            <summary>
+            建構子
+            </summary>
+            <param name="tableName">資料表名稱</param>
+        </member>
+        <member name="P:FISCA.UDT.TableNameAttribute.TableName">
+            <summary>
+            取得資料表名稱
+            </summary>
+        </member>
+        <member name="T:FISCA.UDT.Condition.IsNullCondition">
+            <summary>
+            判斷某個欄位值是否為null
+            </summary>
+        </member>
+        <member name="M:FISCA.UDT.Condition.IsNullCondition.#ctor">
+            <summary>
+            建構子
+            </summary>
+        </member>
+        <member name="M:FISCA.UDT.Condition.IsNullCondition.GetCondtionElement">
+            <summary>
+            傳回以Xml描述的條件式
+            </summary>
+            <returns>代表此條件式的XmlElement</returns>
+        </member>
+        <member name="P:FISCA.UDT.Condition.IsNullCondition.Field">
+            <summary>
+            取得或設定，欄位名稱
+            </summary>
+        </member>
+        <member name="T:FISCA.UDT.Condition.AndCondition">
+            <summary>
+            描述兩個條件做And運算
+            </summary>
+        </member>
+        <member name="M:FISCA.UDT.Condition.AndCondition.GetCondtionElement">
+            <summary>
+            傳回以Xml描述的條件式
+            </summary>
+            <returns>代表此條件式的XmlElement</returns>
+        </member>
+        <member name="P:FISCA.UDT.Condition.AndCondition.Condtion1">
+            <summary>
+            取得或設定，第一個條件
+            </summary>
+        </member>
+        <member name="P:FISCA.UDT.Condition.AndCondition.Condtion2">
+            <summary>
+            取得或設定，第二個條件
+            </summary>
+        </member>
+        <member name="T:FISCA.UDT.Condition.InCondition">
+            <summary>
+            比較欄位是否包含在某些值之中
+            </summary>
+        </member>
+        <member name="M:FISCA.UDT.Condition.InCondition.#ctor">
+            <summary>
+            建構子
+            </summary>
+        </member>
+        <member name="M:FISCA.UDT.Condition.InCondition.GetCondtionElement">
+            <summary>
+            傳回以Xml描述的條件式
+            </summary>
+            <returns>代表此條件式的XmlElement</returns>
+        </member>
+        <member name="P:FISCA.UDT.Condition.InCondition.Field">
+            <summary>
+            取得或設定，欄位名稱
+            </summary>
+        </member>
+        <member name="P:FISCA.UDT.Condition.InCondition.Values">
+            <summary>
+            取得，包含的值的集合
+            </summary>
+        </member>
+        <member name="T:FISCA.UDT.Condition.EqualsCondition">
+            <summary>
+            比較欄位是否等於某個值
+            </summary>
+        </member>
+        <member name="M:FISCA.UDT.Condition.EqualsCondition.#ctor">
+            <summary>
+            建構子
+            </summary>
+        </member>
+        <member name="M:FISCA.UDT.Condition.EqualsCondition.GetCondtionElement">
+            <summary>
+            傳回以Xml描述的條件式
+            </summary>
+            <returns>代表此條件式的XmlElement</returns>
+        </member>
+        <member name="P:FISCA.UDT.Condition.EqualsCondition.Field">
+            <summary>
+            取得或設定，要比較的欄位
+            </summary>
+        </member>
+        <member name="P:FISCA.UDT.Condition.EqualsCondition.Value">
+            <summary>
+            取得或設定，要比較的值
+            </summary>
+        </member>
+        <member name="T:FISCA.UDT.Condition.LessEqualsCondition">
+            <summary>
+            比較欄位是否小於或等於某個值
+            </summary>
+        </member>
+        <member name="M:FISCA.UDT.Condition.LessEqualsCondition.#ctor">
+            <summary>
+            建構子
+            </summary>
+        </member>
+        <member name="M:FISCA.UDT.Condition.LessEqualsCondition.GetCondtionElement">
+            <summary>
+            傳回以Xml描述的條件式
+            </summary>
+            <returns>代表此條件式的XmlElement</returns>
+        </member>
+        <member name="P:FISCA.UDT.Condition.LessEqualsCondition.Field">
+            <summary>
+            取得或設定，欄位名稱
+            </summary>
+        </member>
+        <member name="P:FISCA.UDT.Condition.LessEqualsCondition.Value">
+            <summary>
+            取得或設定，要比較的值
+            </summary>
+        </member>
+        <member name="T:FISCA.UDT.Condition.CompilerFailedException">
+            <summary>
+            例外狀況，編譯時期發生錯誤
+            </summary>
+        </member>
+        <member name="P:FISCA.UDT.Condition.CompilerFailedException.Query">
+            <summary>
+            取得，條件式
+            </summary>
+        </member>
+        <member name="P:FISCA.UDT.Condition.CompilerFailedException.Reason">
+            <summary>
+            取得，發生錯誤的原因
+            </summary>
+        </member>
+        <member name="P:FISCA.UDT.Condition.CompilerFailedException.Index">
+            <summary>
+            取得，發生錯誤的位置
+            </summary>
+        </member>
+        <member name="P:FISCA.UDT.Condition.CompilerFailedException.Text">
+            <summary>
+            取得，產生錯誤的文字片段
+            </summary>
+        </member>
+        <member name="P:FISCA.UDT.Condition.CompilerFailedException.Message">
+            <summary>
+            取得錯誤訊息
+            </summary>
+        </member>
+        <member name="P:FISCA.UDT.Condition.CompilerFailedException.ErrorCode">
+            <summary>
+            取得錯誤代碼
+            </summary>
+        </member>
+    </members>
+</doc>
